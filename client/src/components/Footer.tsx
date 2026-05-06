@@ -53,34 +53,50 @@ const Footer = () => {
             </p>
             {/* Social Links */}
             <div className="flex space-x-3">
-              <a
-                href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
-                aria-label="Facebook"
-              >
-                <FaFacebookF className="text-white text-sm" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
-                aria-label="Twitter"
-              >
-                <FaTwitter className="text-white text-sm" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
-                aria-label="Instagram"
-              >
-                <FaInstagram className="text-white text-sm" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedinIn className="text-white text-sm" />
-              </a>
+              {settings.socialLinks?.facebook && (
+                <a
+                  href={settings.socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
+                  aria-label="Facebook"
+                >
+                  <FaFacebookF className="text-white text-sm" />
+                </a>
+              )}
+              {settings.socialLinks?.twitter && (
+                <a
+                  href={settings.socialLinks.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
+                  aria-label="Twitter"
+                >
+                  <FaTwitter className="text-white text-sm" />
+                </a>
+              )}
+              {settings.socialLinks?.instagram && (
+                <a
+                  href={settings.socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram className="text-white text-sm" />
+                </a>
+              )}
+              {settings.socialLinks?.linkedin && (
+                <a
+                  href={settings.socialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedinIn className="text-white text-sm" />
+                </a>
+              )}
             </div>
           </div>
 
