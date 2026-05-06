@@ -4,14 +4,15 @@ import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { Upload, X, Loader2 } from "lucide-react";
 import { useAppSelector } from "@/redux/hooks";
+import { siteSettingsService } from "@/services/siteSettingsService";
 
 interface AdminSettings {
     _id?: string;
     websiteTitle: string;
-    email: string;
-    phone: string;
+    emailAddress: string;
+    phoneNumber: string;
     address: string;
-    siteLogo?: string;
+    logoUrl?: string;
     socialLinks?: {
         facebook?: string;
         twitter?: string;
@@ -25,9 +26,10 @@ const AdminSettingsForm = () => {
     const [mounted, setMounted] = useState(false);
     const [settings, setSettings] = useState<AdminSettings>({
         websiteTitle: "",
-        email: "",
-        phone: "",
+        emailAddress: "",
+        phoneNumber: "",
         address: "",
+        logoUrl: "",
         socialLinks: {
             facebook: "",
             twitter: "",
@@ -48,44 +50,14 @@ const AdminSettingsForm = () => {
 
     // Fetch current settings
     useEffect(() => {
-        // Only fetch when component is mounted and user is authenticated
         if (!mounted || authLoading || !user) return;
 
         const fetchSettings = async () => {
             try {
-                const token = localStorage.getItem("token");
-                if (!token) {
-                    throw new Error("No authentication token found - please log in again");
-                }
-
-                const response = await fetch(
-                    `${process.env.NEXT_PUBLIC_API_URL}/admin-settings`,
-                    {
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                            "Content-Type": "application/json",
-                        },
-                    }
-                );
-
-                if (!response.ok) {
-                    if (response.status === 401) {
-                        // Clear invalid token
-                        localStorage.removeItem("token");
-                        localStorage.removeItem("user");
-                        throw new Error("Authentication failed - please log in again");
-                    }
-                    throw new Error(`Failed to fetch settings: ${response.statusText}`);
-                }
-
-                const data = await response.json();
-                if (data.success) {
-                    setSettings(data.data);
-                    if (data.data.siteLogo) {
-                        setLogoPreview(data.data.siteLogo);
-                    }
-                } else {
-                    throw new Error(data.message || "Failed to load settings");
+                const response = await siteSettingsService.getSettings();
+                setSettings(response);
+                if (response.logoUrl) {
+                    setLogoPreview(response.logoUrl);
                 }
             } catch (error) {
                 const errorMessage = error instanceof Error ? error.message : "Failed to load settings";
@@ -148,68 +120,31 @@ const AdminSettingsForm = () => {
     };
 
     const uploadLogo = async () => {
-        if (!logoFile) return;
+        if (!logoFile) return null;
 
         setUploadingLogo(true);
         try {
             const token = localStorage.getItem("token");
-            const formData = new FormData();
-            formData.append("logo", logoFile);
-
-            const response = await fetch(
-                `${process.env.NEXT_PUBLIC_API_URL}/admin-settings/logo/upload`,
-                {
-                    method: "POST",
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                    body: formData,
-                }
-            );
-
-            if (!response.ok) throw new Error("Failed to upload logo");
-
-            const data = await response.json();
-            if (data.success) {
-                setSettings(data.data);
-                setLogoFile(null);
-                toast.success("Logo uploaded successfully");
+            if (!token) {
+                throw new Error("No authentication token found - please log in again");
             }
+
+            const response = await siteSettingsService.uploadLogo(logoFile, token);
+            setLogoFile(null);
+            setLogoPreview(response.logoUrl || "");
+            setSettings((prev) => ({
+                ...prev,
+                logoUrl: response.logoUrl || prev.logoUrl,
+            }));
+            toast.success("Logo uploaded successfully");
+            return response.logoUrl;
         } catch (error) {
-            toast.error("Failed to upload logo");
+            const errorMessage = error instanceof Error ? error.message : "Failed to upload logo";
+            toast.error(errorMessage);
             console.error(error);
+            return null;
         } finally {
             setUploadingLogo(false);
-        }
-    };
-
-    const deleteLogo = async () => {
-        if (!settings.siteLogo) return;
-
-        try {
-            const token = localStorage.getItem("token");
-            const response = await fetch(
-                `${process.env.NEXT_PUBLIC_API_URL}/admin-settings/logo`,
-                {
-                    method: "DELETE",
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        "Content-Type": "application/json",
-                    },
-                }
-            );
-
-            if (!response.ok) throw new Error("Failed to delete logo");
-
-            const data = await response.json();
-            if (data.success) {
-                setSettings(data.data);
-                setLogoPreview("");
-                toast.success("Logo deleted successfully");
-            }
-        } catch (error) {
-            toast.error("Failed to delete logo");
-            console.error(error);
         }
     };
 
@@ -223,41 +158,31 @@ const AdminSettingsForm = () => {
                 throw new Error("No authentication token found - please log in again");
             }
 
-            const response = await fetch(
-                `${process.env.NEXT_PUBLIC_API_URL}/admin-settings`,
-                {
-                    method: "PUT",
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        websiteTitle: settings.websiteTitle,
-                        email: settings.email,
-                        phone: settings.phone,
-                        address: settings.address,
-                        socialLinks: settings.socialLinks,
-                    }),
+            let logoUrl = settings.logoUrl || "";
+            if (logoFile) {
+                const uploadedLogoUrl = await uploadLogo();
+                if (uploadedLogoUrl) {
+                    logoUrl = uploadedLogoUrl;
                 }
+            }
+
+            const updatedSettings = await siteSettingsService.updateSettings(
+                {
+                    websiteTitle: settings.websiteTitle,
+                    emailAddress: settings.emailAddress,
+                    phoneNumber: settings.phoneNumber,
+                    address: settings.address,
+                    logoUrl,
+                    socialLinks: settings.socialLinks,
+                },
+                token,
             );
 
-            if (!response.ok) {
-                if (response.status === 401) {
-                    // Clear invalid token
-                    localStorage.removeItem("token");
-                    localStorage.removeItem("user");
-                    throw new Error("Authentication failed - please log in again");
-                }
-                throw new Error(`Failed to update settings: ${response.statusText}`);
+            setSettings(updatedSettings);
+            if (updatedSettings.logoUrl) {
+                setLogoPreview(updatedSettings.logoUrl);
             }
-
-            const data = await response.json();
-            if (data.success) {
-                setSettings(data.data);
-                toast.success("Settings updated successfully");
-            } else {
-                throw new Error(data.message || "Failed to update settings");
-            }
+            toast.success("Settings updated successfully");
         } catch (error) {
             const errorMessage = error instanceof Error ? error.message : "Failed to update settings";
             toast.error(errorMessage);
@@ -302,8 +227,8 @@ const AdminSettingsForm = () => {
                     </label>
                     <input
                         type="email"
-                        name="email"
-                        value={settings.email}
+                        name="emailAddress"
+                        value={settings.emailAddress}
                         onChange={handleInputChange}
                         placeholder="Enter email address"
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -317,8 +242,8 @@ const AdminSettingsForm = () => {
                     </label>
                     <input
                         type="tel"
-                        name="phone"
-                        value={settings.phone}
+                        name="phoneNumber"
+                        value={settings.phoneNumber}
                         onChange={handleInputChange}
                         placeholder="Enter phone number"
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -375,9 +300,6 @@ const AdminSettingsForm = () => {
                                     onClick={() => {
                                         setLogoPreview("");
                                         setLogoFile(null);
-                                        if (settings.siteLogo) {
-                                            deleteLogo();
-                                        }
                                     }}
                                     className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600"
                                 >

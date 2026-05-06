@@ -4,7 +4,7 @@
  */
 
 const adminSettingsRepository = require("../repositories/adminSettingsRepository");
-const cloudinary = require("cloudinary").v2;
+const { uploadLocalToCloudinary } = require("../config/cloudinary");
 const { AppError } = require("../middleware/errorHandler");
 
 class AdminSettingsService {
@@ -48,6 +48,8 @@ class AdminSettingsService {
     }
 
     try {
+      const cloudinary = require("cloudinary").v2;
+
       // Delete old logo from Cloudinary if it exists
       if (currentSettings.logoPublicId) {
         try {
@@ -57,23 +59,8 @@ class AdminSettingsService {
         }
       }
 
-      // Upload new logo to Cloudinary
-      const result = await new Promise((resolve, reject) => {
-        const uploadStream = cloudinary.uploader.upload_stream(
-          {
-            folder: "admin-settings",
-            resource_type: "auto",
-          },
-          (error, result) => {
-            if (error) reject(error);
-            else resolve(result);
-          },
-        );
+      const result = await uploadLocalToCloudinary(file.path, "admin-settings");
 
-        uploadStream.end(file.buffer);
-      });
-
-      // Update settings with new logo
       return await adminSettingsRepository.updateLogo(
         result.secure_url,
         result.public_id,
