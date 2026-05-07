@@ -54,11 +54,20 @@ class FormSubmissionService {
   }
 
   /**
-   * Add file URLs to submission documents
+   * Add file URLs to submission documents and ensure fieldName is set
    */
   async addFileUrls(submission) {
     const documentsWithUrls = submission.documents.map((doc) => {
       const docObj = doc.toObject();
+      
+      // Ensure fieldName is set - extract from public ID if needed
+      if (!docObj.fieldName && docObj.cloudinaryPublicId) {
+        const parts = docObj.cloudinaryPublicId.split('-');
+        if (parts.length > 0) {
+          docObj.fieldName = parts[0]; // Extract field name from public ID
+        }
+      }
+      
       if (doc.uploadType === "cloudinary" && doc.cloudinaryUrl) {
         docObj.fileUrl = doc.cloudinaryUrl;
       } else if (doc.uploadType === "local" && doc.localPath) {

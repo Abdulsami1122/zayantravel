@@ -129,14 +129,31 @@ class ReuploadService {
         if (file.buffer) {
           console.log('📁 Using file buffer with upload_stream');
           
+          const uploadStreamOptions = {
+            folder: 'wiser-consulting/documents',
+            public_id: `${oldDocument.fieldName || 'document'}-${Date.now()}`,
+          };
+
+          if (file.mimetype.startsWith('image/')) {
+            uploadStreamOptions.resource_type = 'image';
+            uploadStreamOptions.transformation = [
+              {
+                width: 1000,
+                height: 1000,
+                crop: 'limit',
+                quality: 'auto',
+                fetch_format: 'auto',
+              },
+            ];
+          } else if (file.mimetype === 'application/pdf') {
+            uploadStreamOptions.resource_type = 'raw';
+          } else {
+            uploadStreamOptions.resource_type = 'auto';
+          }
+
           cloudinaryResult = await new Promise((resolve, reject) => {
             const uploadStream = cloudinary.uploader.upload_stream(
-              {
-                folder: 'wiser-consulting/documents',
-                resource_type: 'auto',
-                format: file.mimetype.startsWith('image/') ? 'auto' : undefined,
-                public_id: `${Date.now()}-${file.originalname.split('.')[0]}`,
-              },
+              uploadStreamOptions,
               (error, result) => {
                 if (error) {
                   console.error('❌ Cloudinary upload_stream error:', error);
@@ -160,12 +177,29 @@ class ReuploadService {
             throw new Error(`File path does not exist: ${file.path}`);
           }
           
-          cloudinaryResult = await cloudinary.uploader.upload(file.path, {
+          const uploadFileOptions = {
             folder: 'wiser-consulting/documents',
-            resource_type: 'auto',
-            format: file.mimetype.startsWith('image/') ? 'auto' : undefined,
-            public_id: `${Date.now()}-${file.originalname.split('.')[0]}`,
-          });
+            public_id: `${oldDocument.fieldName || 'document'}-${Date.now()}`,
+          };
+
+          if (file.mimetype.startsWith('image/')) {
+            uploadFileOptions.resource_type = 'image';
+            uploadFileOptions.transformation = [
+              {
+                width: 1000,
+                height: 1000,
+                crop: 'limit',
+                quality: 'auto',
+                fetch_format: 'auto',
+              },
+            ];
+          } else if (file.mimetype === 'application/pdf') {
+            uploadFileOptions.resource_type = 'raw';
+          } else {
+            uploadFileOptions.resource_type = 'auto';
+          }
+
+          cloudinaryResult = await cloudinary.uploader.upload(file.path, uploadFileOptions);
           
           // Clean up temporary file
           fs.unlinkSync(file.path);
@@ -203,9 +237,11 @@ class ReuploadService {
       console.log('🔄 Updating document with new file information...');
       submission.documents[documentIndex] = {
         ...oldDocument,
+        fieldName: oldDocument.fieldName,
         cloudinaryUrl: cloudinaryResult.secure_url,
         cloudinaryPublicId: cloudinaryResult.public_id,
-        filename: file.originalname,
+        originalname: oldDocument.originalname || file.originalname,
+        filename: oldDocument.filename || file.originalname,
         mimetype: file.mimetype,
         size: file.size,
         uploadedAt: new Date()
