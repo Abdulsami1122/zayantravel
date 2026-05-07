@@ -24,6 +24,15 @@ export interface User {
       name: string;
       email: string;
     };
+    token?: string;
+    data?: {
+      user?: {
+        _id: string;
+        name: string;
+        email: string;
+      };
+      token?: string;
+    };
   }
   
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
