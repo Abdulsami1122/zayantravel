@@ -6,6 +6,7 @@ import { Menu, X, Phone, LogOut, User as UserIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logout } from "@/redux/slices/auth/authSlice";
+import { useSettings } from "@/context/SettingsContext";
 
 import { usePathname } from "next/navigation";
 import { isAdminRole } from "@/utils/authRole";
@@ -22,6 +23,11 @@ const Navbar = () => {
 
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
+  const { settings, loading: settingsLoading } = useSettings();
+
+  const displayLogo = settings.logoUrl;
+  const displayTitle = settings.websiteTitle || "WISER CONSULTING";
+  const displayPhone = settings.phoneNumber || "+923709706643";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -88,12 +94,20 @@ const Navbar = () => {
         {isScrolled ? (
           <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/70 bg-white/95 px-4 py-2 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.2)] backdrop-blur-xl">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-3xl bg-emerald-500 shadow-lg shadow-emerald-500/20 flex items-center justify-center">
-                <span className="text-white font-black text-lg">WC</span>
-              </div>
+              {displayLogo ? (
+                <img
+                  src={displayLogo}
+                  alt={displayTitle}
+                  className="h-12 w-auto rounded-2xl object-contain"
+                />
+              ) : (
+                <div className="w-12 h-12 rounded-3xl bg-emerald-500 shadow-lg shadow-emerald-500/20 flex items-center justify-center">
+                  <span className="text-white font-black text-lg">WC</span>
+                </div>
+              )}
               <div className="hidden sm:flex flex-col leading-tight">
                 <span className={`text-sm font-semibold uppercase tracking-[0.25em] ${isLegalPage ? 'text-slate-900 font-bold' : 'text-slate-900'}`}>
-                  WISER CONSULTING
+                  {displayTitle}
                 </span>
                 <span className={`text-[11px] uppercase tracking-[0.25em] ${isLegalPage ? 'text-emerald-600 font-semibold' : 'text-slate-500'}`}>
                   CONSULTANT
@@ -105,7 +119,7 @@ const Navbar = () => {
               <div className="hidden sm:flex items-center gap-4 text-sm">
                 <div className="flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-slate-950 shadow-sm shadow-slate-950/10 dark:bg-slate-950 dark:text-slate-50 dark:shadow-slate-950/20">
                   <Phone size={18} />
-                  <span className="font-semibold">+923709706643</span>
+                  <span className="font-semibold">{displayPhone}</span>
                 </div>
               </div>
               <motion.button
@@ -130,12 +144,20 @@ const Navbar = () => {
         ) : (
           <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-11 h-11 bg-emerald-500 rounded-2xl shadow-lg shadow-emerald-500/20 flex items-center justify-center">
-                <span className="text-white font-black text-lg">WC</span>
-              </div>
+              {displayLogo ? (
+                <img
+                  src={displayLogo}
+                  alt={displayTitle}
+                  className="h-11 w-auto rounded-2xl object-contain"
+                />
+              ) : (
+                <div className="w-11 h-11 bg-emerald-500 rounded-2xl shadow-lg shadow-emerald-500/20 flex items-center justify-center">
+                  <span className="text-white font-black text-lg">WC</span>
+                </div>
+              )}
               <div className="hidden sm:flex flex-col leading-tight">
                 <span className={`text-sm font-semibold uppercase tracking-[0.25em] ${isLegalPage ? 'text-white' : 'text-slate-100/90'}`}>
-                  WISER CONSULTING
+                  {displayTitle}
                 </span>
                 <span className={`text-[11px] uppercase tracking-[0.25em] ${isLegalPage ? 'text-emerald-300' : 'text-slate-300'}`}>
                   CONSULTANT
@@ -146,7 +168,7 @@ const Navbar = () => {
               <div className="hidden sm:flex items-center gap-4 text-sm">
                 <div className="flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-slate-950 shadow-sm shadow-slate-950/10 dark:bg-slate-950 dark:text-slate-50 dark:shadow-slate-950/20">
                   <Phone size={18} />
-                  <span className="font-semibold">+923709706643</span>
+                  <span className="font-semibold">{displayPhone}</span>
                 </div>
               </div>
               <motion.button
@@ -379,14 +401,14 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                   >
                     <p className="font-semibold text-slate-100">Contact</p>
-                    <p className="text-slate-400">wiserconsulting55@gmail.com</p>
+                    <p className="text-slate-400">{settings.emailAddress || "wiserconsulting55@gmail.com"}</p>
                   </motion.div>
                   <motion.div 
                     whileHover={{ x: 5 }} 
                     transition={{ duration: 0.2 }}
                   >
                     <p className="font-semibold text-slate-100">Phone</p>
-                    <p className="text-slate-400">+923709706643</p>
+                    <p className="text-slate-400">{settings.phoneNumber || "+923709706643"}</p>
                   </motion.div>
                 </motion.div>
               </div>

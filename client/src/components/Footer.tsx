@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { useSettings } from "@/context/SettingsContext";
 
 const Footer = () => {
+  const { settings } = useSettings();
   const currentYear = new Date().getFullYear();
 
   const services = [
@@ -25,12 +27,20 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-slate-900 font-bold text-xl">WC</span>
-              </div>
+              {settings.logoUrl ? (
+                <img
+                  src={settings.logoUrl}
+                  alt={settings.websiteTitle}
+                  className="w-12 h-12 object-contain rounded-lg"
+                />
+              ) : (
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+                  <span className="text-slate-900 font-bold text-xl">WC</span>
+                </div>
+              )}
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-white leading-tight">
-                  WISER CONSULTING
+                  {settings.websiteTitle || "WISER CONSULTING"}
                 </span>
                 <span className="text-xs text-slate-400 leading-tight">
                   CONSULTANT
@@ -43,34 +53,50 @@ const Footer = () => {
             </p>
             {/* Social Links */}
             <div className="flex space-x-3">
-              <a
-                href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
-                aria-label="Facebook"
-              >
-                <FaFacebookF className="text-white text-sm" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
-                aria-label="Twitter"
-              >
-                <FaTwitter className="text-white text-sm" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
-                aria-label="Instagram"
-              >
-                <FaInstagram className="text-white text-sm" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedinIn className="text-white text-sm" />
-              </a>
+              {settings.socialLinks?.facebook && (
+                <a
+                  href={settings.socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
+                  aria-label="Facebook"
+                >
+                  <FaFacebookF className="text-white text-sm" />
+                </a>
+              )}
+              {settings.socialLinks?.twitter && (
+                <a
+                  href={settings.socialLinks.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
+                  aria-label="Twitter"
+                >
+                  <FaTwitter className="text-white text-sm" />
+                </a>
+              )}
+              {settings.socialLinks?.instagram && (
+                <a
+                  href={settings.socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram className="text-white text-sm" />
+                </a>
+              )}
+              {settings.socialLinks?.linkedin && (
+                <a
+                  href={settings.socialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedinIn className="text-white text-sm" />
+                </a>
+              )}
             </div>
           </div>
 
@@ -120,9 +146,8 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-white text-sm font-medium mb-1">Address</p>
-                  <p className="text-slate-400 text-sm leading-relaxed">
-                    Deans Trade Center, UG390<br />
-                    Peshawar, Pakistan
+                  <p className="text-slate-400 text-sm leading-relaxed whitespace-pre-line">
+                    {settings.address || "Deans Trade Center, UG390\nPeshawar, Pakistan"}
                   </p>
                 </div>
               </li>
@@ -133,10 +158,10 @@ const Footer = () => {
                 <div>
                   <p className="text-white text-sm font-medium mb-1">Email</p>
                   <a
-                    href="mailto:wiserconsulting55@gmail.com"
+                    href={`mailto:${settings.emailAddress || "wiserconsulting55@gmail.com"}`}
                     className="text-slate-400 hover:text-white transition-colors text-sm"
                   >
-                    wiserconsulting55@gmail.com
+                    {settings.emailAddress || "wiserconsulting55@gmail.com"}
                   </a>
                 </div>
               </li>
@@ -147,10 +172,10 @@ const Footer = () => {
                 <div>
                   <p className="text-white text-sm font-medium mb-1">Phone</p>
                   <a
-                    href="tel:+923709706643"
+                    href={`tel:${settings.phoneNumber || "+923709706643"}`}
                     className="text-slate-400 hover:text-white transition-colors text-sm"
                   >
-                    +923709706643
+                    {settings.phoneNumber || "+923709706643"}
                   </a>
                 </div>
               </li>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
+import { toast } from 'sonner';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import PDFMergeModal from '@/components/admin/PDFMergeModal';
 import CompressPDFModal from '@/components/admin/CompressPDFModal';
@@ -62,23 +63,58 @@ const AdminFormSubmissions = () => {
     await dispatch(updateStatus({ submissionId, status: newStatus }));
   };
 
-  const handlePreviewDocument = (doc: { cloudinaryUrl?: string; originalname: string; mimetype: string }) => {
+  const normalizeDocumentName = (doc: { originalname?: string; filename?: string; fieldName?: string; cloudinaryPublicId?: string; cloudinaryId?: string }) => {
+    // List of valid field names for mapping
+    const validFieldNames = [
+      'passports', 'businessBankStatement', 'personalBankStatement',
+      'businessRegistration', 'taxpayerCertificate', 'incomeTaxReturns',
+      'propertyDocuments', 'frcFamily', 'frcParents', 'marriageCertificate',
+      'invitationLetter', 'flightReservation', 'hotelReservation',
+      'anyOtherDocuments', 'coverLetter'
+    ];
+    
+    // Priority 1: Use fieldName if it exists and is valid
+    if (doc.fieldName && validFieldNames.includes(doc.fieldName)) {
+      return doc.fieldName;
+    }
+    
+    // Priority 2: Extract from Cloudinary public ID or ID
+    const publicId = doc.cloudinaryPublicId || doc.cloudinaryId || '';
+    if (publicId) {
+      const parts = publicId.split('-');
+      if (parts.length > 0) {
+        const potential = parts[0].toLowerCase();
+        // Check if extracted name is in valid field names
+        const matchedField = validFieldNames.find(f => f.toLowerCase() === potential);
+        if (matchedField) {
+          return matchedField;
+        }
+      }
+    }
+    
+    // Priority 3: Fallback to file names
+    return doc.originalname || doc.filename || 'Document preview';
+  };
+
+  const handlePreviewDocument = (doc: { cloudinaryUrl?: string; originalname?: string; filename?: string; fieldName?: string; mimetype: string }) => {
     const fileUrl = getFileUrl(doc);
     if (fileUrl) {
-      setPreviewDocument({ url: fileUrl, name: doc.originalname, type: doc.mimetype });
+      setPreviewDocument({ url: fileUrl, name: normalizeDocumentName(doc), type: doc.mimetype });
       setShowDocumentPreview(true);
     } else {
-      alert('File URL not available for preview');
+      toast.error('File URL not available for preview');
     }
   };
 
-  const handleDownloadDocument = async (doc: { cloudinaryUrl?: string; originalname: string }) => {
+  const handleDownloadDocument = async (doc: { cloudinaryUrl?: string; originalname?: string; filename?: string; fieldName?: string }) => {
     const fileUrl = getFileUrl(doc);
+    const documentName = normalizeDocumentName(doc);
     if (fileUrl) {
       try {
-        await downloadFile(fileUrl, doc.originalname);
+        await downloadFile(fileUrl, documentName);
+        toast.success('Download started successfully');
       } catch (error) {
-        alert(`Download failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        toast.error(`Download failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
       }
     }
   };
@@ -88,9 +124,9 @@ const AdminFormSubmissions = () => {
     try {
       await dispatch(saveComment({ submissionId: selectedSubmissionId, documentId, comment })).unwrap();
       setDocumentComments(prev => ({ ...prev, [documentId]: comment }));
-      alert('Comment saved and email sent to customer!');
+      toast.success('Comment saved and email sent to customer!');
     } catch (error) {
-      alert(`Failed to save comment: ${error}`);
+      toast.error(`Failed to save comment: ${error instanceof Error ? error.message : 'Failed to save comment'}`);
     }
   };
 
@@ -112,9 +148,9 @@ const AdminFormSubmissions = () => {
       setShowRenameModal(false);
       setRenamingDocument(null);
       setNewDocumentName('');
-      alert('Document renamed successfully!');
+      toast.success('Document renamed successfully!');
     } catch (error) {
-      alert(`Failed to rename document: ${error}`);
+      toast.error(`Failed to rename document: ${error instanceof Error ? error.message : error}`);
     }
   };
 
@@ -123,9 +159,9 @@ const AdminFormSubmissions = () => {
     if (!window.confirm(`Are you sure you want to delete "${documentName}"? This action cannot be undone.`)) return;
     try {
       await dispatch(removeDocument({ submissionId: selectedSubmissionId, documentId })).unwrap();
-      alert('Document deleted successfully!');
+      toast.success('Document deleted successfully!');
     } catch (error) {
-      alert(`Failed to delete document: ${error}`);
+      toast.error(`Failed to delete document: ${error instanceof Error ? error.message : error}`);
     }
   };
 
@@ -137,9 +173,9 @@ const AdminFormSubmissions = () => {
         setSelectedSubmissionId(null);
         setShowDetailsModal(false);
       }
-      alert('Submission deleted successfully!');
+      toast.success('Submission deleted successfully!');
     } catch (error) {
-      alert(`Failed to delete submission: ${error}`);
+      toast.error(`Failed to delete submission: ${error instanceof Error ? error.message : error}`);
     }
   };
 
@@ -355,11 +391,10 @@ const AdminFormSubmissions = () => {
                         const fileUrl = getFileUrl(doc);
                         return (
                           <div key={doc._id} className="border border-gray-200 rounded-xl p-4 bg-white shadow-sm">
-                            <div className="flex items-start justify-between gap-2 mb-1">
-                              <span className="text-sm font-semibold text-gray-900 break-words leading-tight">{doc.fieldName}</span>
+                            <div className="flex items-start justify-between gap-2 mb-3">
+                              <span className="text-sm font-semibold text-gray-900 break-words leading-tight">{doc.fieldName || normalizeDocumentName(doc)}</span>
                               <span className="text-xs text-gray-400 whitespace-nowrap shrink-0">{(doc.size / 1024 / 1024).toFixed(2)} MB</span>
                             </div>
-                            <p className="text-xs text-gray-500 mb-3 break-all">{doc.originalname}</p>
 
                             {fileUrl && (
                               <div className="grid grid-cols-2 gap-1.5 mb-1.5">
@@ -368,8 +403,8 @@ const AdminFormSubmissions = () => {
                               </div>
                             )}
                             <div className="grid grid-cols-2 gap-1.5 mb-3">
-                              <button onClick={() => handleRenameDocument(doc._id, doc.originalname)} className="bg-slate-700 text-white text-xs py-2 rounded-lg hover:bg-slate-800 transition font-medium">Rename</button>
-                              <button onClick={() => handleDeleteDocument(doc._id, doc.originalname)} className="bg-red-600 text-white text-xs py-2 rounded-lg hover:bg-red-700 transition font-medium">Delete</button>
+                              <button onClick={() => handleRenameDocument(doc._id, normalizeDocumentName(doc))} className="bg-slate-700 text-white text-xs py-2 rounded-lg hover:bg-slate-800 transition font-medium">Rename</button>
+                              <button onClick={() => handleDeleteDocument(doc._id, normalizeDocumentName(doc))} className="bg-red-600 text-white text-xs py-2 rounded-lg hover:bg-red-700 transition font-medium">Delete</button>
                             </div>
 
                             <textarea
@@ -447,7 +482,13 @@ const AdminFormSubmissions = () => {
                 <div className="mb-4">
                   {previewDocument.type.startsWith('image/') ? (
                     <div className="relative w-full h-64 sm:h-96">
-                      <Image src={previewDocument.url} alt={previewDocument.name} fill className="object-contain rounded-lg" unoptimized />
+                      <Image
+                        src={previewDocument.url}
+                        alt={previewDocument.name || 'Document preview'}
+                        fill
+                        className="object-contain rounded-lg"
+                        unoptimized
+                      />
                     </div>
                   ) : previewDocument.type === 'application/pdf' ? (
                     <iframe src={previewDocument.url} className="w-full h-64 sm:h-96 rounded-lg" title={previewDocument.name} />
