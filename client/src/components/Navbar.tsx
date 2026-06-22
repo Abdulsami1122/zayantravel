@@ -25,7 +25,7 @@ const Navbar = () => {
   const { user } = useAppSelector((state) => state.auth);
   const { settings, loading: settingsLoading } = useSettings();
 
-  const displayLogo = settings.logoUrl;
+  const displayLogo = settings.logoUrl || "/logo.png";
   const displayTitle = settings.websiteTitle || "WISER CONSULTING";
   const displayPhone = settings.phoneNumber || "+923709706643";
 
@@ -94,17 +94,11 @@ const Navbar = () => {
         {isScrolled ? (
           <div className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/70 bg-white/95 px-4 py-2 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.2)] backdrop-blur-xl">
             <Link href="/" className="flex items-center gap-3">
-              {displayLogo ? (
-                <img
-                  src={displayLogo}
-                  alt={displayTitle}
-                  className="h-12 w-auto rounded-2xl object-contain"
-                />
-              ) : (
-                <div className="w-12 h-12 rounded-3xl bg-emerald-500 shadow-lg shadow-emerald-500/20 flex items-center justify-center">
-                  <span className="text-white font-black text-lg">WC</span>
-                </div>
-              )}
+              <img
+                src={displayLogo}
+                alt={displayTitle}
+                className="h-12 w-auto rounded-2xl object-contain"
+              />
               <div className="hidden sm:flex flex-col leading-tight">
                 <span className={`text-sm font-semibold uppercase tracking-[0.25em] ${isLegalPage ? 'text-slate-900 font-bold' : 'text-slate-900'}`}>
                   {displayTitle}
@@ -144,17 +138,11 @@ const Navbar = () => {
         ) : (
           <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3">
-              {displayLogo ? (
-                <img
-                  src={displayLogo}
-                  alt={displayTitle}
-                  className="h-11 w-auto rounded-2xl object-contain"
-                />
-              ) : (
-                <div className="w-11 h-11 bg-emerald-500 rounded-2xl shadow-lg shadow-emerald-500/20 flex items-center justify-center">
-                  <span className="text-white font-black text-lg">WC</span>
-                </div>
-              )}
+              <img
+                src={displayLogo}
+                alt={displayTitle}
+                className="h-11 w-auto rounded-2xl object-contain"
+              />
               <div className="hidden sm:flex flex-col leading-tight">
                 <span className={`text-sm font-semibold uppercase tracking-[0.25em] ${isLegalPage ? 'text-white' : 'text-slate-100/90'}`}>
                   {displayTitle}
@@ -228,13 +216,13 @@ const Navbar = () => {
                   transition={{ delay: 0.08, duration: 0.3, ease: "easeOut" }}
                 >
                   <Link href="/" className="flex items-center gap-3">
-                    <motion.div 
-                      className="w-12 h-12 bg-emerald-500 rounded-3xl flex items-center justify-center shadow-lg shadow-emerald-500/25"
-                      whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(16, 185, 129, 0.4)" }}
+                    <motion.img
+                      src={displayLogo}
+                      alt={displayTitle}
+                      className="h-12 w-auto rounded-2xl object-contain"
+                      whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.2 }}
-                    >
-                      <span className="text-white font-black text-lg">WC</span>
-                    </motion.div>
+                    />
                     <div className="space-y-1">
                       <p className="text-xs uppercase tracking-[0.4em] text-emerald-300/90">Wiser</p>
                       <p className="text-sm font-semibold text-slate-100">Consulting</p>

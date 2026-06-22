@@ -4,6 +4,7 @@ import { useSettings } from "@/context/SettingsContext";
 
 const Footer = () => {
   const { settings } = useSettings();
+  const displayLogo = settings.logoUrl || "/logo.png";
   const currentYear = new Date().getFullYear();
 
   const services = [
@@ -27,17 +28,11 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              {settings.logoUrl ? (
-                <img
-                  src={settings.logoUrl}
-                  alt={settings.websiteTitle}
-                  className="w-12 h-12 object-contain rounded-lg"
-                />
-              ) : (
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                  <span className="text-slate-900 font-bold text-xl">WC</span>
-                </div>
-              )}
+              <img
+                src={displayLogo}
+                alt={settings.websiteTitle}
+                className="w-12 h-12 object-contain rounded-lg"
+              />
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-white leading-tight">
                   {settings.websiteTitle || "WISER CONSULTING"}

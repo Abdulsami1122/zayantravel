@@ -5,13 +5,13 @@ const logger = require('../utils/logger');
 const connectDB = async () => {
     try {
         const mongoURI = process.env.MONGODB_URI;
-        
+
         if (!mongoURI) {
             throw new Error("MONGODB_URI environment variable is not defined");
         }
-        
+
         await mongoose.connect(mongoURI, {
-           
+
         });
         logger.info("Connected to MongoDB");
     } catch (err) {
