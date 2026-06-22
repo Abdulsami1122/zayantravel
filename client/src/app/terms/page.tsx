@@ -95,7 +95,7 @@ const TermsOfService = () => {
                   <p className="text-blue-900"><strong>Separate Charges:</strong> Our professional consulting fees are distinctly separate from, and expressly do not include, applicable external government processing fees, courier transport charges, mandatory medical examination costs, biometrics fees, or independent third-party credential assessments unless expressly packaged.</p>
                 </div>
                 <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                  <p className="text-blue-900"><strong>Non-Refundable Services:</strong> Given the deeply personalized and resource-intensive nature of counseling and evaluation, Wiser Consulting's service fees are generally considered non-refundable once the assessment and application compilation process has been formally initiated, regardless of the ultimate embassy decision or if the client withdraws the application voluntarily.</p>
+                  <p className="text-blue-900"><strong>Non-Refundable Services:</strong> Given the deeply personalized and resource-intensive nature of counseling and evaluation, Wiser Consulting&apos;s service fees are generally considered non-refundable once the assessment and application compilation process has been formally initiated, regardless of the ultimate embassy decision or if the client withdraws the application voluntarily.</p>
                 </div>
               </div>
             </div>

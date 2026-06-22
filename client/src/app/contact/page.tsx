@@ -68,8 +68,8 @@ const ContactPage = () => {
       
       // Clear success message after 5 seconds
       setTimeout(() => setSuccess(false), 5000);
-    } catch (err: any) {
-      setError(err.message || "An error occurred while submitting the form");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred while submitting the form');
     } finally {
       setLoading(false);
     }
@@ -189,7 +189,7 @@ const ContactPage = () => {
                     className="flex items-center gap-3 rounded-lg bg-green-50 p-4 text-green-700 border border-green-200"
                   >
                     <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                    <p className="text-sm">Thank you! Your message has been sent successfully. We'll get back to you soon.</p>
+                    <p className="text-sm">Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.</p>
                   </motion.div>
                 )}
 

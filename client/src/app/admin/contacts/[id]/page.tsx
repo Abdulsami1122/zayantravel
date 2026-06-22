@@ -53,8 +53,8 @@ const ContactDetailPage = () => {
         const data = await response.json();
         setSubmission(data.data);
         setStatusFilter(data.data.status);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err: unknown) {
+        setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
         setLoading(false);
       }
@@ -83,8 +83,8 @@ const ContactDetailPage = () => {
       } else {
         setError("Failed to update status");
       }
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     }
   };
 

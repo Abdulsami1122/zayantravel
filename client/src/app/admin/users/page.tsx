@@ -3,7 +3,7 @@
 import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { fetchUsers, updateRole } from '@/redux/slices/admin/adminSlice';
-import ReorderableTable, { TableColumnDef } from '@/components/ui/reorderable-table';
+import ReorderableTable, { TableColumnDef, TableRowData } from '@/components/ui/reorderable-table';
 import { motion } from 'framer-motion';
 import { Users, ShieldCheck, UserCheck, TrendingUp, CircleUserRound } from 'lucide-react';
 
@@ -47,7 +47,8 @@ const AdminUsers = () => {
   ];
 
   // Cell Renderer for Users Table
-  const renderCell = (user: any, key: string) => {
+  const renderCell = (row: TableRowData, key: string) => {
+    const user = row as { _id: string; name: string; email: string; role: number; createdAt: string };
     switch (key) {
       case "user":
         return (
@@ -99,7 +100,7 @@ const AdminUsers = () => {
           </button>
         );
       default:
-        return user[key];
+        return row[key] as React.ReactNode;
     }
   };
 
@@ -174,7 +175,7 @@ const AdminUsers = () => {
       {/* Table Section */}
       <motion.div variants={itemVariants} className="bg-white border border-slate-200 rounded-lg p-4">
         <ReorderableTable 
-            data={users} 
+            data={users as unknown as TableRowData[]} 
             columns={columns} 
             renderCell={renderCell} 
         />

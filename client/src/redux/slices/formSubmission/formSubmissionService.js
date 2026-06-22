@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 "use strict";
 // src/redux/slices/formSubmission/formSubmissionService.ts
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {

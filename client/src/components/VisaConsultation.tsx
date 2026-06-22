@@ -160,7 +160,7 @@ const VisaConsultation: React.FC = () => {
       console.log('📡 Full API URL constructed:', apiUrl);
       console.log('🔑 Token exists:', !!token);
       console.log('📦 FormData contents:');
-      for (let [key, value] of formData.entries()) {
+      for (const [key, value] of formData.entries()) {
         if (value instanceof File) {
           console.log(`- ${key}: ${value.name} (${value.size} bytes)`);
         } else {

@@ -246,7 +246,7 @@ const AboutPage = () => {
                   <Star fill="currentColor" size={20} />
                 </div>
                 <p className="text-slate-600 leading-relaxed mb-8 text-[15px]">
-                  "{testimonial.text}"
+                  &ldquo;{testimonial.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-4 mt-auto">
                   <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-700 font-bold text-lg border border-slate-200">

@@ -47,8 +47,8 @@ const ContactsPage = () => {
       const data = await response.json();
       setSubmissions(data.data);
       setPagination(data.meta);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
       setLoading(false);
     }
@@ -83,8 +83,8 @@ const ContactsPage = () => {
       } else {
         setError("Failed to delete submission");
       }
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     }
   };
 

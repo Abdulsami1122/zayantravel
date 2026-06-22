@@ -1,7 +1,7 @@
 import React from "react"
 import { cn } from "@/lib/utils"
 
-export interface StarButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type StarButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const StarButton = React.forwardRef<HTMLButtonElement, StarButtonProps>(
   ({ className, children, ...props }, ref) => {

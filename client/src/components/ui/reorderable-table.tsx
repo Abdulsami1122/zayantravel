@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 
 /** --- Types --- */
 export type TableRowData = {
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 export type TableColumnDef = {
@@ -31,9 +31,9 @@ export type TableColumnDef = {
 };
 
 interface ReorderableTableProps {
-  data: any[];
+  data: TableRowData[];
   columns: TableColumnDef[];
-  renderCell: (row: any, key: string) => React.ReactNode;
+  renderCell: (row: TableRowData, key: string) => React.ReactNode;
   showFooter?: boolean;
   totalSumLabel?: string;
   sumColumnKey?: string;
@@ -274,7 +274,7 @@ export default function ReorderableTable({
           <TableBody>
             {filtered.length > 0 ? (
               filtered.map((row, rIdx) => (
-                <TableRow key={row._id || row.id || rIdx} className="hover:bg-muted/30 transition-colors border-b last:border-0">
+                <TableRow key={(row._id as string) || (row.id as string) || rIdx} className="hover:bg-muted/30 transition-colors border-b last:border-0">
                   {orderedColumns.map((colDef) => {
                     const key = colDef.key;
                     if (!visible[key]) return null;
@@ -303,7 +303,7 @@ export default function ReorderableTable({
                 </TableCell>
                 {sumColumnKey && orderedColumns.some((c) => c.key === sumColumnKey && visible[c.key]) ? (
                   <TableCell className="text-right font-bold text-sm py-4">
-                    {filtered.reduce((acc, r) => acc + (r[sumColumnKey] || 0), 0).toLocaleString()}
+                    {filtered.reduce((acc, r) => acc + ((r[sumColumnKey] as number) || 0), 0).toLocaleString()}
                   </TableCell>
                 ) : (
                   <TableCell className="text-right font-semibold py-4">—</TableCell>
