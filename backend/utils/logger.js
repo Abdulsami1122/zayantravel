@@ -14,10 +14,9 @@ const logger = {
   },
   
   error: (...args) => {
-    if (isDevelopment) {
-      console.error('[ERROR]', ...args);
-    }
-    // In production, send to logging service (e.g., Sentry, Loggly)
+    // Always log errors regardless of environment — silent errors cause invisible crashes
+    console.error('[ERROR]', ...args);
+    // In production, also send to logging service (e.g., Sentry, Loggly)
     // Example: loggingService.error(...args);
   },
   

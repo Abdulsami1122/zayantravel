@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./Providers";
-import ClientLayout from "./ClientLayout"; 
+import ClientLayout from "./ClientLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   title: "WISER CONSULTING",
   description:
     "Expert visa consultation services for students, professionals, and families. Get personalized immigration solutions.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+  },
 };
 
 export default function RootLayout({
