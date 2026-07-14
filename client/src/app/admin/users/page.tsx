@@ -43,7 +43,6 @@ const AdminUsers = () => {
     { key: "user", label: "User", width: "300px" },
     { key: "role", label: "Role", width: "150px" },
     { key: "createdAt", label: "Created", width: "200px" },
-    { key: "actions", label: "Actions", width: "150px" },
   ];
 
   // Cell Renderer for Users Table
@@ -84,20 +83,6 @@ const AdminUsers = () => {
             </span>
             <span className="text-xs text-slate-500">Registered</span>
           </div>
-        );
-      case "actions":
-        return (
-          <button
-            onClick={() => handleRoleUpdate(user._id, user.role === 1 ? 0 : 1)}
-            className={`flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-md border transition-colors ${
-              user.role === 1 
-                ? 'bg-red-100 text-red-700 border-red-300 hover:bg-red-200'
-                : 'bg-emerald-100 text-emerald-700 border-emerald-300 hover:bg-emerald-200'
-            }`}
-          >
-            {user.role === 1 ? <UserCheck className="w-3 h-3" /> : <ShieldCheck className="w-3 h-3" />}
-            {user.role === 1 ? 'Demote' : 'Promote'}
-          </button>
         );
       default:
         return row[key] as React.ReactNode;
@@ -142,24 +127,17 @@ const AdminUsers = () => {
         {/* Stats Section - Clean Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
             {[
-            { label: "Total Admins", value: totalAdmins, icon: ShieldCheck, color: "purple" },
-            { label: "Standard Users", value: totalRegularUsers, icon: CircleUserRound, color: "blue" },
-            { label: "System Reach", value: users.length, icon: Users, color: "emerald" }
+            { label: "Total Admins", value: totalAdmins, icon: ShieldCheck },
+            { label: "Standard Users", value: totalRegularUsers, icon: CircleUserRound },
+            { label: "System Reach", value: users.length, icon: Users }
             ].map((stat) => (
             <motion.div
                 key={stat.label}
                 variants={itemVariants}
-                className={`p-4 rounded-lg border transition-colors duration-200 ${
-                    stat.color === 'purple' ? 'bg-purple-50 border-purple-200' : 
-                    stat.color === 'blue' ? 'bg-blue-50 border-blue-200' : 'bg-emerald-50 border-emerald-200'
-                }`}
+                className="p-4 rounded-lg border border-slate-200 bg-white transition-colors duration-200"
             >
                 <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                        stat.color === 'purple' ? 'bg-purple-600 text-white' : 
-                        stat.color === 'blue' ? 'bg-blue-600 text-white' : 
-                        'bg-emerald-600 text-white'
-                    }`}>
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-slate-100 text-slate-700">
                         <stat.icon className="w-6 h-6" />
                     </div>
                     <div>
