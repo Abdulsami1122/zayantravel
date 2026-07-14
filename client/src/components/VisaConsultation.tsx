@@ -497,30 +497,36 @@ const VisaConsultation: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-            {popularDestinations.map((country, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.1 }}
-                whileHover={{ y: -8, scale: 1.05 }}
-                className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-200 hover:border-slate-300 cursor-pointer group"
-              >
-                <div className="aspect-video mb-4 relative overflow-hidden rounded-lg bg-slate-100">
-                  <Image
-                    src={country.image}
-                    alt={country.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <h3 className="font-semibold text-slate-900 text-center group-hover:text-slate-700 transition-colors">
-                  {country.name}
-                </h3>
-              </motion.div>
-            ))}
+          <div className="overflow-hidden relative">
+            <motion.div
+              className="flex gap-6 px-3"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ ease: "linear", duration: 30, repeat: Infinity }}
+            >
+              {[...popularDestinations, ...popularDestinations].map((country, i) => (
+                <motion.div
+                  key={`${country.name}-${i}`}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: (i % popularDestinations.length) * 0.05 }}
+                  whileHover={{ y: -8, scale: 1.03 }}
+                  className="min-w-[260px] bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-200 hover:border-slate-300 cursor-pointer group"
+                >
+                  <div className="aspect-video mb-4 relative overflow-hidden rounded-lg bg-slate-100">
+                    <Image
+                      src={country.image}
+                      alt={country.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                  <h3 className="font-semibold text-slate-900 text-center group-hover:text-slate-700 transition-colors">
+                    {country.name}
+                  </h3>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
