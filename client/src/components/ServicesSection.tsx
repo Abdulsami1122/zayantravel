@@ -35,18 +35,20 @@ export default function ServicesPage() {
           </motion.div>
 
           <div className="relative inline-flex items-center justify-center flex-shrink-0 pr-16 lg:pr-24 group cursor-default">
-            <motion.div 
-              whileHover={{ scale: 1.03 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-full overflow-hidden shadow-2xl relative z-10 border-[6px] border-[#f4f5f7]"
-            >
-              <Image 
-                src="/consultant.png" 
-                alt="Consultant" 
-                fill 
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-            </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-full overflow-hidden shadow-2xl relative z-10 border-[6px] border-[#f4f5f7] bg-white"
+              >
+                <div className="relative w-full h-full p-6 flex items-center justify-center">
+                  <Image
+                    src="/zayan_logo.png"
+                    alt="Zayan Travel Consultants Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </motion.div>
             
 
           </div>
