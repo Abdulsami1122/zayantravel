@@ -1,4 +1,4 @@
-// Compress PDF Modal - Premium Design
+// Compress PDF Modal - Premium Desiign
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
@@ -101,7 +101,7 @@ const CompressPDFModal: React.FC<CompressPDFModalProps> = ({ isOpen, onClose, su
         />
 
         {toastMessage && <Toast type={toastMessage.type} message={toastMessage.message} />}
-        
+
         <motion.div
           initial={{ scale: 0.9, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -133,11 +133,10 @@ const CompressPDFModal: React.FC<CompressPDFModalProps> = ({ isOpen, onClose, su
                   <button
                     key={level}
                     onClick={() => setCompressionLevel(level)}
-                    className={`px-3 py-2 text-xs font-semibold rounded-lg border transition-all ${
-                      compressionLevel === level
+                    className={`px-3 py-2 text-xs font-semibold rounded-lg border transition-all ${compressionLevel === level
                         ? 'bg-blue-600 border-blue-600 text-white shadow-sm'
                         : 'bg-white border-slate-200 text-slate-600 hover:border-blue-300'
-                    }`}
+                      }`}
                   >
                     {level === '5mb' ? 'Max (5MB)' : level.charAt(0).toUpperCase() + level.slice(1)}
                   </button>
@@ -145,8 +144,8 @@ const CompressPDFModal: React.FC<CompressPDFModalProps> = ({ isOpen, onClose, su
               </div>
               <p className="text-[11px] text-slate-600 mt-3 flex items-center gap-1.5 font-medium">
                 <span className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
-                {compressionLevel === '5mb' 
-                  ? 'Extreme compression: ideal for strict portal limits.' 
+                {compressionLevel === '5mb'
+                  ? 'Extreme compression: ideal for strict portal limits.'
                   : `Balanced ${compressionLevel} quality output for professional use.`}
               </p>
             </div>
@@ -164,11 +163,10 @@ const CompressPDFModal: React.FC<CompressPDFModalProps> = ({ isOpen, onClose, su
                   <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg border border-slate-200">
                     <div
                       onClick={handleSelectAll}
-                      className={`w-6 h-6 rounded-md flex items-center justify-center border cursor-pointer transition-colors ${
-                        selectedDocuments.length === availableDocuments.length
+                      className={`w-6 h-6 rounded-md flex items-center justify-center border cursor-pointer transition-colors ${selectedDocuments.length === availableDocuments.length
                           ? 'bg-blue-600 border-blue-600 text-white'
                           : 'bg-slate-100 border-slate-300 text-transparent hover:border-slate-400'
-                      }`}
+                        }`}
                     >
                       <span className="text-xs font-bold">✓</span>
                     </div>
@@ -177,49 +175,47 @@ const CompressPDFModal: React.FC<CompressPDFModalProps> = ({ isOpen, onClose, su
                     </label>
                   </div>
                   <div className="grid gap-3">
-                  {availableDocuments.map((doc) => (
-                    <div
-                      key={doc._id}
-                      onClick={() => handleDocumentToggle(doc._id)}
-                      className={`flex items-center gap-4 p-4 rounded-xl border transition-all cursor-pointer group ${
-                        selectedDocuments.includes(doc._id)
-                          ? 'bg-slate-50 border-blue-500 shadow-sm'
-                          : 'bg-white border-slate-100 hover:border-slate-300 hover:bg-slate-50'
-                      }`}
-                    >
-                      <div className={`w-6 h-6 rounded-md flex items-center justify-center border transition-colors ${
-                        selectedDocuments.includes(doc._id)
-                          ? 'bg-blue-600 border-blue-600 text-white'
-                          : 'bg-slate-100 border-slate-200 text-transparent group-hover:border-slate-400'
-                      }`}>
-                        <span className="text-xs font-bold">✓</span>
-                      </div>
-                      
-                      <div className="flex-1 min-w-0">
-                        <p className={`text-sm font-bold truncate text-slate-800`}>
-                          {doc.fieldName}
-                        </p>
-                        <p className={`text-[11px] truncate text-slate-500`}>
-                          {doc.originalname} • {(doc.size / 1024 / 1024).toFixed(2)} MB
-                        </p>
-                      </div>
+                    {availableDocuments.map((doc) => (
+                      <div
+                        key={doc._id}
+                        onClick={() => handleDocumentToggle(doc._id)}
+                        className={`flex items-center gap-4 p-4 rounded-xl border transition-all cursor-pointer group ${selectedDocuments.includes(doc._id)
+                            ? 'bg-slate-50 border-blue-500 shadow-sm'
+                            : 'bg-white border-slate-100 hover:border-slate-300 hover:bg-slate-50'
+                          }`}
+                      >
+                        <div className={`w-6 h-6 rounded-md flex items-center justify-center border transition-colors ${selectedDocuments.includes(doc._id)
+                            ? 'bg-blue-600 border-blue-600 text-white'
+                            : 'bg-slate-100 border-slate-200 text-transparent group-hover:border-slate-400'
+                          }`}>
+                          <span className="text-xs font-bold">✓</span>
+                        </div>
 
-                      <div className="flex items-center gap-3">
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setPreviewFile({ url: doc.cloudinaryUrl!, type: doc.mimetype });
-                          }}
-                          className={`text-[10px] font-bold px-2 py-1 rounded border transition-all border-slate-200 text-slate-500 hover:border-slate-900 hover:text-slate-900`}
-                        >
-                          VIEW
-                        </button>
-                        <div className={`text-xl opacity-40 group-hover:opacity-100 transition-opacity`}>
-                          {doc.mimetype === 'application/pdf' ? '📄' : '🖼️'}
+                        <div className="flex-1 min-w-0">
+                          <p className={`text-sm font-bold truncate text-slate-800`}>
+                            {doc.fieldName}
+                          </p>
+                          <p className={`text-[11px] truncate text-slate-500`}>
+                            {doc.originalname} • {(doc.size / 1024 / 1024).toFixed(2)} MB
+                          </p>
+                        </div>
+
+                        <div className="flex items-center gap-3">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setPreviewFile({ url: doc.cloudinaryUrl!, type: doc.mimetype });
+                            }}
+                            className={`text-[10px] font-bold px-2 py-1 rounded border transition-all border-slate-200 text-slate-500 hover:border-slate-900 hover:text-slate-900`}
+                          >
+                            VIEW
+                          </button>
+                          <div className={`text-xl opacity-40 group-hover:opacity-100 transition-opacity`}>
+                            {doc.mimetype === 'application/pdf' ? '📄' : '🖼️'}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
                   </div>
                 </div>
               )}
@@ -268,7 +264,7 @@ const CompressPDFModal: React.FC<CompressPDFModalProps> = ({ isOpen, onClose, su
               onClick={() => setPreviewFile(null)}
             >
               <div className="relative w-full max-w-lg aspect-[3/4] bg-white rounded-lg shadow-2xl overflow-hidden cursor-default" onClick={e => e.stopPropagation()}>
-                 <button
+                <button
                   onClick={() => setPreviewFile(null)}
                   className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-black transition z-10"
                 >
