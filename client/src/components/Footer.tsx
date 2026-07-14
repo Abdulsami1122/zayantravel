@@ -8,8 +8,12 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { name: "Student Visa", href: "#services" },
-    { name: "Tourist Visa", href: "#services" },
+    { name: "Visa Assistance", href: "#services" },
+    { name: "Ticket Reservations", href: "#services" },
+    { name: "Online Forms Filling", href: "#services" },
+    { name: "Hotel Bookings", href: "#services" },
+    { name: "Travel Insurance", href: "#services" },
+    { name: "Online Appointments", href: "#services" },
   ];
 
   const quickLinks = [

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { GraduationCap, Plane } from "lucide-react";
+import { GraduationCap, Plane, FileText, BedDouble, ShieldCheck, CalendarCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -30,7 +30,7 @@ export default function ServicesPage() {
               Expert guidance,<br />built for success
             </h1>
             <p className="text-lg md:text-[1.15rem] text-[#475569] leading-relaxed max-w-xl">
-              We craft personalized immigration strategies and reliable visa solutions that connect you globally, and support your journey.
+              We offer a full range of travel and visa support services, including document preparation, appointments, reservations, and insurance guidance.
             </p>
           </motion.div>
 
@@ -54,71 +54,42 @@ export default function ServicesPage() {
 
         {/* Cards Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          
-          {/* Card 1 */}
-          <Link href="#contact" className="block">
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ y: -8 }}
-              className="relative rounded-[2rem] overflow-hidden flex flex-col shadow-lg h-[460px] transition-all hover:shadow-xl group"
-            >
-            <Image 
-              src="/student_visa.png" 
-              alt="Student Visa" 
-              fill 
-              className="object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a1128] via-[#0a1128]/70 to-transparent"></div>
-            
-            <div className="relative z-10 p-10 w-full flex flex-col h-full justify-end items-center text-center">
-              <div className="w-1.5 h-1.5 bg-white/50 mb-6 rounded-sm group-hover:bg-[#3b82f6] transition-colors"></div>
-              <motion.div whileHover={{ rotate: 10, scale: 1.15 }} transition={{ type: "spring", stiffness: 300 }}>
-                <GraduationCap className="w-12 h-12 text-white mb-6" strokeWidth={1.5} />
-              </motion.div>
-              <h3 className="text-2xl font-bold mb-4 text-white">Student Visa</h3>
-              <p className="text-gray-300 text-[14px] mb-8 leading-relaxed max-w-[240px] mx-auto opacity-90">
-                Guidance for international students with university, application, and document support.
-              </p>
-              <div className="text-gray-400 font-medium text-sm mt-auto group-hover:text-white transition-colors">01</div>
-            </div>
-          </motion.div>
-          </Link>
-
-          {/* Card 2 */}
-          <Link href="#contact" className="block">
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ y: -8 }}
-              className="relative rounded-[2rem] overflow-hidden flex flex-col shadow-lg h-[460px] transition-all hover:shadow-xl group"
-            >
-            <Image 
-              src="/tourist_visa.png" 
-              alt="Tourist Visa" 
-              fill 
-              className="object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a1128] via-[#0a1128]/70 to-transparent"></div>
-            
-            <div className="relative z-10 p-10 w-full flex flex-col h-full justify-end items-center text-center">
-              <div className="w-1.5 h-1.5 bg-white/50 mb-6 rounded-sm group-hover:bg-[#3b82f6] transition-colors"></div>
-              <motion.div whileHover={{ rotate: -10, scale: 1.15 }} transition={{ type: "spring", stiffness: 300 }}>
-                <Plane className="w-12 h-12 text-white mb-6" strokeWidth={1.5} />
-              </motion.div>
-              <h3 className="text-2xl font-bold mb-4 text-white">Tourist Visa</h3>
-              <p className="text-gray-300 text-[14px] mb-8 leading-relaxed max-w-[240px] mx-auto opacity-90">
-                Quick and reliable visitor visa support for travel, tourism, and family trips.
-              </p>
-              <div className="text-gray-400 font-medium text-sm mt-auto group-hover:text-white transition-colors">02</div>
-            </div>
-          </motion.div>
-          </Link>
-
+          {[
+            { title: "Visa Assistance", description: "Expert visa advice, application support, and embassy preparation.", icon: GraduationCap },
+            { title: "Ticket Reservations", description: "Secure flight and travel reservations for your international journey.", icon: Plane },
+            { title: "Online Forms Filling", description: "Complete assistance with online visa forms and document submission.", icon: FileText },
+            { title: "Hotel Bookings", description: "Trusted hotel booking support for visa-approved travel plans.", icon: BedDouble },
+            { title: "Travel Insurance", description: "Guidance on travel insurance options for safe and compliant travel.", icon: ShieldCheck },
+            { title: "Online Appointments", description: "Schedule and manage embassy or visa appointment bookings online.", icon: CalendarCheck }
+          ].map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <Link key={service.title} href="#contact" className="block">
+                <motion.div 
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.08 }}
+                  whileHover={{ y: -8 }}
+                  className="relative rounded-[2rem] overflow-hidden flex flex-col shadow-lg h-[340px] transition-all hover:shadow-xl group bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+                >
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-slate-950/80 via-slate-950/50 to-transparent" />
+                  <div className="relative z-10 p-10 w-full flex flex-col h-full justify-between text-center text-white">
+                    <div className="flex flex-col items-center justify-center gap-4">
+                      <div className="inline-flex h-16 w-16 items-center justify-center rounded-3xl bg-white/10 text-[#60a5fa] shadow-lg shadow-slate-900/30">
+                        <Icon className="w-8 h-8" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="text-2xl font-bold">{service.title}</h3>
+                      <p className="text-sm leading-relaxed text-slate-200 max-w-[260px] mx-auto">
+                        {service.description}
+                      </p>
+                    </div>
+                    <div className="text-slate-300 font-medium text-sm">{`0${index + 1}`}</div>
+                  </div>
+                </motion.div>
+              </Link>
+            );
+          })}
         </div>
       </div>
 
