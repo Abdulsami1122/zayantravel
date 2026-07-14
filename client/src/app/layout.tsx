@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Zayan Travel Consultants",
   description:
-    "Expert visa consultation services for students, professionals, and families. Get personalized immigration solutions.",
+    "We offer a full range of travel and visa support services, including document preparation, appointments, reservations, and insurance guidance.",
   icons: {
     icon: "/zayan_logo.png",
     shortcut: "/zayan_logo.png",

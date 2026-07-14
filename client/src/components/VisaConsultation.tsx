@@ -297,8 +297,7 @@ const VisaConsultation: React.FC = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-              Expert visa consultation services for students, professionals, and families.
-              Get personalized immigration solutions tailored to your needs.
+              We offer a full range of travel and visa support services, including document preparation, appointments, reservations, and insurance guidance.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
