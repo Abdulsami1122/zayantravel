@@ -17,7 +17,7 @@ const TermsOfService = () => {
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Terms of Service</h1>
           </div>
-          <p className="text-slate-300 text-lg md:text-xl max-w-2xl">Please read our terms and conditions carefully before using Wiser Consulting services.</p>
+          <p className="text-slate-300 text-lg md:text-xl max-w-2xl">Please read our terms and conditions carefully before using Zayan Travel Consultants services.</p>
         </div>
       </div>
 
@@ -49,18 +49,18 @@ const TermsOfService = () => {
                 <CheckCircle className="h-6 w-6 text-purple-500" />
                 <h2 className="text-2xl font-semibold text-slate-800">1. Agreement to Terms</h2>
               </div>
-              <p className="pl-9">By accessing or utilizing the services provided by <strong>Wiser Consulting</strong>, you unconditionally agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our website or utilize our visa consultation services.</p>
+              <p className="pl-9">By accessing or utilizing the services provided by <strong>Zayan Travel Consultants</strong>, you unconditionally agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our website or utilize our visa consultation services.</p>
             </div>
 
             <div id="section-1" className="scroll-mt-8">
               <h2 className="text-2xl font-semibold text-slate-800 mb-4">2. Description of Services</h2>
-              <p className="mb-6">Wiser Consulting provides advisory, preparation, and consultation services relating to visa applications, immigration pathways, and overseas education. We assist our clients in filling out forms, reviewing statutory requirements, compiling necessary documents, and offering strategic advice designed to maximize application success.</p>
+              <p className="mb-6">Zayan Travel Consultants provides advisory, preparation, and consultation services relating to visa applications, immigration pathways, and overseas education. We assist our clients in filling out forms, reviewing statutory requirements, compiling necessary documents, and offering strategic advice designed to maximize application success.</p>
               <div className="bg-amber-50 border-l-4 border-amber-400 p-6 rounded-r-lg">
                 <div className="flex gap-3">
                   <AlertCircle className="h-6 w-6 text-amber-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-amber-900 mb-2">Important Disclaimer</p>
-                    <p className="text-amber-800">Wiser Consulting is an independent, private consulting agency and is not affiliated with any government, embassy, or official immigration authority. We do not possess the authority to unilaterally grant visas, nor can we guarantee a 100% success rate on any application. The final granting decision routinely rests with the respective sovereign government authorities.</p>
+                    <p className="text-amber-800">Zayan Travel Consultants is an independent, private consulting agency and is not affiliated with any government, embassy, or official immigration authority. We do not possess the authority to unilaterally grant visas, nor can we guarantee a 100% success rate on any application. The final granting decision routinely rests with the respective sovereign government authorities.</p>
                   </div>
                 </div>
               </div>
@@ -76,7 +76,7 @@ const TermsOfService = () => {
                 </div>
                 <div className="flex gap-3 p-4 bg-red-50 rounded-lg border border-red-200">
                   <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>No Fraudulent Documents:</strong> Not submit fabricated, falsified, or fraudulent documents. If we reasonably suspect intentional misrepresentation, Wiser Consulting actively reserves the right to terminate our services immediately without issuing a refund.</span>
+                  <span><strong>No Fraudulent Documents:</strong> Not submit fabricated, falsified, or fraudulent documents. If we reasonably suspect intentional misrepresentation, Zayan Travel Consultants actively reserves the right to terminate our services immediately without issuing a refund.</span>
                 </div>
                 <div className="flex gap-3 p-4 bg-slate-50 rounded-lg border border-slate-200">
                   <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -95,7 +95,7 @@ const TermsOfService = () => {
                   <p className="text-blue-900"><strong>Separate Charges:</strong> Our professional consulting fees are distinctly separate from, and expressly do not include, applicable external government processing fees, courier transport charges, mandatory medical examination costs, biometrics fees, or independent third-party credential assessments unless expressly packaged.</p>
                 </div>
                 <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                  <p className="text-blue-900"><strong>Non-Refundable Services:</strong> Given the deeply personalized and resource-intensive nature of counseling and evaluation, Wiser Consulting&apos;s service fees are generally considered non-refundable once the assessment and application compilation process has been formally initiated, regardless of the ultimate embassy decision or if the client withdraws the application voluntarily.</p>
+                  <p className="text-blue-900"><strong>Non-Refundable Services:</strong> Given the deeply personalized and resource-intensive nature of counseling and evaluation, Zayan Travel Consultants&apos;s service fees are generally considered non-refundable once the assessment and application compilation process has been formally initiated, regardless of the ultimate embassy decision or if the client withdraws the application voluntarily.</p>
                 </div>
               </div>
             </div>
@@ -103,7 +103,7 @@ const TermsOfService = () => {
             <div id="section-4" className="scroll-mt-8">
               <h2 className="text-2xl font-semibold text-slate-800 mb-4">5. Limitation of Liability</h2>
               <div className="bg-gradient-to-r from-orange-50 to-amber-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
-                <p className="text-orange-900">While we consistently leverage our professional expertise to ensure highly accurate, error-free documentation representation, Wiser Consulting and its employees shall not be held liable for any damages, personal losses, delays, or immediate rejections resulting from incomplete information provided by you, sudden sweeping changes in immigration laws/policies, or unpredicted processing delays naturally caused by government departments.</p>
+                <p className="text-orange-900">While we consistently leverage our professional expertise to ensure highly accurate, error-free documentation representation, Zayan Travel Consultants and its employees shall not be held liable for any damages, personal losses, delays, or immediate rejections resulting from incomplete information provided by you, sudden sweeping changes in immigration laws/policies, or unpredicted processing delays naturally caused by government departments.</p>
               </div>
             </div>
 
@@ -112,7 +112,7 @@ const TermsOfService = () => {
               <p className="mb-6">We reserve the right, at our sole operational discretion, to modify or seamlessly replace these Terms at any given time. We will make a reasonable attempt to provide noticeable communication prior to any substantially new terms taking functional effect. Your continued uninterrupted use of our Service extensively constitutes your acceptance of the updated terms.</p>
               <div className="p-6 bg-slate-900 text-white rounded-lg">
                 <p className="mb-2 font-semibold text-lg">Need Clarification?</p>
-                <p>If you have any questions about these Terms of Service, please reach out to us at <strong>wiserconsulting55@gmail.com</strong></p>
+                <p>If you have any questions about these Terms of Service, please reach out to us at <strong>zayantravelconsultants@gmail.com</strong></p>
               </div>
             </div>
           </div>

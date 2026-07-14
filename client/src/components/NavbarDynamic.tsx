@@ -24,7 +24,7 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [settings, setSettings] = useState<AdminSettings>({
-        websiteTitle: "Wiser Consulting",
+        websiteTitle: "Zayan Travel Consultants",
         email: "",
         phone: "",
         address: "",

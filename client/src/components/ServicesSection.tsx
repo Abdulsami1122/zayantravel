@@ -56,7 +56,7 @@ export default function ServicesPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           
           {/* Card 1 */}
-          <Link href="/contact" className="block">
+          <Link href="#contact" className="block">
             <motion.div 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ export default function ServicesPage() {
           </Link>
 
           {/* Card 2 */}
-          <Link href="/contact" className="block">
+          <Link href="#contact" className="block">
             <motion.div 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -152,7 +152,7 @@ export default function ServicesPage() {
               { step: "03", title: "Submission", desc: "Flawless filing of your application safely to the authorities.", img: "/submission_new.png" },
               { step: "04", title: "Approval", desc: "Receiving your final visa and preparing for your global journey.", img: "/tourist_visa.png" }
             ].map((item, index) => (
-              <Link key={item.step} href="/contact" className="block">
+              <Link key={item.step} href="#contact" className="block">
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}

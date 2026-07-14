@@ -302,7 +302,7 @@ const VisaConsultation: React.FC = () => {
                 Get Free Assessment
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </StarButton>
-              <Link href="/contact">
+              <Link href="#contact">
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -469,7 +469,7 @@ const VisaConsultation: React.FC = () => {
 
                     {/* Hidden Action Area that appears on hover */}
                     <div className="mt-auto opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 pb-1">
-                      <Link href="/contact" className="text-sm font-semibold text-amber-600 hover:text-amber-700 flex items-center gap-2 mt-4 w-fit inline-flex cursor-pointer relative z-40">
+                      <Link href="#contact" className="text-sm font-semibold text-amber-600 hover:text-amber-700 flex items-center gap-2 mt-4 w-fit inline-flex cursor-pointer relative z-40">
                         View Details <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </div>
@@ -570,7 +570,7 @@ const VisaConsultation: React.FC = () => {
             <div className="flex flex-wrap items-center justify-center gap-8 pt-8 text-slate-400">
               <div className="flex items-center gap-2">
                 <Mail className="w-5 h-5" />
-                <span className="text-sm">wiserconsulting55@gmail.com</span>
+                <span className="text-sm">zayantravelconsultants@gmail.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5" />

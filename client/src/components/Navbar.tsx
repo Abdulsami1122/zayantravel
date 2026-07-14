@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Menu, X, Phone, LogOut, User as UserIcon } from "lucide-react";
+import { Menu, X, Phone, LogOut, User as UserIcon, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logout } from "@/redux/slices/auth/authSlice";
@@ -25,8 +25,8 @@ const Navbar = () => {
   const { user } = useAppSelector((state) => state.auth);
   const { settings, loading: settingsLoading } = useSettings();
 
-  const displayLogo = settings.logoUrl || "/logo.png";
-  const displayTitle = settings.websiteTitle || "WISER CONSULTING";
+  const displayLogo = "/zayan_logo.png";
+  const displayTitle = "ZAYAN TRAVEL";
   const displayPhone = settings.phoneNumber || "+923709706643";
 
   useEffect(() => {
@@ -81,9 +81,9 @@ const Navbar = () => {
 
   const baseNavLinks = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/contact", label: "Contact" },
+    { href: "#about", label: "About" },
+    { href: "#services", label: "Services" },
+    { href: "#contact", label: "Contact" },
   ];
 
   const navLinks = baseNavLinks;
@@ -133,26 +133,32 @@ const Navbar = () => {
           </div>
         </div>
       ) : (
-        <>
-          <Link
-            href="/login"
-            className={`text-sm font-medium transition-colors ${
-              scrolled ? 'text-slate-600 hover:text-emerald-600' : 'text-slate-200 hover:text-emerald-300'
-            }`}
-          >
-            Sign In
-          </Link>
-          <Link
-            href="/register"
-            className={`rounded-full px-5 py-2 text-sm font-medium transition-all ${
-              scrolled
-                ? 'bg-slate-900 text-white hover:bg-slate-800'
-                : 'bg-emerald-500 text-slate-900 hover:bg-emerald-400'
-            }`}
-          >
-            Sign Up
-          </Link>
-        </>
+        <div className="relative group">
+          <button className={`flex items-center gap-1.5 rounded-full px-5 py-2 text-sm font-medium transition-all ${
+            scrolled
+              ? 'bg-slate-900 text-white hover:bg-slate-800'
+              : 'bg-emerald-500 text-slate-900 hover:bg-emerald-400'
+          }`}>
+            Account <ChevronDown size={14} />
+          </button>
+          <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div className="flex flex-col w-40 overflow-hidden rounded-xl border border-slate-200/20 bg-slate-900 shadow-xl backdrop-blur-xl">
+              <Link
+                href="/login"
+                className="px-4 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-white transition-colors"
+              >
+                Sign In
+              </Link>
+              <div className="h-px w-full bg-slate-800"></div>
+              <Link
+                href="/register"
+                className="px-4 py-3 text-sm font-medium text-emerald-400 hover:bg-slate-800 hover:text-emerald-300 transition-colors"
+              >
+                Sign Up
+              </Link>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
@@ -173,7 +179,7 @@ const Navbar = () => {
                   {displayTitle}
                 </span>
                 <span className={`text-[11px] uppercase tracking-[0.25em] ${isLegalPage ? 'text-emerald-600 font-semibold' : 'text-slate-500'}`}>
-                  CONSULTANT
+                  CONSULTANTS
                 </span>
               </div>
             </Link>
@@ -214,7 +220,7 @@ const Navbar = () => {
                   {displayTitle}
                 </span>
                 <span className={`text-[11px] uppercase tracking-[0.25em] ${isLegalPage ? 'text-emerald-300' : 'text-slate-300'}`}>
-                  CONSULTANT
+                  CONSULTANTS
                 </span>
               </div>
             </Link>
@@ -288,8 +294,8 @@ const Navbar = () => {
                       transition={{ duration: 0.2 }}
                     />
                     <div className="space-y-1">
-                      <p className="text-xs uppercase tracking-[0.4em] text-emerald-300/90">Wiser</p>
-                      <p className="text-sm font-semibold text-slate-100">Consulting</p>
+                      <p className="text-xs uppercase tracking-[0.4em] text-emerald-300/90">Zayan Travel</p>
+                      <p className="text-sm font-semibold text-slate-100">Consultants</p>
                     </div>
                   </Link>
                   <motion.button
@@ -453,7 +459,7 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                   >
                     <p className="font-semibold text-slate-100">Contact</p>
-                    <p className="text-slate-400">{settings.emailAddress || "wiserconsulting55@gmail.com"}</p>
+                    <p className="text-slate-400">{settings.emailAddress || "zayantravelconsultants@gmail.com"}</p>
                   </motion.div>
                   <motion.div 
                     whileHover={{ x: 5 }} 

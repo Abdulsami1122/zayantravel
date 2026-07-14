@@ -23,7 +23,7 @@ const AboutPage = () => {
               variants={{ animate: { transition: { staggerChildren: 0.15 } } }}
             >
               <motion.span variants={fadeIn} className="inline-block text-sm uppercase tracking-[0.25em] font-extrabold text-[#1e293b] mb-6">
-                ABOUT WISER CONSULTING
+                ABOUT Zayan Travel Consultants
               </motion.span>
               <motion.h1 variants={fadeIn} className="text-4xl md:text-5xl lg:text-[4rem] leading-[1.1] font-bold tracking-tight mb-8 text-[#0a1128]">
                 Your trusted path,<br />to a global future
@@ -158,7 +158,7 @@ const AboutPage = () => {
                 <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10 group-hover:text-slate-800 transition-colors">{item.title}</h3>
                 <p className="text-slate-500 text-base leading-relaxed relative z-10">{item.description}</p>
 
-                <Link href="/contact" className={`mt-8 flex items-center text-sm font-semibold transition-colors relative z-10 cursor-pointer ${item.color} opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 duration-300`}>
+                <Link href="#contact" className={`mt-8 flex items-center text-sm font-semibold transition-colors relative z-10 cursor-pointer ${item.color} opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 duration-300`}>
                   Learn more <span className="ml-1">→</span>
                 </Link>
               </motion.div>
@@ -192,7 +192,7 @@ const AboutPage = () => {
               },
               {
                 name: "David Chen",
-                text: "I was overwhelmed by the immigration paperwork for my work visa. Wiser Consulting handled everything professionally and kept me informed at every step.",
+                text: "I was overwhelmed by the immigration paperwork for my work visa. Zayan Travel Consultants handled everything professionally and kept me informed at every step.",
                 initials: "DC"
               },
               {
@@ -218,7 +218,7 @@ const AboutPage = () => {
               },
               {
                 name: "David Chen",
-                text: "I was overwhelmed by the immigration paperwork for my work visa. Wiser Consulting handled everything professionally and kept me informed at every step.",
+                text: "I was overwhelmed by the immigration paperwork for my work visa. Zayan Travel Consultants handled everything professionally and kept me informed at every step.",
                 initials: "DC"
               },
               {

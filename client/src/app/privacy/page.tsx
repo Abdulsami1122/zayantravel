@@ -17,7 +17,7 @@ const PrivacyPolicy = () => {
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Privacy Policy</h1>
           </div>
-          <p className="text-slate-300 text-lg md:text-xl max-w-2xl">Your privacy is our priority. Learn how Wiser Consulting protects your personal information.</p>
+          <p className="text-slate-300 text-lg md:text-xl max-w-2xl">Your privacy is our priority. Learn how Zayan Travel Consultants protects your personal information.</p>
         </div>
       </div>
 
@@ -49,7 +49,7 @@ const PrivacyPolicy = () => {
                 <Info className="h-6 w-6 text-blue-500" />
                 <h2 className="text-2xl font-semibold text-slate-800">1. Introduction</h2>
               </div>
-              <p className="pl-9">Welcome to <strong>Wiser Consulting</strong>. We respect your privacy and are committed to protecting your personal data. This Privacy Policy will inform you as to how we look after your personal data when you visit our website and use our visa consulting services, and tell you about your privacy rights and how the law protects you.</p>
+              <p className="pl-9">Welcome to <strong>Zayan Travel Consultants</strong>. We respect your privacy and are committed to protecting your personal data. This Privacy Policy will inform you as to how we look after your personal data when you visit our website and use our visa consulting services, and tell you about your privacy rights and how the law protects you.</p>
             </div>
 
             <div id="section-1" className="scroll-mt-8">
@@ -118,7 +118,7 @@ const PrivacyPolicy = () => {
                 </li>
                 <li className="flex gap-3">
                   <span className="text-blue-500 font-bold flex-shrink-0">•</span>
-                  <span><strong>Translators or legal professionals</strong> strictly partnered with Wiser Consulting for the purpose of validating your application documents.</span>
+                  <span><strong>Translators or legal professionals</strong> strictly partnered with Zayan Travel Consultants for the purpose of validating your application documents.</span>
                 </li>
               </ul>
             </div>
@@ -146,7 +146,7 @@ const PrivacyPolicy = () => {
               </div>
               <div className="p-6 bg-slate-900 text-white rounded-lg">
                 <p className="mb-2 font-semibold text-lg">Questions or Concerns?</p>
-                <p>To exercise any of these rights or if you have questions regarding this policy, please contact us at <strong>wiserconsulting55@gmail.com</strong></p>
+                <p>To exercise any of these rights or if you have questions regarding this policy, please contact us at <strong>zayantravelconsultants@gmail.com</strong></p>
               </div>
             </div>
           </div>

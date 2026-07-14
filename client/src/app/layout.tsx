@@ -15,12 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WISER CONSULTING",
+  title: "Zayan Travel Consultants",
   description:
     "Expert visa consultation services for students, professionals, and families. Get personalized immigration solutions.",
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
+    icon: "/zayan_logo.png",
+    shortcut: "/zayan_logo.png",
   },
 };
 

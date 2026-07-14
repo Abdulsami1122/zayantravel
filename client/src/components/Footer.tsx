@@ -4,18 +4,18 @@ import { useSettings } from "@/context/SettingsContext";
 
 const Footer = () => {
   const { settings } = useSettings();
-  const displayLogo = settings.logoUrl || "/logo.png";
+  const displayLogo = "/zayan_logo.png";
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { name: "Student Visa", href: "/services/student-visa" },
-    { name: "Tourist Visa", href: "/services/tourist-visa" },
+    { name: "Student Visa", href: "#services" },
+    { name: "Tourist Visa", href: "#services" },
   ];
 
   const quickLinks = [
-    { name: "About Us", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Contact", href: "/contact" },
+    { name: "About Us", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Contact", href: "#contact" },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
   ];
@@ -30,15 +30,12 @@ const Footer = () => {
             <div className="flex items-center space-x-3">
               <img
                 src={displayLogo}
-                alt={settings.websiteTitle}
+                alt="Zayan Travel Consultants"
                 className="w-12 h-12 object-contain rounded-lg"
               />
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-white leading-tight">
-                  {settings.websiteTitle || "WISER CONSULTING"}
-                </span>
-                <span className="text-xs text-slate-400 leading-tight">
-                  CONSULTANT
+                  Zayan Travel Consultants
                 </span>
               </div>
             </div>
@@ -153,10 +150,10 @@ const Footer = () => {
                 <div>
                   <p className="text-white text-sm font-medium mb-1">Email</p>
                   <a
-                    href={`mailto:${settings.emailAddress || "wiserconsulting55@gmail.com"}`}
+                    href={`mailto:${settings.emailAddress || "zayantravelconsultants@gmail.com"}`}
                     className="text-slate-400 hover:text-white transition-colors text-sm"
                   >
-                    {settings.emailAddress || "wiserconsulting55@gmail.com"}
+                    {settings.emailAddress || "zayantravelconsultants@gmail.com"}
                   </a>
                 </div>
               </li>
@@ -184,7 +181,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-slate-400 text-sm text-center md:text-left">
-              © {currentYear} <span className="text-white font-semibold">WISER CONSULTING</span>.
+              © {currentYear} <span className="text-white font-semibold">Zayan Travel Consultants</span>.
               All rights reserved.
             </p>
             <div className="flex items-center space-x-6 text-sm">

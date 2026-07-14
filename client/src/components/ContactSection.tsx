@@ -139,7 +139,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <p className="text-sm uppercase tracking-[0.24em] text-slate-200">Email</p>
-                      <p className="mt-1 text-lg font-semibold">wiserconsulting55@gmail.com</p>
+                      <p className="mt-1 text-lg font-semibold">zayantravelconsultants@gmail.com</p>
                     </div>
                   </div>
 
