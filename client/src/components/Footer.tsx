@@ -139,7 +139,7 @@ const Footer = () => {
                 <div>
                   <p className="text-white text-sm font-medium mb-1">Address</p>
                   <p className="text-slate-400 text-sm leading-relaxed whitespace-pre-line">
-                    {settings.address || "Deans Trade Center, UG390\nPeshawar, Pakistan"}
+                    {settings.address || "Deans Trade Center, UG 455\nPeshawar, Pakistan"}
                   </p>
                 </div>
               </li>
@@ -164,11 +164,12 @@ const Footer = () => {
                 <div>
                   <p className="text-white text-sm font-medium mb-1">Phone</p>
                   <a
-                    href={`tel:${settings.phoneNumber || "+923709706643"}`}
+                    href={`tel:${settings.phoneNumber || "091-5603394"}`}
                     className="text-slate-400 hover:text-white transition-colors text-sm"
                   >
-                    {settings.phoneNumber || "+923709706643"}
+                    {settings.phoneNumber || "091-5603394"}
                   </a>
+                  <p className="text-slate-400 text-sm mt-1">Mobile: 0313-7376309</p>
                 </div>
               </li>
             </ul>

@@ -27,7 +27,7 @@ const Navbar = () => {
 
   const displayLogo = "/zayan_logo.png";
   const displayTitle = "ZAYAN TRAVEL";
-  const displayPhone = settings.phoneNumber || "+923709706643";
+  const displayPhone = settings.phoneNumber || "091-5603394";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -466,7 +466,8 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                   >
                     <p className="font-semibold text-slate-100">Phone</p>
-                    <p className="text-slate-400">{settings.phoneNumber || "+923709706643"}</p>
+                    <p className="text-slate-400">{settings.phoneNumber || "091-5603394"}</p>
+                    <p className="text-slate-400">Mobile: 0313-7376309</p>
                   </motion.div>
                 </motion.div>
               </div>

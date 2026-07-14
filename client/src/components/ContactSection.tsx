@@ -129,7 +129,8 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <p className="text-sm uppercase tracking-[0.24em] text-slate-200">Phone</p>
-                      <p className="mt-1 text-lg font-semibold">+92 370 970 6643</p>
+                      <p className="mt-1 text-lg font-semibold">091-5603394</p>
+                      <p className="mt-1 text-sm text-slate-200">Mobile: 0313-7376309</p>
                     </div>
                   </div>
 
@@ -149,7 +150,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <p className="text-sm uppercase tracking-[0.24em] text-slate-200">Office</p>
-                      <p className="mt-1 text-lg font-semibold">Deans Trade Center, UG390, Peshawar</p>
+                      <p className="mt-1 text-lg font-semibold">Deans Trade Center, UG 455, Peshawar</p>
                     </div>
                   </div>
                 </div>
