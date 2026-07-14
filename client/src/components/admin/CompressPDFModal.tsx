@@ -134,8 +134,8 @@ const CompressPDFModal: React.FC<CompressPDFModalProps> = ({ isOpen, onClose, su
                     key={level}
                     onClick={() => setCompressionLevel(level)}
                     className={`px-3 py-2 text-xs font-semibold rounded-lg border transition-all ${compressionLevel === level
-                        ? 'bg-blue-600 border-blue-600 text-white shadow-sm'
-                        : 'bg-white border-slate-200 text-slate-600 hover:border-blue-300'
+                      ? 'bg-blue-600 border-blue-600 text-white shadow-sm'
+                      : 'bg-white border-slate-200 text-slate-600 hover:border-blue-300'
                       }`}
                   >
                     {level === '5mb' ? 'Max (5MB)' : level.charAt(0).toUpperCase() + level.slice(1)}
@@ -164,8 +164,8 @@ const CompressPDFModal: React.FC<CompressPDFModalProps> = ({ isOpen, onClose, su
                     <div
                       onClick={handleSelectAll}
                       className={`w-6 h-6 rounded-md flex items-center justify-center border cursor-pointer transition-colors ${selectedDocuments.length === availableDocuments.length
-                          ? 'bg-blue-600 border-blue-600 text-white'
-                          : 'bg-slate-100 border-slate-300 text-transparent hover:border-slate-400'
+                        ? 'bg-blue-600 border-blue-600 text-white'
+                        : 'bg-slate-100 border-slate-300 text-transparent hover:border-slate-400'
                         }`}
                     >
                       <span className="text-xs font-bold">✓</span>
@@ -180,13 +180,13 @@ const CompressPDFModal: React.FC<CompressPDFModalProps> = ({ isOpen, onClose, su
                         key={doc._id}
                         onClick={() => handleDocumentToggle(doc._id)}
                         className={`flex items-center gap-4 p-4 rounded-xl border transition-all cursor-pointer group ${selectedDocuments.includes(doc._id)
-                            ? 'bg-slate-50 border-blue-500 shadow-sm'
-                            : 'bg-white border-slate-100 hover:border-slate-300 hover:bg-slate-50'
+                          ? 'bg-slate-50 border-blue-500 shadow-sm'
+                          : 'bg-white border-slate-100 hover:border-slate-300 hover:bg-slate-50'
                           }`}
                       >
                         <div className={`w-6 h-6 rounded-md flex items-center justify-center border transition-colors ${selectedDocuments.includes(doc._id)
-                            ? 'bg-blue-600 border-blue-600 text-white'
-                            : 'bg-slate-100 border-slate-200 text-transparent group-hover:border-slate-400'
+                          ? 'bg-blue-600 border-blue-600 text-white'
+                          : 'bg-slate-100 border-slate-200 text-transparent group-hover:border-slate-400'
                           }`}>
                           <span className="text-xs font-bold">✓</span>
                         </div>

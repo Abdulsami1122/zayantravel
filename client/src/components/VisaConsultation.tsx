@@ -63,7 +63,7 @@ const VisaConsultation: React.FC = () => {
 
     const options = {
       strings: [
-        "Your Journey to<br><span class=\"block mt-3 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300\">Global Opportunities</span>"
+        "Welcome to<br><span class=\"block mt-3 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300\">Zayan Consultants</span>"
       ],
       startDelay: 300,
       typeSpeed: 40,
