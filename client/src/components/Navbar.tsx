@@ -88,6 +88,75 @@ const Navbar = () => {
 
   const navLinks = baseNavLinks;
 
+  const renderDesktopNav = (scrolled: boolean) => (
+    <div className="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          className={`text-sm font-medium transition-colors ${
+            pathname === link.href
+              ? 'text-emerald-500'
+              : scrolled
+              ? 'text-slate-600 hover:text-emerald-600'
+              : 'text-slate-200 hover:text-emerald-300'
+          }`}
+        >
+          {link.label}
+        </Link>
+      ))}
+    </div>
+  );
+
+  const renderDesktopAuth = (scrolled: boolean) => (
+    <div className="hidden md:flex items-center gap-4">
+      {user ? (
+        <div className="flex items-center gap-4">
+          {isAdminRole(user.role) && (
+            <Link
+              href="/admin/products"
+              className={`text-sm font-medium transition-colors ${
+                scrolled ? 'text-slate-600 hover:text-emerald-600' : 'text-slate-200 hover:text-emerald-300'
+              }`}
+            >
+              Admin
+            </Link>
+          )}
+          <button
+            onClick={handleLogout}
+            className="text-sm font-medium text-red-500 hover:text-red-400 transition-colors"
+          >
+            Logout
+          </button>
+          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30">
+            <UserIcon size={14} className="text-emerald-500" />
+          </div>
+        </div>
+      ) : (
+        <>
+          <Link
+            href="/login"
+            className={`text-sm font-medium transition-colors ${
+              scrolled ? 'text-slate-600 hover:text-emerald-600' : 'text-slate-200 hover:text-emerald-300'
+            }`}
+          >
+            Sign In
+          </Link>
+          <Link
+            href="/register"
+            className={`rounded-full px-5 py-2 text-sm font-medium transition-all ${
+              scrolled
+                ? 'bg-slate-900 text-white hover:bg-slate-800'
+                : 'bg-emerald-500 text-slate-900 hover:bg-emerald-400'
+            }`}
+          >
+            Sign Up
+          </Link>
+        </>
+      )}
+    </div>
+  );
+
   return (
     <>
       <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-transparent px-3 py-3 sm:px-4" : (isLightPage || isLegalPage ? "bg-slate-900" : "bg-transparent")}`}>
@@ -109,16 +178,13 @@ const Navbar = () => {
               </div>
             </Link>
 
-            <div className="flex items-center gap-2">
-              <div className="hidden sm:flex items-center gap-4 text-sm">
-                <div className="flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-slate-950 shadow-sm shadow-slate-950/10 dark:bg-slate-950 dark:text-slate-50 dark:shadow-slate-950/20">
-                  <Phone size={18} />
-                  <span className="font-semibold">{displayPhone}</span>
-                </div>
-              </div>
+            {renderDesktopNav(true)}
+
+            <div className="flex items-center gap-4">
+              {renderDesktopAuth(true)}
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200/70 bg-slate-950 text-white shadow-md shadow-slate-950/20 transition hover:bg-slate-800"
+                className="md:hidden flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200/70 bg-slate-950 text-white shadow-md shadow-slate-950/20 transition hover:bg-slate-800"
                 aria-label="Toggle menu"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -152,16 +218,14 @@ const Navbar = () => {
                 </span>
               </div>
             </Link>
-            <div className="flex items-center gap-2">
-              <div className="hidden sm:flex items-center gap-4 text-sm">
-                <div className="flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-slate-950 shadow-sm shadow-slate-950/10 dark:bg-slate-950 dark:text-slate-50 dark:shadow-slate-950/20">
-                  <Phone size={18} />
-                  <span className="font-semibold">{displayPhone}</span>
-                </div>
-              </div>
+
+            {renderDesktopNav(false)}
+
+            <div className="flex items-center gap-4">
+              {renderDesktopAuth(false)}
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`flex items-center justify-center h-11 w-11 rounded-2xl border ${isLightPage ? 'border-white/10 bg-slate-800/80 hover:bg-slate-700' : 'border-slate-200/10 bg-slate-950/80 hover:bg-slate-900'} text-slate-100 shadow-2xl shadow-slate-950/30 transition`}
+                className={`md:hidden flex items-center justify-center h-11 w-11 rounded-2xl border ${isLightPage ? 'border-white/10 bg-slate-800/80 hover:bg-slate-700' : 'border-slate-200/10 bg-slate-950/80 hover:bg-slate-900'} text-slate-100 shadow-2xl shadow-slate-950/30 transition`}
                 aria-label="Toggle menu"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
