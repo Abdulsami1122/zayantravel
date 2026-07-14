@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, AlertCircle, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
-const cityImageUrl =
-  "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80";
+const cityImageUrl = "/emirates.webp";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
