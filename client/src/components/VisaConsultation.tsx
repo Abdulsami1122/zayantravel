@@ -20,20 +20,12 @@ import {
   Award,
   TrendingUp,
   Phone,
-  Mail,
-  MapPin,
   Upload,
   Loader2
 } from 'lucide-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '@/redux/store';
 import { fetchAdminComments, fetchCustomerSubmission } from '@/redux/slices/formSubmission/formSubmissionSlice';
-
-interface AuthState {
-  user: {
-    email: string;
-  } | null;
-}
 
 type Country = { name: string; image: string };
 type AdminComment = {
@@ -85,9 +77,10 @@ const VisaConsultation: React.FC = () => {
   const popularDestinations: Country[] = [
     { name: 'United Kingdom', image: 'https://flagcdn.com/gb.svg' },
     { name: 'United States', image: 'https://flagcdn.com/us.svg' },
-    { name: 'Canada', image: 'https://flagcdn.com/ca.svg' },
-    { name: 'Australia', image: 'https://flagcdn.com/au.svg' },
-    { name: 'Hongkong', image: 'https://flagcdn.com/hk.svg' },
+    { name: 'Turkey', image: 'https://flagcdn.com/tr.svg' },
+    { name: 'Dubai', image: 'https://flagcdn.com/ae.svg' },
+    { name: 'Thailand', image: 'https://flagcdn.com/th.svg' },
+    { name: 'Spain', image: 'https://flagcdn.com/es.svg' },
   ];
 
   const { user } = useSelector((state: RootState) => state.auth) as { user: { email: string; name: string } | null };
