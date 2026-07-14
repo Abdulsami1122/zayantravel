@@ -40,6 +40,7 @@ const VisaConsultation: React.FC = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [showComments, setShowComments] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [carouselDuration, setCarouselDuration] = useState<number>(18);
   const [previewImageUrl, setPreviewImageUrl] = useState<string | null>(null);
   const [hasViewedComments, setHasViewedComments] = useState(false);
   const [reuploadingDocId, setReuploadingDocId] = useState<string | null>(null);
@@ -48,6 +49,18 @@ const VisaConsultation: React.FC = () => {
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const updateDuration = () => {
+      if (typeof window === 'undefined') return;
+      const w = window.innerWidth;
+      // Faster on small screens
+      setCarouselDuration(w < 640 ? 12 : 18);
+    };
+    updateDuration();
+    window.addEventListener('resize', updateDuration);
+    return () => window.removeEventListener('resize', updateDuration);
   }, []);
 
   useEffect(() => {
@@ -501,7 +514,7 @@ const VisaConsultation: React.FC = () => {
             <motion.div
               className="flex gap-6 px-3"
               animate={{ x: ["0%", "-50%"] }}
-              transition={{ ease: "linear", duration: 30, repeat: Infinity }}
+              transition={{ ease: "linear", duration: carouselDuration, repeat: Infinity }}
             >
               {[...popularDestinations, ...popularDestinations].map((country, i) => (
                 <motion.div
