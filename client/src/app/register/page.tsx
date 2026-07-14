@@ -226,9 +226,9 @@ const Register: React.FC = () => {
       </div>
       <div className="relative hidden lg:block border-l border-slate-200 bg-slate-50">
         <img
-          src="/register-image.png"
-          alt="Register Background"
-          className="absolute inset-0 h-full w-full object-cover"
+          src="/zayan_poster.jpg"
+          alt="Zayan Travel Consultants Poster"
+          className="absolute inset-0 h-full w-full object-contain p-8 lg:p-12"
         />
       </div>
     </div>
