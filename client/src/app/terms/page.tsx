@@ -55,6 +55,18 @@ const TermsOfService = () => {
             <div id="section-1" className="scroll-mt-8">
               <h2 className="text-2xl font-semibold text-slate-800 mb-4">2. Description of Services</h2>
               <p className="mb-6">Zayan Travel Consultants provides advisory, preparation, and consultation services relating to visa applications, immigration pathways, and overseas education. We assist our clients in filling out forms, reviewing statutory requirements, compiling necessary documents, and offering strategic advice designed to maximize application success.</p>
+              <div className="mb-6">
+                <h3 className="text-xl font-semibold text-slate-800 mb-3">Services We Offer</h3>
+                <p className="mb-3">Our core services include the following — each delivered with professional care and attention to compliance:</p>
+                <ul className="list-disc pl-8 space-y-2 text-slate-700">
+                  <li><strong>Visa Assistance:</strong> End-to-end visa guidance, eligibility checks, and application preparation.</li>
+                  <li><strong>Ticket Reservations:</strong> Flight reservations and travel routing support tailored to visa requirements.</li>
+                  <li><strong>Online Forms Filling:</strong> Assistance completing embassy and immigration portal forms accurately.</li>
+                  <li><strong>Hotel Bookings:</strong> Support sourcing and booking suitable accommodation for visa purposes.</li>
+                  <li><strong>Travel Insurance:</strong> Advice on selecting compliant travel insurance policies where required.</li>
+                  <li><strong>Online Appointments:</strong> Scheduling and managing embassy or consulate appointment bookings.</li>
+                </ul>
+              </div>
               <div className="bg-amber-50 border-l-4 border-amber-400 p-6 rounded-r-lg">
                 <div className="flex gap-3">
                   <AlertCircle className="h-6 w-6 text-amber-600 flex-shrink-0 mt-0.5" />

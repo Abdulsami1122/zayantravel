@@ -50,6 +50,20 @@ const PrivacyPolicy = () => {
                 <h2 className="text-2xl font-semibold text-slate-800">1. Introduction</h2>
               </div>
               <p className="pl-9">Welcome to <strong>Zayan Travel Consultants</strong>. We respect your privacy and are committed to protecting your personal data. This Privacy Policy will inform you as to how we look after your personal data when you visit our website and use our visa consulting services, and tell you about your privacy rights and how the law protects you.</p>
+
+              <div className="mt-6 pl-9">
+                <h3 className="text-xl font-semibold text-slate-800 mb-2">Services We Offer</h3>
+                <p className="mb-3 text-slate-700">To provide our services we may process certain personal data. Our main offerings include:</p>
+                <ul className="list-disc pl-6 space-y-2 text-slate-700">
+                  <li><strong>Visa Assistance:</strong> Guidance and application preparation services that may require passport and identity data.</li>
+                  <li><strong>Ticket Reservations:</strong> Travel booking details used to arrange flight reservations when requested.</li>
+                  <li><strong>Online Forms Filling:</strong> Submission of details to immigration portals and embassy forms on your behalf.</li>
+                  <li><strong>Hotel Bookings:</strong> Accommodation reservation details necessary for visa support or travel itineraries.</li>
+                  <li><strong>Travel Insurance:</strong> Assistance in selecting policies which may involve sharing limited personal and trip data with insurers.</li>
+                  <li><strong>Online Appointments:</strong> Scheduling embassy or consular appointments where name and contact details are required.</li>
+                </ul>
+                <p className="mt-3 text-sm text-slate-600">See the relevant sections below for how we collect, store, and protect each type of information when delivering these services.</p>
+              </div>
             </div>
 
             <div id="section-1" className="scroll-mt-8">
