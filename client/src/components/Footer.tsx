@@ -8,18 +8,18 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { name: "Visa Assistance", href: "#services" },
-    { name: "Ticket Reservations", href: "#services" },
-    { name: "Online Forms Filling", href: "#services" },
-    { name: "Hotel Bookings", href: "#services" },
-    { name: "Travel Insurance", href: "#services" },
-    { name: "Online Appointments", href: "#services" },
+    { name: "Visa Assistance", href: "/#services" },
+    { name: "Ticket Reservations", href: "/#services" },
+    { name: "Online Forms Filling", href: "/#services" },
+    { name: "Hotel Bookings", href: "/#services" },
+    { name: "Travel Insurance", href: "/#services" },
+    { name: "Online Appointments", href: "/#services" },
   ];
 
   const quickLinks = [
-    { name: "About Us", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Contact", href: "#contact" },
+    { name: "About Us", href: "/#about" },
+    { name: "Services", href: "/#services" },
+    { name: "Contact", href: "/#contact" },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
   ];
@@ -44,8 +44,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-slate-400 leading-relaxed text-sm">
-              Expert visa consultation services for students, professionals, and families worldwide.
-              Your trusted partner for a brighter future.
+              Zayan Travel Consultants is a premier visa and travel advisory firm established in 2009. We specialize in providing expert guidance and end-to-end support for student visas, work permits, tourist applications, flight ticket reservations, hotel bookings, travel insurance, and embassy appointments.
             </p>
             {/* Social Links */}
             <div className="flex space-x-3">

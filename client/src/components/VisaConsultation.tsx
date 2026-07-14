@@ -372,7 +372,7 @@ const VisaConsultation: React.FC = () => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Why Choose Our Visa Services
+              Why Choose Zayan Travel Consultants
             </h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
               We combine expertise, personalized service, and proven success rates to make your visa journey smooth and stress-free.

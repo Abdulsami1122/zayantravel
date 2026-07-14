@@ -81,9 +81,9 @@ const Navbar = () => {
 
   const baseNavLinks = [
     { href: "/", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#services", label: "Services" },
-    { href: "#contact", label: "Contact" },
+    { href: "/#about", label: "About" },
+    { href: "/#services", label: "Services" },
+    { href: "/#contact", label: "Contact" },
   ];
 
   const navLinks = baseNavLinks;
