@@ -105,7 +105,7 @@ const ContactPage = () => {
               variants={fadeUp}
               initial="initial"
               animate="animate"
-              className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl"
+              className="relative overflow-hidden rounded-[2rem] bg-white shadow-xl"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center"

@@ -26,11 +26,23 @@ const assertResponse = async (response: Response) => {
 
 export const siteSettingsService = {
   async getSettings(): Promise<SiteSettings> {
-    const response = await fetch(`${API_URL}/site-settings`, {
-      cache: "no-store",
-    });
-    const json = await assertResponse(response);
-    return json.data;
+    try {
+      const response = await fetch(`${API_URL}/site-settings`, {
+        cache: "no-store",
+      });
+      const json = await assertResponse(response);
+      return json.data;
+    } catch (error) {
+      console.error("Error fetching site settings:", error);
+      // Return default empty settings so the app doesn't crash if backend is down
+      return {
+        websiteTitle: "Zayan Travel Consultants",
+        emailAddress: "",
+        phoneNumber: "",
+        address: "",
+        logoUrl: "",
+      };
+    }
   },
 
   async updateSettings(settings: Partial<SiteSettings>, token: string): Promise<SiteSettings> {
