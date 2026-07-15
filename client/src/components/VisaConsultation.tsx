@@ -149,7 +149,7 @@ const VisaConsultation: React.FC = () => {
 
     setReuploadingDocId(docId);
     console.log('⏳ Set reuploading state for document:', docId);
-    
+
     try {
       const formData = new FormData();
       formData.append('file', file);
@@ -195,7 +195,7 @@ const VisaConsultation: React.FC = () => {
       const result = await response.json();
       console.log('✅ Response body:', result);
       console.log('🎉 Re-upload success:', result);
-      
+
       // Clear the re-upload file for this document
       setReuploadFiles(prev => {
         const newFiles = { ...prev };
@@ -207,11 +207,11 @@ const VisaConsultation: React.FC = () => {
       if (user?.email) {
         console.log('🔄 Refreshing admin comments for user:', user.email);
         dispatch(fetchAdminComments(user.email));
-        
+
         // Also refresh the current submission to update the image URLs
         console.log('🔄 Refreshing current submission for user:', user.email);
         dispatch(fetchCustomerSubmission(user.email));
-        
+
         console.log('⏳ Waiting for state updates...');
         // Add a small delay to ensure state updates are processed
         setTimeout(() => {
@@ -301,20 +301,11 @@ const VisaConsultation: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <StarButton
-                onClick={() => setIsFormOpen(true)}
-              >
-                Get Free Assessment
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </StarButton>
               <Link href="#contact">
-                <motion.button
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-transparent text-white font-semibold rounded-lg text-lg border-2 border-white hover:bg-white/10 transition-all block"
-                >
-                  Learn More
-                </motion.button>
+                <StarButton>
+                  Book an Appointment
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </StarButton>
               </Link>
             </div>
           </motion.div>
@@ -723,7 +714,7 @@ const VisaConsultation: React.FC = () => {
               >
                 <span className="text-xl font-bold">✕</span>
               </button>
-              
+
               <div className="relative w-full h-[80vh] bg-slate-50">
                 <Image
                   src={previewImageUrl}
