@@ -14,7 +14,7 @@ export default function LoginPage() {
         <img
           src="/sign in and sign out.png"
           alt="Zayan Travel Consultants Poster"
-          className="absolute inset-0 h-full w-full object-contain p-4"
+          className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
     </div>
