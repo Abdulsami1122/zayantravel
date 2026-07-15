@@ -4,8 +4,12 @@ import Image from "next/image";
 import { GraduationCap, Plane, FileText, BedDouble, ShieldCheck, CalendarCheck, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useSettings } from "@/context/SettingsContext";
 
 export default function ServicesPage() {
+  const { settings } = useSettings();
+  const displayLogo = settings?.logoUrl || "/zayan_logo_new.png";
+
   const fadeUp = {
     initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
@@ -42,7 +46,7 @@ export default function ServicesPage() {
               >
                 <div className="relative w-[80%] h-[80%] flex items-center justify-center">
                   <Image
-                    src="/zayan_logo_new.png"
+                    src={displayLogo}
                     alt="Zayan Travel Consultants Logo"
                     fill
                     className="object-contain"

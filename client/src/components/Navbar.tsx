@@ -26,7 +26,7 @@ const Navbar = () => {
   const { user } = useAppSelector((state) => state.auth);
   const { settings, loading: settingsLoading } = useSettings();
 
-  const displayLogo = "/zayan_logo_new.png";
+  const displayLogo = settings?.logoUrl || "/zayan_logo_new.png";
   const displayTitle = "ZAYAN TRAVEL";
   const displayPhone = settings.phoneNumber || "091-5603394";
 

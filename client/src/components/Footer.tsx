@@ -4,7 +4,7 @@ import { useSettings } from "@/context/SettingsContext";
 
 const Footer = () => {
   const { settings } = useSettings();
-  const displayLogo = "/zayan_logo_new.png";
+  const displayLogo = settings?.logoUrl || "/zayan_logo_new.png";
   const currentYear = new Date().getFullYear();
 
   const services = [

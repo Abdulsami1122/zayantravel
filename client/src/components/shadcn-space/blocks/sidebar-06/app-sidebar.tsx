@@ -5,6 +5,7 @@ import { Sidebar, SidebarContent } from "@/components/ui/sidebar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { NavItem, NavMain } from "@/components/shadcn-space/blocks/sidebar-06/nav-main";
 import { CircleUserRound, ExternalLink, Mail, Settings } from "lucide-react";
+import { useSettings } from "@/context/SettingsContext";
 
 export const navData: NavItem[] = [
   // Admin Section
@@ -19,6 +20,9 @@ export const navData: NavItem[] = [
 ];
 
 export function AppSidebar() {
+  const { settings } = useSettings();
+  const displayLogo = settings?.logoUrl || "/zayan_logo_new.png";
+
   return (
     <Sidebar variant="floating" className="p-4 h-full [&_[data-slot=sidebar-inner]]:h-full">
       <div className="flex flex-col gap-6 overflow-hidden">
@@ -26,7 +30,7 @@ export function AppSidebar() {
         <div className="px-4 pt-4 pb-0">
           <Link href="/" className="flex items-center gap-3">
             <img
-              src="/zayan_logo_new.png"
+              src={displayLogo}
               alt="Zayan Travel"
               className="h-10 w-auto rounded-lg object-contain"
             />
