@@ -149,74 +149,74 @@ const AboutPage = () => {
               {
                 name: "Sarah Jenkins",
                 text: "The team made my student visa process incredibly smooth. Their attention to detail meant my application was approved in record time without any hassle.",
-                initials: "SJ"
+                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop"
               },
               {
                 name: "David Chen",
                 text: "I was overwhelmed by the immigration paperwork for my work visa. Zayan Travel Consultants handled everything professionally and kept me informed at every step.",
-                initials: "DC"
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop"
               },
               {
                 name: "Elena Rodriguez",
                 text: "Thanks to their expert guidance, my family and I successfully secured our permanent residency. Truly a life-changing service that I highly recommend.",
-                initials: "ER"
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=500&auto=format&fit=crop"
               },
               {
                 name: "Michael O'Connor",
                 text: "Outstanding consultation! They mapped out clear pathways for my business visa and provided honest, transparent advice avoiding common pitfalls.",
-                initials: "MO"
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=500&auto=format&fit=crop"
               },
               {
                 name: "Aisha Patel",
                 text: "Professional from start to finish. They practically held my hand through the tourist visa process. I couldn't have asked for a better experience.",
-                initials: "AP"
+                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=500&auto=format&fit=crop"
               },
               // Duplicating the array items seamlessly to create the infinite loop
               {
                 name: "Sarah Jenkins",
                 text: "The team made my student visa process incredibly smooth. Their attention to detail meant my application was approved in record time without any hassle.",
-                initials: "SJ"
+                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop"
               },
               {
                 name: "David Chen",
                 text: "I was overwhelmed by the immigration paperwork for my work visa. Zayan Travel Consultants handled everything professionally and kept me informed at every step.",
-                initials: "DC"
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop"
               },
               {
                 name: "Elena Rodriguez",
                 text: "Thanks to their expert guidance, my family and I successfully secured our permanent residency. Truly a life-changing service that I highly recommend.",
-                initials: "ER"
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=500&auto=format&fit=crop"
               },
               {
                 name: "Michael O'Connor",
                 text: "Outstanding consultation! They mapped out clear pathways for my business visa and provided honest, transparent advice avoiding common pitfalls.",
-                initials: "MO"
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=500&auto=format&fit=crop"
               },
               {
                 name: "Aisha Patel",
                 text: "Professional from start to finish. They practically held my hand through the tourist visa process. I couldn't have asked for a better experience.",
-                initials: "AP"
+                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=500&auto=format&fit=crop"
               }
             ].map((testimonial, i) => (
-              <div key={i} className="flex-shrink-0 w-[400px] bg-white rounded-[2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-shadow duration-500">
-                <div className="flex gap-1 mb-6 text-amber-400">
-                  <Star fill="currentColor" size={20} />
-                  <Star fill="currentColor" size={20} />
-                  <Star fill="currentColor" size={20} />
-                  <Star fill="currentColor" size={20} />
-                  <Star fill="currentColor" size={20} />
+              <div key={i} className="flex-shrink-0 w-[340px] md:w-[600px] bg-white rounded-[2rem] p-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 flex flex-col md:flex-row gap-6 group">
+                <div className="w-full md:w-1/2 h-[220px] md:h-auto md:min-h-[250px] relative rounded-[1.5rem] overflow-hidden">
+                  <img src={testimonial.image} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={testimonial.name} />
                 </div>
-                <p className="text-slate-600 leading-relaxed mb-8 text-[15px]">
-                  &ldquo;{testimonial.text}&rdquo;
-                </p>
-                <div className="flex items-center gap-4 mt-auto">
-                  <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-700 font-bold text-lg border border-slate-200">
-                    {testimonial.initials}
+                <div className="w-full md:w-1/2 py-2 md:py-6 px-4 md:px-0 md:pr-6 flex flex-col justify-center">
+                  <div className="mb-3">
+                    <h4 className="font-bold text-slate-900 text-[18px] md:text-xl">{testimonial.name}</h4>
+                    <p className="text-sm font-semibold text-blue-500">Satisfied Client</p>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-[16px]">{testimonial.name}</h4>
-                    <p className="text-sm font-semibold text-[#3b82f6]">Satisfied Client</p>
+                  <div className="flex gap-1 mb-4 text-amber-400">
+                    <Star fill="currentColor" size={16} />
+                    <Star fill="currentColor" size={16} />
+                    <Star fill="currentColor" size={16} />
+                    <Star fill="currentColor" size={16} />
+                    <Star fill="currentColor" size={16} />
                   </div>
+                  <p className="text-slate-600 leading-relaxed text-[14px] md:text-[15px] italic">
+                    &ldquo;{testimonial.text}&rdquo;
+                  </p>
                 </div>
               </div>
             ))}
