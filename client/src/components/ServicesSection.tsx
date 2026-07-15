@@ -38,11 +38,11 @@ export default function ServicesPage() {
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-full overflow-hidden shadow-2xl relative z-10 border-[6px] border-[#f4f5f7] bg-white"
+                className="w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border-[6px] border-slate-900 bg-slate-900 flex items-center justify-center"
               >
-                <div className="relative w-full h-full p-6 flex items-center justify-center">
+                <div className="relative w-[80%] h-[80%] flex items-center justify-center">
                   <Image
-                    src="/zayan_logo.png"
+                    src="/zayan_logo_new.png"
                     alt="Zayan Travel Consultants Logo"
                     fill
                     className="object-contain"

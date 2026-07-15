@@ -4,7 +4,7 @@ import { useSettings } from "@/context/SettingsContext";
 
 const Footer = () => {
   const { settings } = useSettings();
-  const displayLogo = "/zayan_logo.png";
+  const displayLogo = "/zayan_logo_new.png";
   const currentYear = new Date().getFullYear();
 
   const services = [
@@ -36,7 +36,7 @@ const Footer = () => {
               <img
                 src={displayLogo}
                 alt="Zayan Travel Consultants"
-                className="w-12 h-12 object-contain rounded-lg"
+                className="h-12 w-auto object-contain rounded-lg"
               />
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-white leading-tight">
