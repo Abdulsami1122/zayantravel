@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { GraduationCap, Plane, FileText, BedDouble, ShieldCheck, CalendarCheck } from "lucide-react";
+import { GraduationCap, Plane, FileText, BedDouble, ShieldCheck, CalendarCheck, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -49,44 +49,74 @@ export default function ServicesPage() {
                   />
                 </div>
               </motion.div>
-            
-
           </div>
         </div>
 
         {/* Cards Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
           {[
-            { title: "Visa Assistance", description: "Expert visa advice, application support, and embassy preparation.", icon: GraduationCap },
-            { title: "Ticket Reservations", description: "Secure flight and travel reservations for your international journey.", icon: Plane },
-            { title: "Online Forms Filling", description: "Complete assistance with online visa forms and document submission.", icon: FileText },
-            { title: "Hotel Bookings", description: "Trusted hotel booking support for visa-approved travel plans.", icon: BedDouble },
-            { title: "Travel Insurance", description: "Guidance on travel insurance options for safe and compliant travel.", icon: ShieldCheck },
-            { title: "Online Appointments", description: "Schedule and manage embassy or visa appointment bookings online.", icon: CalendarCheck }
+            { 
+              title: "Visa Assistance", 
+              description: "Expert guidance for smooth visa processing.", 
+              icon: GraduationCap,
+              iconColor: "text-blue-600",
+              bgColor: "bg-blue-100"
+            },
+            { 
+              title: "Ticket Reservations", 
+              description: "Instant bookings on all major airlines.", 
+              icon: Plane,
+              iconColor: "text-sky-600",
+              bgColor: "bg-sky-100"
+            },
+            { 
+              title: "Hotel Bookings", 
+              description: "Exclusive rates on premium accommodations.", 
+              icon: BedDouble,
+              iconColor: "text-amber-600",
+              bgColor: "bg-amber-100"
+            },
+            { 
+              title: "Travel Insurance", 
+              description: "Comprehensive coverage for peace of mind.", 
+              icon: ShieldCheck,
+              iconColor: "text-red-600",
+              bgColor: "bg-red-100"
+            },
+            { 
+              title: "Online Forms Filling", 
+              description: "Fast, accurate processing of applications.", 
+              icon: FileText,
+              iconColor: "text-slate-700",
+              bgColor: "bg-slate-200"
+            },
+            { 
+              title: "Online Appointments", 
+              description: "Schedule consultations at your convenience.", 
+              icon: CalendarCheck,
+              iconColor: "text-indigo-600",
+              bgColor: "bg-indigo-100"
+            }
           ].map((service, index) => {
             const Icon = service.icon;
             return (
-              <Link key={service.title} href="#contact" className="block">
+              <Link key={service.title} href="#contact" className="block h-full group">
                 <motion.div 
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.08 }}
-                  whileHover={{ y: -8 }}
-                  className="relative rounded-[2rem] overflow-hidden flex flex-col shadow-lg h-[340px] transition-all hover:shadow-xl group bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative rounded-[1.5rem] p-6 sm:p-8 flex flex-col h-full bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-transparent hover:border-slate-200"
                 >
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-slate-950/80 via-slate-950/50 to-transparent" />
-                  <div className="relative z-10 p-10 w-full flex flex-col h-full justify-between text-center text-white">
-                    <div className="flex flex-col items-center justify-center gap-4">
-                      <div className="inline-flex h-16 w-16 items-center justify-center rounded-3xl bg-white/10 text-[#60a5fa] shadow-lg shadow-slate-900/30">
-                        <Icon className="w-8 h-8" strokeWidth={1.5} />
-                      </div>
-                      <h3 className="text-2xl font-bold">{service.title}</h3>
-                      <p className="text-sm leading-relaxed text-slate-200 max-w-[260px] mx-auto">
-                        {service.description}
-                      </p>
-                    </div>
-                    <div className="text-slate-300 font-medium text-sm">{`0${index + 1}`}</div>
+                  <div className={`mb-6 inline-flex h-[60px] w-[60px] items-center justify-center rounded-2xl ${service.bgColor} ${service.iconColor} shadow-sm`}>
+                    <Icon className="w-7 h-7" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
+                  <p className="text-[15px] leading-relaxed text-slate-600 mb-6 flex-grow">
+                    {service.description}
+                  </p>
+                  <div className="flex items-center text-[15px] font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
+                    Learn More <ChevronRight className="ml-1 w-4 h-4" />
                   </div>
                 </motion.div>
               </Link>
