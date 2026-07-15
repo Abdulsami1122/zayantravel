@@ -116,24 +116,27 @@ const Navbar = () => {
     return (
       <div className="hidden md:flex items-center gap-4">
         {user ? (
-          <div className="flex items-center gap-4">
-            {isAdminRole(user.role) && (
-              <Link
-                href="/admin/users"
-                className={`text-sm font-medium transition-colors ${scrolled ? 'text-slate-600 hover:text-emerald-600' : 'text-slate-200 hover:text-emerald-300'
-                  }`}
-              >
-                Admin
-              </Link>
-            )}
-            <button
-              onClick={handleLogout}
-              className="text-sm font-medium text-red-500 hover:text-red-400 transition-colors"
-            >
-              Logout
-            </button>
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30">
-              <UserIcon size={14} className="text-emerald-500" />
+          <div className="relative group">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/20 cursor-pointer transition hover:bg-emerald-500/20">
+              <UserIcon size={18} className="text-emerald-500" />
+            </div>
+            <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="flex flex-col w-40 overflow-hidden rounded-xl border border-slate-200/20 bg-slate-900 shadow-xl backdrop-blur-xl">
+                {isAdminRole(user.role) && (
+                  <Link
+                    href="/admin/users"
+                    className="px-4 py-3 text-sm font-medium text-slate-300 hover:text-emerald-400 hover:bg-slate-800/50 transition-colors border-b border-slate-800/50 flex items-center justify-between"
+                  >
+                    Admin
+                  </Link>
+                )}
+                <button
+                  onClick={handleLogout}
+                  className="px-4 py-3 text-sm font-medium text-red-400 hover:text-red-300 hover:bg-slate-800/50 transition-colors text-left flex items-center justify-between"
+                >
+                  Logout
+                </button>
+              </div>
             </div>
           </div>
         ) : (
