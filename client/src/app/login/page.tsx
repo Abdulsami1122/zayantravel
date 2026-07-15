@@ -12,7 +12,7 @@ export default function LoginPage() {
       </div>
       <div className="relative hidden lg:block border-3 border-slate-200 bg-slate-50">
         <img
-          src="/zayan_poster.png"
+          src="/sign in and sign out.png"
           alt="Zayan Travel Consultants Poster"
           className="absolute inset-0 h-full w-full object-contain p-4"
         />
