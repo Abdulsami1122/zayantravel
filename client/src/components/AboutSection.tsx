@@ -126,46 +126,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="pt-12 pb-6 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center mb-16">
-            <p className="text-[12px] uppercase tracking-[0.3em] text-[#94A3B8] font-medium mb-3">Our Values</p>
-            <h2 className="text-[36px] md:text-[42px] font-[800] text-[#0F172A] tracking-tight">What drives our work</h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
-            {[
-              { title: "Integrity", description: "Transparent advice and honest support.", icon: ShieldCheck, color: "text-blue-600", bg: "bg-blue-50", border: "group-hover:border-blue-200" },
-              { title: "Care", description: "People-first service for every application.", icon: Heart, color: "text-rose-600", bg: "bg-rose-50", border: "group-hover:border-rose-200" },
-              { title: "Expertise", description: "Years of visa and immigration experience.", icon: Award, color: "text-amber-600", bg: "bg-amber-50", border: "group-hover:border-amber-200" },
-              { title: "Results", description: "A process built for approval and peace of mind.", icon: TrendingUp, color: "text-emerald-600", bg: "bg-emerald-50", border: "group-hover:border-emerald-200" }
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className={`group relative rounded-3xl border border-slate-100 bg-white p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 flex flex-col items-start overflow-hidden ${item.border}`}
-              >
-                <div className={`absolute top-0 left-0 w-full h-1 ${item.bg} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-50/40 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
 
-                <div className={`w-14 h-14 ${item.bg} ${item.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 relative z-10 shadow-sm border border-white`}>
-                  <item.icon strokeWidth={2.5} size={24} />
-                </div>
-
-                <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10 group-hover:text-slate-800 transition-colors">{item.title}</h3>
-                <p className="text-slate-500 text-base leading-relaxed relative z-10">{item.description}</p>
-
-                <Link href="#contact" className={`mt-8 flex items-center text-sm font-semibold transition-colors relative z-10 cursor-pointer ${item.color} opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 duration-300`}>
-                  Learn more <span className="ml-1">→</span>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Testimonials Section */}
       <section className="pt-6 pb-20 bg-slate-50 overflow-hidden border-t border-slate-100">
