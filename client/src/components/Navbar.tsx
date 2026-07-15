@@ -16,6 +16,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   const isLightPage = pathname === '/about' || pathname === '/services' || pathname === '/contact';
@@ -30,6 +31,7 @@ const Navbar = () => {
   const displayPhone = settings.phoneNumber || "091-5603394";
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     handleScroll();
     window.addEventListener("scroll", handleScroll);
@@ -94,13 +96,12 @@ const Navbar = () => {
         <Link
           key={link.href}
           href={link.href}
-          className={`text-sm font-medium transition-colors ${
-            pathname === link.href
+          className={`text-sm font-medium transition-colors ${pathname === link.href
               ? 'text-emerald-500'
               : scrolled
-              ? 'text-slate-600 hover:text-emerald-600'
-              : 'text-slate-200 hover:text-emerald-300'
-          }`}
+                ? 'text-slate-600 hover:text-emerald-600'
+                : 'text-slate-200 hover:text-emerald-300'
+            }`}
         >
           {link.label}
         </Link>
@@ -108,60 +109,62 @@ const Navbar = () => {
     </div>
   );
 
-  const renderDesktopAuth = (scrolled: boolean) => (
-    <div className="hidden md:flex items-center gap-4">
-      {user ? (
-        <div className="flex items-center gap-4">
-          {isAdminRole(user.role) && (
-            <Link
-              href="/admin/products"
-              className={`text-sm font-medium transition-colors ${
-                scrolled ? 'text-slate-600 hover:text-emerald-600' : 'text-slate-200 hover:text-emerald-300'
-              }`}
+  const renderDesktopAuth = (scrolled: boolean) => {
+    if (!mounted) return <div className="hidden md:flex items-center gap-4 min-w-[120px]"></div>;
+
+    return (
+      <div className="hidden md:flex items-center gap-4">
+        {user ? (
+          <div className="flex items-center gap-4">
+            {isAdminRole(user.role) && (
+              <Link
+                href="/admin/users"
+                className={`text-sm font-medium transition-colors ${scrolled ? 'text-slate-600 hover:text-emerald-600' : 'text-slate-200 hover:text-emerald-300'
+                  }`}
+              >
+                Admin
+              </Link>
+            )}
+            <button
+              onClick={handleLogout}
+              className="text-sm font-medium text-red-500 hover:text-red-400 transition-colors"
             >
-              Admin
-            </Link>
-          )}
-          <button
-            onClick={handleLogout}
-            className="text-sm font-medium text-red-500 hover:text-red-400 transition-colors"
-          >
-            Logout
-          </button>
-          <div className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30">
-            <UserIcon size={14} className="text-emerald-500" />
-          </div>
-        </div>
-      ) : (
-        <div className="relative group">
-          <button className={`flex items-center gap-1.5 rounded-full px-5 py-2 text-sm font-medium transition-all ${
-            scrolled
-              ? 'bg-slate-900 text-white hover:bg-slate-800'
-              : 'bg-emerald-500 text-slate-900 hover:bg-emerald-400'
-          }`}>
-            Account <ChevronDown size={14} />
-          </button>
-          <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <div className="flex flex-col w-40 overflow-hidden rounded-xl border border-slate-200/20 bg-slate-900 shadow-xl backdrop-blur-xl">
-              <Link
-                href="/login"
-                className="px-4 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-white transition-colors"
-              >
-                Sign In
-              </Link>
-              <div className="h-px w-full bg-slate-800"></div>
-              <Link
-                href="/register"
-                className="px-4 py-3 text-sm font-medium text-emerald-400 hover:bg-slate-800 hover:text-emerald-300 transition-colors"
-              >
-                Sign Up
-              </Link>
+              Logout
+            </button>
+            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30">
+              <UserIcon size={14} className="text-emerald-500" />
             </div>
           </div>
-        </div>
-      )}
-    </div>
-  );
+        ) : (
+          <div className="relative group">
+            <button className={`flex items-center gap-1.5 rounded-full px-5 py-2 text-sm font-medium transition-all ${scrolled
+                ? 'bg-slate-900 text-white hover:bg-slate-800'
+                : 'bg-emerald-500 text-slate-900 hover:bg-emerald-400'
+              }`}>
+              Account <ChevronDown size={14} />
+            </button>
+            <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="flex flex-col w-40 overflow-hidden rounded-xl border border-slate-200/20 bg-slate-900 shadow-xl backdrop-blur-xl">
+                <Link
+                  href="/login"
+                  className="px-4 py-3 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-white transition-colors"
+                >
+                  Sign In
+                </Link>
+                <div className="h-px w-full bg-slate-800"></div>
+                <Link
+                  href="/register"
+                  className="px-4 py-3 text-sm font-medium text-emerald-400 hover:bg-slate-800 hover:text-emerald-300 transition-colors"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <>
@@ -278,7 +281,7 @@ const Navbar = () => {
               style={{ pointerEvents: 'auto', transformOrigin: 'right' }}
             >
               <div className="relative flex h-full w-full flex-col justify-between px-6 py-8 sm:px-10 sm:py-12">
-                <motion.div 
+                <motion.div
                   className="flex items-center justify-between"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -325,9 +328,9 @@ const Navbar = () => {
                         initial={{ opacity: 0, x: -40 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -40 }}
-                        transition={{ 
-                          delay: 0.12 + index * 0.08, 
-                          duration: 0.4, 
+                        transition={{
+                          delay: 0.12 + index * 0.08,
+                          duration: 0.4,
                           ease: "easeOut"
                         }}
                       >
@@ -348,22 +351,22 @@ const Navbar = () => {
                     ))}
                   </div>
 
-                  <motion.div 
+                  <motion.div
                     className="flex flex-col gap-4"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 30 }}
                     transition={{ delay: 0.5, duration: 0.4, ease: "easeOut" }}
                   >
-                    {user ? (
-                      <motion.div 
+                    {!mounted ? null : user ? (
+                      <motion.div
                         className="flex flex-row flex-wrap items-center justify-between gap-3 px-2 py-4 border-t border-slate-800"
                         whileHover={{ scale: 1.01 }}
                         transition={{ duration: 0.2 }}
                       >
                         {/* User Info */}
                         <div className="flex items-center gap-3">
-                          <motion.div 
+                          <motion.div
                             className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-500/20"
                             whileHover={{ scale: 1.1, boxShadow: "0 0 20px rgba(16, 185, 129, 0.3)" }}
                             transition={{ duration: 0.2 }}
@@ -384,7 +387,7 @@ const Navbar = () => {
                               transition={{ type: "spring", stiffness: 400, damping: 17 }}
                             >
                               <Link
-                                href="/admin/products"
+                                href="/admin/users"
                                 onClick={handleClose}
                                 className="inline-flex items-center justify-center gap-1.5 rounded-full bg-slate-800 border border-slate-700 px-4 py-2 text-xs font-semibold text-white transition hover:bg-slate-700"
                               >
@@ -407,7 +410,7 @@ const Navbar = () => {
                         </div>
                       </motion.div>
                     ) : (
-                      <motion.div 
+                      <motion.div
                         className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -447,22 +450,22 @@ const Navbar = () => {
                   </motion.div>
                 </div>
 
-                <motion.div 
+                <motion.div
                   className="mt-auto flex flex-col gap-4 border-t border-slate-700/70 pt-6 text-sm text-slate-400"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 30 }}
                   transition={{ delay: 0.6, duration: 0.4, ease: "easeOut" }}
                 >
-                  <motion.div 
-                    whileHover={{ x: 5 }} 
+                  <motion.div
+                    whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >
                     <p className="font-semibold text-slate-100">Contact</p>
                     <p className="text-slate-400">{settings.emailAddress || "zayantravelconsultants@gmail.com"}</p>
                   </motion.div>
-                  <motion.div 
-                    whileHover={{ x: 5 }} 
+                  <motion.div
+                    whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >
                     <p className="font-semibold text-slate-100">Phone</p>

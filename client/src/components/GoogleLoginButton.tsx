@@ -25,7 +25,7 @@ export default function GoogleLoginButton() {
   useEffect(() => {
     if (user) {
       if (isAdminRole(user.role)) {
-        router.replace('/admin/products');
+        router.push("/admin/users");
       } else {
         router.replace('/');
       }
