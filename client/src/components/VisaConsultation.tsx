@@ -276,10 +276,10 @@ const VisaConsultation: React.FC = () => {
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, x: 80 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
                 whileHover={{ y: -8, scale: 1.02 }}
                 className="group relative flex flex-col items-center p-8 bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-slate-200 hover:border-slate-300 transition-all duration-500"
               >

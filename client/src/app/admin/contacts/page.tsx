@@ -104,28 +104,28 @@ const ContactsPage = () => {
   };
 
   return (
-    <div className="h-full bg-slate-50 rounded-xl">
-      <div className="max-w-6xl mx-auto px-4 py-8 w-full">
-        <div className="mb-6">
+    <div className="h-full rounded-xl sm:py-2">
+      <div className="w-full">
+        <div className="mb-6 px-2 sm:px-0">
           <h1 className="text-2xl font-bold text-slate-900">Contact Submissions</h1>
-          <p className="text-slate-600 mt-1 text-sm">Manage user inquiries easily</p>
+          <p className="text-slate-500 mt-1 text-sm">Manage user inquiries easily</p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-4 mb-6">
-          <form onSubmit={handleSearch} className="flex gap-2">
+        <div className="bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.02)] border border-slate-200 p-4 mb-6">
+          <form onSubmit={handleSearch} className="flex gap-3 w-full sm:max-w-md">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-2.5 w-4 h-4 text-slate-400" />
+              <Search className="absolute left-4 top-3 w-4 h-4 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder="Search submissions..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 text-sm border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full pl-11 pr-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:border-slate-400 focus:ring-4 focus:ring-slate-100 transition-all bg-slate-50 focus:bg-white"
               />
             </div>
             <button
               type="submit"
-              className="px-4 py-2 bg-emerald-500 text-white text-sm rounded-md hover:bg-emerald-600 transition"
+              className="px-6 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-xl hover:bg-slate-800 transition shadow-sm shrink-0"
             >
               Search
             </button>
@@ -138,7 +138,7 @@ const ContactsPage = () => {
           </div>
         )}
 
-        <div className="bg-white rounded-lg shadow-sm border border-slate-200">
+        <div className="bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.02)] border border-slate-200 overflow-hidden">
           {loading ? (
             <div className="p-6 text-center text-sm text-slate-600">Loading...</div>
           ) : submissions.length === 0 ? (

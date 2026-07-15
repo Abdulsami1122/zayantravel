@@ -115,17 +115,17 @@ const AdminUsers = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative space-y-6 py-6"
+        className="relative space-y-6 sm:py-2"
     >
       {/* Header & Stats Section */}
-      <div className="bg-white border border-slate-200 rounded-lg p-6">
+      <div className="bg-transparent sm:bg-white sm:border sm:border-slate-200 rounded-2xl sm:p-6 mb-2">
         <motion.div variants={itemVariants} className="mb-6">
-          <h1 className="text-2xl font-semibold text-slate-900">Users</h1>
-          <p className="text-slate-600 text-sm mt-2">Configure system permissions and manage user access levels.</p>
+          <h1 className="text-2xl font-bold text-slate-900">Users</h1>
+          <p className="text-slate-500 text-sm mt-1">Configure system permissions and manage user access levels.</p>
         </motion.div>
 
         {/* Stats Section - Clean Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
             {[
             { label: "Total Admins", value: totalAdmins, icon: ShieldCheck },
             { label: "Standard Users", value: totalRegularUsers, icon: CircleUserRound },
@@ -134,15 +134,15 @@ const AdminUsers = () => {
             <motion.div
                 key={stat.label}
                 variants={itemVariants}
-                className="p-4 rounded-lg border border-slate-200 bg-white transition-colors duration-200"
+                className="p-5 sm:p-6 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all duration-300 group"
             >
-                <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-slate-100 text-slate-700">
+                <div className="flex items-center gap-5">
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-slate-50 border border-slate-100 text-slate-600 group-hover:bg-slate-900 group-hover:text-white transition-colors duration-300">
                         <stat.icon className="w-6 h-6" />
                     </div>
                     <div>
-                        <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">{stat.label}</p>
-                        <p className="text-2xl font-semibold text-slate-900">{stat.value}</p>
+                        <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1">{stat.label}</p>
+                        <p className="text-3xl font-bold text-slate-900">{stat.value}</p>
                     </div>
                 </div>
             </motion.div>
@@ -151,7 +151,7 @@ const AdminUsers = () => {
       </div>
 
       {/* Table Section */}
-      <motion.div variants={itemVariants} className="bg-white border border-slate-200 rounded-lg p-4">
+      <motion.div variants={itemVariants} className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-6 shadow-sm">
         <ReorderableTable 
             data={users as unknown as TableRowData[]} 
             columns={columns} 

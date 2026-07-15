@@ -61,22 +61,24 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <SidebarProvider className="p-4 bg-muted min-h-screen" style={{ "--sidebar-width": "300px" } as React.CSSProperties}>
+    <SidebarProvider className="p-3 sm:p-5 bg-slate-50 min-h-screen" style={{ "--sidebar-width": "280px" } as React.CSSProperties}>
       <AppSidebar />
-      <div className="flex flex-1 flex-col gap-4 min-w-0 overflow-hidden">
+      <div className="flex flex-1 flex-col gap-5 min-w-0 overflow-hidden sm:pl-3">
         {/* Modern Admin Header */}
-        <header className="flex h-14 shrink-0 items-center justify-between gap-2 rounded-xl bg-background px-4 shadow-sm w-full">
-          <div className="flex items-center gap-2">
-            <SidebarTrigger className="cursor-pointer" />
-            <div className="h-4 w-[1px] bg-slate-200 mx-2" />
-            <h1 className="text-sm font-semibold text-gray-900 truncate">Admin Panel</h1>
+        <header className="flex h-16 shrink-0 items-center justify-between gap-2 rounded-2xl bg-white px-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05)] border border-slate-200 w-full">
+          <div className="flex items-center gap-3">
+            <SidebarTrigger className="cursor-pointer hover:bg-slate-100 p-2 rounded-lg transition-colors" />
+            <div className="h-5 w-[1px] bg-slate-200 mx-1" />
+            <h1 className="text-[15px] font-bold text-slate-800 tracking-wide truncate">ADMIN PANEL</h1>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-            <span className="text-xs font-medium text-gray-600 hidden sm:inline-block truncate max-w-[150px]">Welcome, {user.name}</span>
+          <div className="flex items-center gap-3 sm:gap-5 shrink-0">
+            <span className="text-sm font-medium text-slate-500 hidden sm:inline-block truncate max-w-[200px]">
+              Welcome, <strong className="text-slate-800">{user.name}</strong>
+            </span>
             <button
               onClick={handleLogout}
-              className="px-3 py-1.5 text-xs font-bold text-red-600 hover:bg-red-50 rounded-lg transition-colors border border-red-100 whitespace-nowrap shrink-0"
+              className="px-4 py-2 text-xs font-bold text-slate-600 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all border border-slate-200 hover:border-red-100 shadow-sm whitespace-nowrap shrink-0"
             >
               Logout
             </button>
@@ -84,7 +86,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         </header>
 
         {/* Main Content Area */}
-        <main className="flex-1 rounded-xl bg-background p-2 sm:p-4 shadow-sm overflow-x-hidden overflow-y-auto w-full">
+        <main className="flex-1 rounded-2xl bg-transparent sm:bg-white sm:border sm:border-slate-200 sm:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.02)] p-2 sm:p-6 overflow-x-hidden overflow-y-auto w-full">
           {children}
         </main>
       </div>
