@@ -7,12 +7,7 @@ const socialLinksSchema = new mongoose.Schema(
       trim: true,
       default: "",
     },
-    twitter: {
-      type: String,
-      trim: true,
-      default: "",
-    },
-    linkedin: {
+    tiktok: {
       type: String,
       trim: true,
       default: "",

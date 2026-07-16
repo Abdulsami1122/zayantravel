@@ -1,7 +1,6 @@
 interface SocialLinks {
   facebook?: string;
-  twitter?: string;
-  linkedin?: string;
+  tiktok?: string;
   instagram?: string;
 }
 

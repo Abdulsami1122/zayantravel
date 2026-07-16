@@ -6,8 +6,7 @@ interface AdminSettings {
     siteLogo?: string;
     socialLinks?: {
         facebook?: string;
-        twitter?: string;
-        linkedin?: string;
+        tiktok?: string;
         instagram?: string;
     };
 }

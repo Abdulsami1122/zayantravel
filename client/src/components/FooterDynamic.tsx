@@ -68,16 +68,6 @@ const FooterDynamic = () => {
             url: settings.socialLinks?.facebook,
         },
         {
-            name: "Twitter",
-            icon: Twitter,
-            url: settings.socialLinks?.twitter,
-        },
-        {
-            name: "LinkedIn",
-            icon: Linkedin,
-            url: settings.socialLinks?.linkedin,
-        },
-        {
             name: "Instagram",
             icon: Instagram,
             url: settings.socialLinks?.instagram,

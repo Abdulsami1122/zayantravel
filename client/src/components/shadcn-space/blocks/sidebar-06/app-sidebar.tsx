@@ -40,10 +40,10 @@ export function AppSidebar() {
               />
             </div>
             <div className="flex flex-col leading-tight min-w-0">
-              <span className="text-[15px] font-bold text-slate-900 tracking-[0.1em] group-hover:text-emerald-600 transition-colors duration-300 truncate">
+              <span className="text-[14px] font-bold text-slate-900 tracking-wider group-hover:text-emerald-600 transition-colors duration-300 whitespace-nowrap">
                 ZAYAN TRAVEL
               </span>
-              <span className="text-[10px] uppercase tracking-[0.25em] text-emerald-600 font-bold mt-0.5 truncate">
+              <span className="text-[9px] uppercase tracking-[0.2em] text-emerald-600 font-bold mt-0.5 whitespace-nowrap">
                 CONSULTANTS
               </span>
             </div>

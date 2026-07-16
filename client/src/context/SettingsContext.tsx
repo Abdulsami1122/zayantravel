@@ -17,8 +17,7 @@ const defaultSettings: SiteSettings = {
   logoUrl: "",
   socialLinks: {
     facebook: "",
-    twitter: "",
-    linkedin: "",
+    tiktok: "",
     instagram: "",
   },
 };

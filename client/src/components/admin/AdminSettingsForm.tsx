@@ -15,8 +15,7 @@ interface AdminSettings {
     logoUrl?: string;
     socialLinks?: {
         facebook?: string;
-        twitter?: string;
-        linkedin?: string;
+        tiktok?: string;
         instagram?: string;
     };
 }
@@ -32,8 +31,7 @@ const AdminSettingsForm = () => {
         logoUrl: "",
         socialLinks: {
             facebook: "",
-            twitter: "",
-            linkedin: "",
+            tiktok: "",
             instagram: "",
         },
     });
@@ -205,20 +203,7 @@ const AdminSettingsForm = () => {
             <h1 className="text-3xl font-bold mb-6">Admin Settings</h1>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Website Title */}
-                <div>
-                    <label className="block text-sm font-medium mb-2">
-                        Website Title
-                    </label>
-                    <input
-                        type="text"
-                        name="websiteTitle"
-                        value={settings.websiteTitle}
-                        onChange={handleInputChange}
-                        placeholder="Enter website title"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                </div>
+
 
                 {/* Email */}
                 <div>
@@ -331,7 +316,7 @@ const AdminSettingsForm = () => {
                 <div>
                     <h3 className="text-lg font-semibold mb-4">Social Links</h3>
                     <div className="space-y-3">
-                        {["facebook", "twitter", "linkedin", "instagram"].map(
+                        {["facebook", "tiktok", "instagram"].map(
                             (platform) => (
                                 <div key={platform}>
                                     <label className="block text-sm font-medium mb-1 capitalize">
