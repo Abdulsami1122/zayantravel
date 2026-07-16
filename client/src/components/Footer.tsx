@@ -49,39 +49,33 @@ const Footer = () => {
             </p>
             {/* Social Links */}
             <div className="flex space-x-3">
-              {settings.socialLinks?.facebook && (
-                <a
-                  href={settings.socialLinks.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
-                  aria-label="Facebook"
-                >
-                  <FaFacebookF className="text-white text-sm" />
-                </a>
-              )}
-              {settings.socialLinks?.instagram && (
-                <a
-                  href={settings.socialLinks.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
-                  aria-label="Instagram"
-                >
-                  <FaInstagram className="text-white text-sm" />
-                </a>
-              )}
-              {settings.socialLinks?.tiktok && (
-                <a
-                  href={settings.socialLinks.tiktok}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
-                  aria-label="TikTok"
-                >
-                  <FaTiktok className="text-white text-sm" />
-                </a>
-              )}
+              <a
+                href={settings.socialLinks?.facebook || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
+                aria-label="Facebook"
+              >
+                <FaFacebookF className="text-white text-sm" />
+              </a>
+              <a
+                href={settings.socialLinks?.instagram || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
+                aria-label="Instagram"
+              >
+                <FaInstagram className="text-white text-sm" />
+              </a>
+              <a
+                href={settings.socialLinks?.tiktok || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-slate-800 hover:bg-slate-700 rounded-lg flex items-center justify-center transition-colors border border-slate-700"
+                aria-label="TikTok"
+              >
+                <FaTiktok className="text-white text-sm" />
+              </a>
             </div>
           </div>
 
