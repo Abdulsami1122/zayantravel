@@ -140,17 +140,22 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative rounded-[1.5rem] p-6 sm:p-8 flex flex-col h-full bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-transparent hover:border-slate-200"
+                  className="relative rounded-[1.5rem] p-6 sm:p-8 flex flex-col h-full bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-slate-100 overflow-hidden"
                 >
-                  <div className={`mb-6 inline-flex h-[60px] w-[60px] items-center justify-center rounded-2xl ${service.bgColor} ${service.iconColor} shadow-sm`}>
-                    <Icon className="w-7 h-7" strokeWidth={1.5} />
+                  {/* Top Animated Gray Border */}
+                  <span className="absolute top-0 left-0 w-full h-[4px] bg-slate-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+                  {/* Bottom Animated Gray Border */}
+                  <span className="absolute bottom-0 right-0 w-full h-[4px] bg-slate-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right"></span>
+
+                  <div className={`mb-6 inline-flex h-[60px] w-[60px] items-center justify-center rounded-2xl ${service.bgColor} ${service.iconColor} shadow-sm transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}>
+                    <Icon className="w-7 h-7 group-hover:animate-bounce" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
-                  <p className="text-[15px] leading-relaxed text-slate-600 mb-6 flex-grow">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10">{service.title}</h3>
+                  <p className="text-[15px] leading-relaxed text-slate-600 mb-6 flex-grow relative z-10">
                     {service.description}
                   </p>
-                  <div className="flex items-center text-[15px] font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
-                    Learn More <ChevronRight className="ml-1 w-4 h-4" />
+                  <div className="flex items-center text-[15px] font-semibold text-slate-800 group-hover:text-blue-600 transition-colors relative z-10">
+                    Learn More <ChevronRight className="ml-1 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </motion.div>
               </Link>
