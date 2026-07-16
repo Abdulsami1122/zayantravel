@@ -13,7 +13,7 @@ const AboutPage = () => {
 
   return (
     <div className="bg-slate-50 text-slate-900">
-      <section className="pt-24 pb-8 bg-[#f4f5f7]">
+      <section className="pt-12 pb-8 bg-[#f4f5f7]">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-x-12 gap-y-8">
             <motion.div
@@ -56,14 +56,14 @@ const AboutPage = () => {
       </section>
 
       <section className="pt-20 pb-10 bg-slate-50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-16 lg:grid-cols-[0.9fr_0.9fr] items-center relative">
-          <motion.div variants={fadeIn} initial="initial" animate="animate" className="space-y-6 relative z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mb-16">
+          <motion.div variants={fadeIn} initial="initial" animate="animate" className="space-y-6">
             <p className="text-sm uppercase tracking-[0.32em] text-slate-400 font-semibold">Our Story</p>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-[1.15]">Focused on real results for families and professionals.</h2>
-            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
+            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
               Since 2009, our team has supported thousands of clients with every type of visa journey. We combine personal care, legal knowledge, and practical support so you can move forward with confidence.
             </p>
-            <div className="grid gap-6 sm:grid-cols-2 pt-4">
+            <div className="grid gap-6 sm:grid-cols-2 pt-4 text-left max-w-2xl mx-auto">
               <motion.div whileHover={{ scale: 1.05, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="relative group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm hover:shadow-xl hover:border-rose-300 transition-all duration-300 overflow-hidden">
                 <div className="absolute -top-4 -right-4 p-4 opacity-[0.03] group-hover:opacity-25 transition-all transform group-hover:scale-110 group-hover:rotate-12 duration-500 text-rose-500">
                   <Heart size={80} className="group-hover:fill-rose-500/20 transition-all duration-500" />
@@ -83,53 +83,15 @@ const AboutPage = () => {
               </motion.div>
             </div>
           </motion.div>
-
-          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative group rounded-[2rem] bg-slate-900 p-8 md:p-10 text-white shadow-2xl overflow-hidden border border-slate-800 lg:w-[95%] lg:justify-self-end">
-            {/* Beautiful gradient blurs mapping */}
-            <div className="absolute -top-32 -right-32 w-80 h-80 bg-emerald-500/20 rounded-full blur-[80px] group-hover:bg-emerald-500/30 transition-colors duration-700 select-none pointer-events-none" />
-            <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-blue-500/20 rounded-full blur-[80px] group-hover:bg-blue-500/30 transition-colors duration-700 select-none pointer-events-none" />
-
-            <div className="relative z-10 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-sm">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="text-[11px] uppercase tracking-[0.24em] text-emerald-300 font-semibold">Why choose us</span>
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-bold leading-tight">Personalized support at every step.</h3>
-              <p className="text-slate-300 leading-relaxed text-[15px] sm:text-base">
-                We listen to your goals, review your documents carefully, and keep you informed throughout the process so your visa journey is clear and stress-free.
-              </p>
-
-              <div className="grid gap-3 sm:grid-cols-2 pt-2">
-                <motion.div whileHover={{ scale: 1.05 }} className="rounded-2xl bg-white/5 border border-white/10 p-4 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex flex-col items-start gap-3 shadow-lg backdrop-blur-sm">
-                  <div className="p-2 rounded-xl bg-emerald-400/20 text-emerald-400 border border-emerald-400/20">
-                    <Heart size={18} strokeWidth={2.5} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-emerald-200/70 font-bold mb-1">Dedicated team</p>
-                    <p className="text-[15px] font-semibold text-white">Experienced specialists</p>
-                  </div>
-                </motion.div>
-
-                <motion.div whileHover={{ scale: 1.05 }} className="rounded-2xl bg-white/5 border border-white/10 p-4 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex flex-col items-start gap-3 shadow-lg backdrop-blur-sm">
-                  <div className="p-2 rounded-xl bg-blue-400/20 text-blue-400 border border-blue-400/20">
-                    <ShieldCheck size={18} strokeWidth={2.5} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-blue-200/70 font-bold mb-1">Clear process</p>
-                    <p className="text-[15px] font-semibold text-white">Easy steps to approval</p>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
         </div>
+
+
       </section>
 
 
 
       {/* Testimonials Section */}
-      <section className="pt-6 pb-20 bg-slate-50 overflow-hidden border-t border-slate-100">
+      <section className="pt-6 pb-12 bg-slate-50 overflow-hidden border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100/50 text-blue-700 font-bold text-xs tracking-wider uppercase mb-4 shadow-sm border border-blue-200/50">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span> Client Testimonial

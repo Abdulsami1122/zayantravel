@@ -18,11 +18,11 @@ export default function ServicesPage() {
   };
 
   return (
-    <div className="bg-[#f4f5f7] pt-16 text-[#1a1f2c] font-sans overflow-hidden">
+    <div className="bg-[#f4f5f7] pt-10 text-[#1a1f2c] font-sans overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row items-center justify-between mb-24 mt-8 gap-x-12 gap-y-16">
+        <div className="flex flex-col lg:flex-row items-center justify-between mb-16 mt-4 gap-x-12 gap-y-16">
           <motion.div 
             {...fadeUp}
             className="flex-1 text-left max-w-2xl"
@@ -130,7 +130,7 @@ export default function ServicesPage() {
       </div>
 
       {/* How We Work Section */}
-      <section className="pt-12 pb-32 bg-white relative">
+      <section className="pt-12 pb-16 bg-white relative">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h3 

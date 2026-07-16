@@ -306,50 +306,99 @@ const VisaConsultation: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Why Choose Zayan Travel Consultants
-            </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+      {/* New Why Choose Zayan Section */}
+      <section className="pt-10 pb-10 bg-slate-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-[2.5rem] font-bold text-[#0a1128] mb-4">Why Choose Zayan Travel Consultants</h2>
+            <div className="w-full flex justify-center mb-6">
+              <div className="w-[80%] max-w-lg h-[2px] bg-gradient-to-r from-transparent via-[#c19d60] to-transparent"></div>
+            </div>
+            <p className="text-[#475569] max-w-2xl mx-auto text-[17px] leading-relaxed">
               We combine expertise, personalized service, and proven success rates to make your visa journey smooth and stress-free.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            {/* Background glowing elements for added premium feel */}
-            <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-blue-100/40 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-            <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-amber-100/40 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+          <div className="grid md:grid-cols-3 gap-8 pb-10">
+            {/* Card 1 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white rounded-xl p-8 border-t-[4px] border-[#c19d60] shadow-[0_6px_0_-1px_#ffffff,0_7px_0_-1px_#cbd5e1,0_12px_0_-2px_#ffffff,0_13px_0_-2px_#cbd5e1,0_20px_25px_-5px_rgba(0,0,0,0.1)] text-center relative hover:-translate-y-1 transition-transform duration-300"
+            >
+              <svg width="70" height="70" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-6 drop-shadow-md">
+                <path d="M32 2 L36 12 L32 10 L28 12 Z" fill="#c19d60" />
+                <path d="M32 62 L36 52 L32 54 L28 52 Z" fill="#c19d60" />
+                <path d="M2 32 L12 28 L10 32 L12 36 Z" fill="#c19d60" />
+                <path d="M62 32 L52 28 L54 32 L52 36 Z" fill="#c19d60" />
+                <circle cx="32" cy="32" r="20" fill="#e2e8f0" stroke="#0a1128" strokeWidth="2.5"/>
+                <path d="M28 14 C35 12, 40 18, 38 24 C36 30, 44 32, 46 38 C48 44, 40 50, 32 50 C24 50, 20 42, 22 36 C24 30, 18 24, 22 18 C26 12, 28 14, 28 14 Z" fill="#0a1128"/>
+                <path d="M42 16 C46 16, 48 20, 46 24 C44 28, 40 24, 42 16 Z" fill="#c19d60"/>
+                <circle cx="32" cy="32" r="24" stroke="#0a1128" strokeWidth="2" strokeDasharray="5 5"/>
+              </svg>
+              <h3 className="text-[1.35rem] font-bold text-[#0a1128] mb-3">Personalized Guidance</h3>
+              <p className="text-slate-600 leading-relaxed text-[15px]">
+                One-on-one sessions tailored to your specific travel and documentation needs. Our experts understand every case is unique.
+              </p>
+            </motion.div>
 
-            <ServiceCard
-              index={0}
-              icon={<Globe2 className="w-8 h-8" />}
-              title="Personalized Guidance"
-              description="One-on-one sessions tailored to your specific travel and documentation needs. Our experts understand every case is unique."
-            />
-            <ServiceCard
-              index={1}
-              icon={<FileCheck2 className="w-8 h-8" />}
-              title="Complete File Preparation"
-              description="From visa forms to financial documents, everything is reviewed, organized, and prepared to perfection by our team."
-            />
-            <ServiceCard
-              index={2}
-              icon={<Users className="w-8 h-8" />}
-              title="Family & Group Support"
-              description="Specialized support for couples, families, and group applications ensuring a smooth process for everyone involved."
-            />
+            {/* Card 2 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white rounded-xl p-8 border-t-[4px] border-[#c19d60] shadow-[0_6px_0_-1px_#ffffff,0_7px_0_-1px_#cbd5e1,0_12px_0_-2px_#ffffff,0_13px_0_-2px_#cbd5e1,0_20px_25px_-5px_rgba(0,0,0,0.1)] text-center relative hover:-translate-y-1 transition-transform duration-300"
+            >
+              <svg width="70" height="70" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-6 drop-shadow-md">
+                <rect x="20" y="10" width="30" height="40" rx="3" fill="#cbd5e1" stroke="#0a1128" strokeWidth="2.5"/>
+                <rect x="14" y="16" width="30" height="40" rx="3" fill="#f8fafc" stroke="#0a1128" strokeWidth="2.5"/>
+                <line x1="20" y1="26" x2="38" y2="26" stroke="#0a1128" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="20" y1="32" x2="34" y2="32" stroke="#0a1128" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="20" y1="38" x2="38" y2="38" stroke="#0a1128" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="20" y1="44" x2="28" y2="44" stroke="#0a1128" strokeWidth="2.5" strokeLinecap="round"/>
+                <path d="M40 54 L37 45 L45 45 L42 54 L39.5 52 Z" fill="#c19d60" stroke="#0a1128" strokeWidth="1.5"/>
+                <circle cx="41" cy="43" r="7" fill="#c19d60" stroke="#0a1128" strokeWidth="2.5"/>
+                <circle cx="41" cy="43" r="3" fill="#f8fafc"/>
+              </svg>
+              <h3 className="text-[1.35rem] font-bold text-[#0a1128] mb-3">Complete File Preparation</h3>
+              <p className="text-slate-600 leading-relaxed text-[15px]">
+                From visa forms to financial documents, everything is reviewed, organized, and prepared to perfection by our team.
+              </p>
+            </motion.div>
+
+            {/* Card 3 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-white rounded-xl p-8 border-t-[4px] border-[#c19d60] shadow-[0_6px_0_-1px_#ffffff,0_7px_0_-1px_#cbd5e1,0_12px_0_-2px_#ffffff,0_13px_0_-2px_#cbd5e1,0_20px_25px_-5px_rgba(0,0,0,0.1)] text-center relative hover:-translate-y-1 transition-transform duration-300"
+            >
+              <svg width="70" height="70" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-6 drop-shadow-md">
+                <circle cx="20" cy="22" r="5" fill="#c19d60" stroke="#0a1128" strokeWidth="2.5"/>
+                <path d="M12 38 C12 30, 28 30, 28 38" fill="#c19d60" stroke="#0a1128" strokeWidth="2.5"/>
+                <circle cx="44" cy="22" r="5" fill="#94a3b8" stroke="#0a1128" strokeWidth="2.5"/>
+                <path d="M36 38 C36 30, 52 30, 52 38" fill="#94a3b8" stroke="#0a1128" strokeWidth="2.5"/>
+                <circle cx="32" cy="28" r="6" fill="#7dd3fc" stroke="#0a1128" strokeWidth="2.5"/>
+                <path d="M22 46 C22 36, 42 36, 42 46 V50 H22 V46 Z" fill="#7dd3fc" stroke="#0a1128" strokeWidth="2.5"/>
+                <circle cx="20" cy="42" r="4" fill="#fcd34d" stroke="#0a1128" strokeWidth="2.5"/>
+                <path d="M14 54 C14 48, 26 48, 26 54 V56 H14 V54 Z" fill="#fcd34d" stroke="#0a1128" strokeWidth="2.5"/>
+                <circle cx="44" cy="42" r="4" fill="#86efac" stroke="#0a1128" strokeWidth="2.5"/>
+                <path d="M38 54 C38 48, 50 48, 50 54 V56 H38 V54 Z" fill="#86efac" stroke="#0a1128" strokeWidth="2.5"/>
+              </svg>
+              <h3 className="text-[1.35rem] font-bold text-[#0a1128] mb-3">Family & Group Support</h3>
+              <p className="text-slate-600 leading-relaxed text-[15px]">
+                Specialized support for couples, families, and group applications ensuring a smooth process for everyone involved.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
+
+
 
 
 
@@ -401,32 +450,6 @@ const VisaConsultation: React.FC = () => {
   );
 };
 
-const ServiceCard = ({ icon, title, description, index = 0 }: { icon: React.ReactNode; title: string; description: string; index?: number }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-50px" }}
-    transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
-    whileHover={{ y: -12 }}
-    className="relative bg-white p-8 sm:p-10 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] transition-all duration-500 border border-slate-100 hover:border-slate-200 h-full overflow-hidden group z-10"
-  >
-    {/* Decorative background flares on hover */}
-    <div className="absolute -right-20 -top-20 w-48 h-48 bg-slate-50 group-hover:bg-blue-50/80 rounded-full blur-3xl transition-colors duration-700 -z-10" />
-    <div className="absolute -left-20 -bottom-20 w-48 h-48 bg-slate-50 group-hover:bg-amber-50/80 rounded-full blur-3xl transition-colors duration-700 -z-10" />
 
-    <div className="w-16 h-16 bg-slate-50/80 border border-slate-100 rounded-2xl flex items-center justify-center mb-8 text-slate-600 group-hover:bg-slate-900 group-hover:text-white group-hover:-rotate-3 group-hover:scale-110 transition-all duration-500 shadow-sm relative z-20">
-      <div className="absolute inset-0 rounded-2xl bg-slate-900 opacity-0 group-hover:opacity-20 blur-md transition-opacity duration-500 z-10"></div>
-      <div className="relative z-20">
-        {icon}
-      </div>
-    </div>
-
-    <h3 className="text-2xl font-bold mb-4 text-slate-900 group-hover:text-slate-800 transition-colors duration-300 relative z-20">{title}</h3>
-    <p className="text-slate-600/90 leading-relaxed text-base relative z-20">{description}</p>
-
-    {/* Bottom decorative animated underline */}
-    <div className="absolute bottom-0 left-0 w-0 h-1.5 bg-gradient-to-r from-slate-800 to-slate-600 group-hover:w-full transition-all duration-700 ease-in-out" />
-  </motion.div>
-);
 
 export default VisaConsultation;
