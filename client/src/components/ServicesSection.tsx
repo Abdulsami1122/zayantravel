@@ -6,6 +6,41 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useSettings } from "@/context/SettingsContext";
 
+const VectorLogo = () => (
+  <svg viewBox="0 0 200 160" className="w-full h-full p-6 md:p-8" fill="white">
+    {/* Globe */}
+    <g transform="translate(100, 50) scale(1.4)">
+      <circle cx="0" cy="0" r="20" fill="none" stroke="white" strokeWidth="2.5" />
+      <ellipse cx="0" cy="0" rx="8" ry="20" fill="none" stroke="white" strokeWidth="1.5" />
+      <path d="M-20 0 L20 0" stroke="white" strokeWidth="1.5" />
+      <path d="M-17 -10 Q0 -5 17 -10" fill="none" stroke="white" strokeWidth="1.5" />
+      <path d="M-17 10 Q0 5 17 10" fill="none" stroke="white" strokeWidth="1.5" />
+      <path d="M -8 -12 Q -3 -16 2 -8 T -3 5 Q -10 -5 -8 -12" fill="white" />
+      <path d="M 5 0 Q 15 -3 10 8 T 3 12 Q -2 5 5 0" fill="white" />
+    </g>
+
+    {/* Left Suitcase */}
+    <g transform="translate(42, 38)">
+      <rect x="-8" y="-5" width="16" height="26" rx="2" fill="white" />
+      <path d="M-4 -5 L-4 -12 L4 -12 L4 -5" fill="none" stroke="white" strokeWidth="2.5" />
+      <rect x="-6" y="21" width="3" height="4" rx="1" fill="white" />
+      <rect x="3" y="21" width="3" height="4" rx="1" fill="white" />
+    </g>
+
+    {/* Right Person & small case */}
+    <g transform="translate(158, 38)">
+      <circle cx="-6" cy="-14" r="4.5" fill="white" />
+      <rect x="-9" y="-7" width="6" height="30" rx="1.5" fill="white" />
+      <rect x="1" y="8" width="10" height="15" rx="1.5" fill="white" />
+      <path d="M3 8 L3 3 L9 3 L9 8" fill="none" stroke="white" strokeWidth="1.5" />
+    </g>
+
+    {/* Text */}
+    <text x="100" y="125" textAnchor="middle" fontSize="56" fontWeight="900" fontFamily="Arial, sans-serif" fill="white" letterSpacing="-1.5">Zayan</text>
+    <text x="100" y="148" textAnchor="middle" fontSize="13" fontWeight="700" letterSpacing="1.5" fontFamily="Arial, sans-serif" fill="white">TRAVEL CONSULTANTS</text>
+  </svg>
+);
+
 export default function ServicesPage() {
   const { settings } = useSettings();
   const displayLogo = settings?.logoUrl || "/zayan_logo_new.png";
@@ -44,13 +79,8 @@ export default function ServicesPage() {
                 transition={{ type: "spring", stiffness: 300 }}
                 className="w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border-[6px] border-slate-900 bg-slate-900 flex items-center justify-center"
               >
-                <div className="relative w-[80%] h-[80%] flex items-center justify-center">
-                  <Image
-                    src={displayLogo}
-                    alt="Zayan Travel Consultants Logo"
-                    fill
-                    className="object-contain"
-                  />
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <VectorLogo />
                 </div>
               </motion.div>
           </div>
