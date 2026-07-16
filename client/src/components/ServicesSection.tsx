@@ -73,11 +73,11 @@ export default function ServicesPage() {
             </p>
           </motion.div>
 
-          <div className="relative inline-flex items-center justify-center flex-shrink-0 pr-16 lg:pr-24 group cursor-default">
+          <div className="relative inline-flex items-center justify-center flex-shrink-0 pr-0 md:pr-16 lg:pr-24 group cursor-default w-full md:w-auto">
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border-[6px] border-slate-900 bg-slate-900 flex items-center justify-center"
+                className="w-[260px] h-[260px] sm:w-[280px] sm:h-[280px] md:w-[280px] md:h-[280px] rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border-[6px] border-slate-900 bg-slate-900 flex items-center justify-center"
               >
                 <div className="relative w-full h-full flex items-center justify-center">
                   <VectorLogo />
