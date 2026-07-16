@@ -35,9 +35,13 @@ const AboutPage = () => {
               
               {/* Top Right: Rectangle Image */}
               <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }} className="flex justify-center w-full">
-                <div className="relative w-[280px] h-[200px] md:w-[340px] md:h-[260px] rounded-[1.5rem] overflow-hidden shadow-xl border-[6px] border-white z-10 bg-slate-200">
-                  <img src="/passports.png" alt="Passports" className="w-full h-full object-cover" />
-                </div>
+                <motion.div 
+                  animate={{ y: [-5, 5, -5] }}
+                  transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+                  className="relative w-[280px] h-[200px] md:w-[340px] md:h-[260px] rounded-[1.5rem] overflow-hidden shadow-xl border-[6px] border-white z-10 bg-slate-200 group"
+                >
+                  <img src="/passports.png" alt="Passports" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </motion.div>
               </motion.div>
             </div>
 

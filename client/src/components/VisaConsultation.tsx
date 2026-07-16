@@ -326,22 +326,22 @@ const VisaConsultation: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white rounded-xl p-8 border-t-[4px] border-[#c19d60] shadow-[0_6px_0_-1px_#ffffff,0_7px_0_-1px_#cbd5e1,0_12px_0_-2px_#ffffff,0_13px_0_-2px_#cbd5e1,0_20px_25px_-5px_rgba(0,0,0,0.1)] text-center relative hover:-translate-y-1 transition-transform duration-300"
+              className="group bg-white rounded-xl p-8 border-t-[4px] border-[#c19d60] shadow-[0_6px_0_-1px_#ffffff,0_7px_0_-1px_#cbd5e1,0_12px_0_-2px_#ffffff,0_13px_0_-2px_#cbd5e1,0_20px_25px_-5px_rgba(0,0,0,0.1)] text-center relative hover:-translate-y-1 transition-transform duration-300 overflow-hidden"
             >
-              <svg width="70" height="70" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-6 drop-shadow-md">
-                <path d="M32 2 L36 12 L32 10 L28 12 Z" fill="#c19d60" />
-                <path d="M32 62 L36 52 L32 54 L28 52 Z" fill="#c19d60" />
-                <path d="M2 32 L12 28 L10 32 L12 36 Z" fill="#c19d60" />
-                <path d="M62 32 L52 28 L54 32 L52 36 Z" fill="#c19d60" />
-                <circle cx="32" cy="32" r="20" fill="#e2e8f0" stroke="#0a1128" strokeWidth="2.5"/>
-                <path d="M28 14 C35 12, 40 18, 38 24 C36 30, 44 32, 46 38 C48 44, 40 50, 32 50 C24 50, 20 42, 22 36 C24 30, 18 24, 22 18 C26 12, 28 14, 28 14 Z" fill="#0a1128"/>
-                <path d="M42 16 C46 16, 48 20, 46 24 C44 28, 40 24, 42 16 Z" fill="#c19d60"/>
-                <circle cx="32" cy="32" r="24" stroke="#0a1128" strokeWidth="2" strokeDasharray="5 5"/>
+              <svg width="70" height="70" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-6 drop-shadow-md group-hover:scale-110 transition-transform duration-500">
+                <circle cx="32" cy="32" r="24" fill="#e2e8f0" stroke="#0a1128" strokeWidth="2.5"/>
+                <ellipse cx="32" cy="32" rx="10" ry="24" fill="none" stroke="#0a1128" strokeWidth="2.5"/>
+                <line x1="8" y1="32" x2="56" y2="32" stroke="#0a1128" strokeWidth="2.5"/>
+                <path d="M14 20 Q32 26 50 20" fill="none" stroke="#0a1128" strokeWidth="2.5"/>
+                <path d="M14 44 Q32 38 50 44" fill="none" stroke="#0a1128" strokeWidth="2.5"/>
+                <path d="M32 2 C37 2 41 6 41 11 C41 17 32 26 32 26 C32 26 23 17 23 11 C23 6 27 2 32 2 Z" fill="#c19d60" stroke="#0a1128" strokeWidth="2.5" className="origin-bottom animate-bounce"/>
+                <circle cx="32" cy="9" r="3" fill="#f8fafc" stroke="#0a1128" strokeWidth="2"/>
               </svg>
               <h3 className="text-[1.35rem] font-bold text-[#0a1128] mb-3">Personalized Guidance</h3>
               <p className="text-slate-600 leading-relaxed text-[15px]">
                 One-on-one sessions tailored to your specific travel and documentation needs. Our experts understand every case is unique.
               </p>
+              <span className="absolute bottom-0 right-0 h-[6px] bg-[#0a1128] w-0 transition-all duration-300 ease-out group-hover:w-full"></span>
             </motion.div>
 
             {/* Card 2 */}
@@ -350,7 +350,7 @@ const VisaConsultation: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white rounded-xl p-8 border-t-[4px] border-[#c19d60] shadow-[0_6px_0_-1px_#ffffff,0_7px_0_-1px_#cbd5e1,0_12px_0_-2px_#ffffff,0_13px_0_-2px_#cbd5e1,0_20px_25px_-5px_rgba(0,0,0,0.1)] text-center relative hover:-translate-y-1 transition-transform duration-300"
+              className="group bg-white rounded-xl p-8 border-t-[4px] border-[#c19d60] shadow-[0_6px_0_-1px_#ffffff,0_7px_0_-1px_#cbd5e1,0_12px_0_-2px_#ffffff,0_13px_0_-2px_#cbd5e1,0_20px_25px_-5px_rgba(0,0,0,0.1)] text-center relative hover:-translate-y-1 transition-transform duration-300 overflow-hidden"
             >
               <svg width="70" height="70" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-6 drop-shadow-md">
                 <rect x="20" y="10" width="30" height="40" rx="3" fill="#cbd5e1" stroke="#0a1128" strokeWidth="2.5"/>
@@ -367,6 +367,7 @@ const VisaConsultation: React.FC = () => {
               <p className="text-slate-600 leading-relaxed text-[15px]">
                 From visa forms to financial documents, everything is reviewed, organized, and prepared to perfection by our team.
               </p>
+              <span className="absolute bottom-0 right-0 h-[6px] bg-[#0a1128] w-0 transition-all duration-300 ease-out group-hover:w-full"></span>
             </motion.div>
 
             {/* Card 3 */}
@@ -375,7 +376,7 @@ const VisaConsultation: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-white rounded-xl p-8 border-t-[4px] border-[#c19d60] shadow-[0_6px_0_-1px_#ffffff,0_7px_0_-1px_#cbd5e1,0_12px_0_-2px_#ffffff,0_13px_0_-2px_#cbd5e1,0_20px_25px_-5px_rgba(0,0,0,0.1)] text-center relative hover:-translate-y-1 transition-transform duration-300"
+              className="group bg-white rounded-xl p-8 border-t-[4px] border-[#c19d60] shadow-[0_6px_0_-1px_#ffffff,0_7px_0_-1px_#cbd5e1,0_12px_0_-2px_#ffffff,0_13px_0_-2px_#cbd5e1,0_20px_25px_-5px_rgba(0,0,0,0.1)] text-center relative hover:-translate-y-1 transition-transform duration-300 overflow-hidden"
             >
               <svg width="70" height="70" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-6 drop-shadow-md">
                 <circle cx="20" cy="22" r="5" fill="#c19d60" stroke="#0a1128" strokeWidth="2.5"/>
@@ -393,6 +394,7 @@ const VisaConsultation: React.FC = () => {
               <p className="text-slate-600 leading-relaxed text-[15px]">
                 Specialized support for couples, families, and group applications ensuring a smooth process for everyone involved.
               </p>
+              <span className="absolute bottom-0 right-0 h-[6px] bg-[#0a1128] w-0 transition-all duration-300 ease-out group-hover:w-full"></span>
             </motion.div>
           </div>
         </div>
