@@ -84,40 +84,40 @@ const AboutPage = () => {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative group rounded-[2.5rem] bg-slate-900 p-10 md:p-12 text-white shadow-2xl overflow-hidden border border-slate-800">
+          <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative group rounded-[2rem] bg-slate-900 p-8 md:p-10 text-white shadow-2xl overflow-hidden border border-slate-800 lg:w-[95%] lg:justify-self-end">
             {/* Beautiful gradient blurs mapping */}
             <div className="absolute -top-32 -right-32 w-80 h-80 bg-emerald-500/20 rounded-full blur-[80px] group-hover:bg-emerald-500/30 transition-colors duration-700 select-none pointer-events-none" />
             <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-blue-500/20 rounded-full blur-[80px] group-hover:bg-blue-500/30 transition-colors duration-700 select-none pointer-events-none" />
 
-            <div className="relative z-10 space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-sm">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span className="text-xs uppercase tracking-[0.24em] text-emerald-300 font-semibold">Why choose us</span>
+            <div className="relative z-10 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-sm">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="text-[11px] uppercase tracking-[0.24em] text-emerald-300 font-semibold">Why choose us</span>
               </div>
 
-              <h3 className="text-3xl sm:text-4xl font-bold leading-tight">Personalized support at every step.</h3>
-              <p className="text-slate-300 leading-relaxed text-lg">
+              <h3 className="text-2xl sm:text-3xl font-bold leading-tight">Personalized support at every step.</h3>
+              <p className="text-slate-300 leading-relaxed text-[15px] sm:text-base">
                 We listen to your goals, review your documents carefully, and keep you informed throughout the process so your visa journey is clear and stress-free.
               </p>
 
-              <div className="grid gap-4 sm:grid-cols-2 pt-4">
-                <motion.div whileHover={{ scale: 1.05 }} className="rounded-2xl bg-white/5 border border-white/10 p-5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex flex-col items-start gap-4 shadow-lg backdrop-blur-sm">
-                  <div className="p-2.5 rounded-xl bg-emerald-400/20 text-emerald-400 border border-emerald-400/20">
-                    <Heart size={20} strokeWidth={2.5} />
+              <div className="grid gap-3 sm:grid-cols-2 pt-2">
+                <motion.div whileHover={{ scale: 1.05 }} className="rounded-2xl bg-white/5 border border-white/10 p-4 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex flex-col items-start gap-3 shadow-lg backdrop-blur-sm">
+                  <div className="p-2 rounded-xl bg-emerald-400/20 text-emerald-400 border border-emerald-400/20">
+                    <Heart size={18} strokeWidth={2.5} />
                   </div>
                   <div>
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-emerald-200/70 font-bold mb-1.5">Dedicated team</p>
-                    <p className="text-base font-semibold text-white">Experienced specialists</p>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-emerald-200/70 font-bold mb-1">Dedicated team</p>
+                    <p className="text-[15px] font-semibold text-white">Experienced specialists</p>
                   </div>
                 </motion.div>
 
-                <motion.div whileHover={{ scale: 1.05 }} className="rounded-2xl bg-white/5 border border-white/10 p-5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex flex-col items-start gap-4 shadow-lg backdrop-blur-sm">
-                  <div className="p-2.5 rounded-xl bg-blue-400/20 text-blue-400 border border-blue-400/20">
-                    <ShieldCheck size={20} strokeWidth={2.5} />
+                <motion.div whileHover={{ scale: 1.05 }} className="rounded-2xl bg-white/5 border border-white/10 p-4 hover:bg-white/10 hover:border-white/20 transition-all duration-300 flex flex-col items-start gap-3 shadow-lg backdrop-blur-sm">
+                  <div className="p-2 rounded-xl bg-blue-400/20 text-blue-400 border border-blue-400/20">
+                    <ShieldCheck size={18} strokeWidth={2.5} />
                   </div>
                   <div>
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-blue-200/70 font-bold mb-1.5">Clear process</p>
-                    <p className="text-base font-semibold text-white">Easy steps to approval</p>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-blue-200/70 font-bold mb-1">Clear process</p>
+                    <p className="text-[15px] font-semibold text-white">Easy steps to approval</p>
                   </div>
                 </motion.div>
               </div>
