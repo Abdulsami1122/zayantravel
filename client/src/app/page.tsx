@@ -9,14 +9,16 @@ const page = () => {
   return (
     <div>
       <VisaConsultation/>
-      <div id="about">
+      <div id="about" className="scroll-mt-24">
         <AboutSection/>
       </div>
-      <div id="services">
+      <div id="services" className="scroll-mt-24">
         <ServicesSection/>
       </div>
-      <DestinationsSection/>
-      <div id="contact">
+      <div id="destinations" className="scroll-mt-24">
+        <DestinationsSection/>
+      </div>
+      <div id="contact" className="scroll-mt-24">
         <ContactSection/>
       </div>
     </div>
