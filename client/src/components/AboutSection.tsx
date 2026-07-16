@@ -57,22 +57,22 @@ const AboutPage = () => {
                 </p>
 
                 {/* Stats Cards */}
-                <div className="flex flex-wrap gap-4">
-                  <div className="bg-white border border-slate-100 rounded-2xl p-6 min-w-[200px] shadow-sm relative overflow-hidden group">
+                <div className="grid grid-cols-2 gap-3 md:gap-4">
+                  <div className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-6 shadow-sm relative overflow-hidden group">
                     <Heart className="absolute -top-4 -right-4 w-24 h-24 text-red-50 opacity-50 group-hover:scale-110 transition-transform duration-500" />
                     <div className="relative z-10">
-                      <p className="text-[11px] font-bold text-slate-400 mb-2 tracking-wider uppercase">Trusted By</p>
-                      <p className="text-3xl font-black text-slate-900 leading-none mb-2">10,000+</p>
-                      <p className="text-[13px] text-slate-500 font-medium">clients worldwide</p>
+                      <p className="text-[10px] sm:text-[11px] font-bold text-slate-400 mb-1 sm:mb-2 tracking-wider uppercase">Trusted By</p>
+                      <p className="text-2xl sm:text-3xl font-black text-slate-900 leading-none mb-1 sm:mb-2">10,000+</p>
+                      <p className="text-[11px] sm:text-[13px] text-slate-500 font-medium">clients worldwide</p>
                     </div>
                   </div>
                   
-                  <div className="bg-white border border-slate-100 rounded-2xl p-6 min-w-[200px] shadow-sm relative overflow-hidden group">
+                  <div className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-6 shadow-sm relative overflow-hidden group">
                     <TrendingUp className="absolute -top-4 -right-4 w-24 h-24 text-blue-50 opacity-50 group-hover:scale-110 transition-transform duration-500" />
                     <div className="relative z-10">
-                      <p className="text-[11px] font-bold text-slate-400 mb-2 tracking-wider uppercase">Success Rate</p>
-                      <p className="text-3xl font-black text-slate-900 leading-none mb-2">98%</p>
-                      <p className="text-[13px] text-slate-500 font-medium">approved applications</p>
+                      <p className="text-[10px] sm:text-[11px] font-bold text-slate-400 mb-1 sm:mb-2 tracking-wider uppercase">Success Rate</p>
+                      <p className="text-2xl sm:text-3xl font-black text-slate-900 leading-none mb-1 sm:mb-2">98%</p>
+                      <p className="text-[11px] sm:text-[13px] text-slate-500 font-medium leading-tight">approved applications</p>
                     </div>
                   </div>
                 </div>
