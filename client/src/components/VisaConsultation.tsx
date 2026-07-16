@@ -307,7 +307,7 @@ const VisaConsultation: React.FC = () => {
       </section>
 
       {/* New Why Choose Zayan Section */}
-      <section className="pt-10 pb-10 bg-slate-50 overflow-hidden">
+      <section className="pt-10 pb-2 bg-slate-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-[2.5rem] font-bold text-[#0a1128] mb-4">Why Choose Zayan Travel Consultants</h2>

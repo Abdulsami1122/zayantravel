@@ -13,79 +13,120 @@ const AboutPage = () => {
 
   return (
     <div className="bg-slate-50 text-slate-900">
-      <section className="pt-12 pb-8 bg-[#f4f5f7]">
-        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-x-12 gap-y-8">
-            <motion.div
-              initial="initial"
-              animate="animate"
-              className="flex-1 text-left max-w-2xl"
-              variants={{ animate: { transition: { staggerChildren: 0.15 } } }}
-            >
-              <motion.span variants={fadeIn} className="inline-block text-sm uppercase tracking-[0.25em] font-extrabold text-[#1e293b] mb-6">
-                ABOUT Zayan Travel Consultants
-              </motion.span>
-              <motion.h1 variants={fadeIn} className="text-4xl md:text-5xl lg:text-[4rem] leading-[1.1] font-bold tracking-tight mb-8 text-[#0a1128]">
-                Your trusted path,<br />to a global future
-              </motion.h1>
-              <motion.p variants={fadeIn} className="text-lg md:text-[1.15rem] text-[#475569] leading-relaxed max-w-xl">
-                We make global immigration simpler with trusted visa guidance, expert document support, and a people-first process helping thousands worldwide.
-              </motion.p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative inline-flex items-center justify-center flex-shrink-0 group cursor-default"
-            >
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="w-[240px] h-[240px] md:w-[320px] md:h-[320px] rounded-full overflow-hidden shadow-2xl relative z-10 border-[6px] border-white"
-              >
-                <img
-                  src="/passports.png"
-                  alt="Our Team"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+      <section className="pt-10 pb-20 bg-[#f8fafc] relative overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col gap-12 lg:gap-16">
+            
+            {/* ROW 1: About & Image */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center">
+              
+              {/* Top Left: About Text */}
+              <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}>
+                <span className="inline-block text-[12px] font-bold text-slate-500 mb-4 tracking-[0.2em] uppercase">
+                  About Zayan Travel Consultants
+                </span>
+                <h2 className="text-4xl md:text-[3.25rem] leading-[1.1] font-bold text-[#0a1128] mb-6">
+                  Your trusted path,<br/>to a global future
+                </h2>
+                <p className="text-[15px] text-slate-500 leading-relaxed pr-4 max-w-[90%]">
+                  We make global immigration simpler with trusted visa guidance, expert document support, and a people-first process helping thousands worldwide.
+                </p>
               </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section className="pt-20 pb-10 bg-slate-50 overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mb-16">
-          <motion.div variants={fadeIn} initial="initial" animate="animate" className="space-y-6">
-            <p className="text-sm uppercase tracking-[0.32em] text-slate-400 font-semibold">Our Story</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 leading-[1.15]">Focused on real results for families and professionals.</h2>
-            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Since 2009, our team has supported thousands of clients with every type of visa journey. We combine personal care, legal knowledge, and practical support so you can move forward with confidence.
-            </p>
-            <div className="grid gap-6 sm:grid-cols-2 pt-4 text-left max-w-2xl mx-auto">
-              <motion.div whileHover={{ scale: 1.05, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="relative group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm hover:shadow-xl hover:border-rose-300 transition-all duration-300 overflow-hidden">
-                <div className="absolute -top-4 -right-4 p-4 opacity-[0.03] group-hover:opacity-25 transition-all transform group-hover:scale-110 group-hover:rotate-12 duration-500 text-rose-500">
-                  <Heart size={80} className="group-hover:fill-rose-500/20 transition-all duration-500" />
+              
+              {/* Top Right: Rectangle Image */}
+              <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }} className="flex justify-center w-full">
+                <div className="relative w-[280px] h-[200px] md:w-[340px] md:h-[260px] rounded-[1.5rem] overflow-hidden shadow-xl border-[6px] border-white z-10 bg-slate-200">
+                  <img src="/passports.png" alt="Passports" className="w-full h-full object-cover" />
                 </div>
-                <p className="text-xs text-slate-400 uppercase tracking-[0.24em] font-semibold mb-3">Trusted by</p>
-                <p className="text-4xl md:text-5xl font-black text-slate-900">10,000+</p>
-                <p className="mt-2 text-slate-600 font-medium">clients worldwide</p>
-              </motion.div>
-
-              <motion.div whileHover={{ scale: 1.05, y: -5 }} transition={{ type: "spring", stiffness: 300 }} className="relative group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm hover:shadow-xl hover:border-blue-200 transition-all duration-300 overflow-hidden">
-                <div className="absolute -top-4 -right-4 p-4 opacity-[0.03] group-hover:opacity-10 transition-opacity transform group-hover:rotate-12 duration-500 text-blue-600">
-                  <TrendingUp size={80} />
-                </div>
-                <p className="text-xs text-slate-400 uppercase tracking-[0.24em] font-semibold mb-3">Success rate</p>
-                <p className="text-4xl md:text-5xl font-black text-slate-900">98%</p>
-                <p className="mt-2 text-slate-600 font-medium">approved applications</p>
               </motion.div>
             </div>
-          </motion.div>
+
+            {/* ROW 2: Our Story & Dark Card */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-end">
+              
+              {/* Bottom Left: Our Story Text & Stats */}
+              <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}>
+                <span className="inline-block text-[12px] font-bold text-slate-400 mb-4 tracking-[0.2em] uppercase">
+                  Our Story
+                </span>
+                <h2 className="text-3xl md:text-[2.5rem] leading-[1.2] font-bold text-[#0a1128] mb-6 max-w-[90%]">
+                  Focused on real results for families and professionals.
+                </h2>
+                <p className="text-[15px] text-slate-500 leading-relaxed max-w-[90%] mb-10">
+                  Since 2009, our team has supported thousands of clients with every type of visa journey. We combine personal care, legal knowledge, and practical support so you can move forward with confidence.
+                </p>
+
+                {/* Stats Cards */}
+                <div className="flex flex-wrap gap-4">
+                  <div className="bg-white border border-slate-100 rounded-2xl p-6 min-w-[200px] shadow-sm relative overflow-hidden group">
+                    <Heart className="absolute -top-4 -right-4 w-24 h-24 text-red-50 opacity-50 group-hover:scale-110 transition-transform duration-500" />
+                    <div className="relative z-10">
+                      <p className="text-[11px] font-bold text-slate-400 mb-2 tracking-wider uppercase">Trusted By</p>
+                      <p className="text-3xl font-black text-slate-900 leading-none mb-2">10,000+</p>
+                      <p className="text-[13px] text-slate-500 font-medium">clients worldwide</p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white border border-slate-100 rounded-2xl p-6 min-w-[200px] shadow-sm relative overflow-hidden group">
+                    <TrendingUp className="absolute -top-4 -right-4 w-24 h-24 text-blue-50 opacity-50 group-hover:scale-110 transition-transform duration-500" />
+                    <div className="relative z-10">
+                      <p className="text-[11px] font-bold text-slate-400 mb-2 tracking-wider uppercase">Success Rate</p>
+                      <p className="text-3xl font-black text-slate-900 leading-none mb-2">98%</p>
+                      <p className="text-[13px] text-slate-500 font-medium">approved applications</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Bottom Right: Dark Card */}
+              <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}>
+                <div className="relative w-full bg-[#0a1128] rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-8 md:p-10">
+                  
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-2 mb-8 border border-emerald-500/30 rounded-full px-4 py-1.5 bg-[#0a1128]">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+                    <span className="text-[10px] font-bold tracking-[0.15em] text-emerald-500 uppercase">Why Choose Us</span>
+                  </div>
+
+                  {/* Heading */}
+                  <h3 className="text-[1.75rem] md:text-[2rem] font-bold text-white mb-6 leading-[1.2]">
+                    Personalized support at every step.
+                  </h3>
+
+                  {/* Paragraph */}
+                  <p className="text-[14.5px] text-slate-300 leading-relaxed mb-10">
+                    We listen to your goals, review your documents carefully, and keep you informed throughout the process so your visa journey is clear and stress-free.
+                  </p>
+
+                  {/* Two Inner Cards */}
+                  <div className="grid grid-cols-2 gap-4 w-full">
+                    
+                    {/* Dedicated Team */}
+                    <div className="bg-[#111827] border border-slate-800 rounded-2xl p-5 flex flex-col hover:border-slate-700 transition-colors">
+                      <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-4">
+                        <Heart className="w-4 h-4 text-emerald-500" />
+                      </div>
+                      <h4 className="text-[10px] font-bold tracking-[0.1em] text-emerald-500 uppercase mb-2">Dedicated Team</h4>
+                      <p className="text-[13px] font-semibold text-white">Experienced specialists</p>
+                    </div>
+
+                    {/* Clear Process */}
+                    <div className="bg-[#111827] border border-slate-800 rounded-2xl p-5 flex flex-col hover:border-slate-700 transition-colors">
+                      <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center mb-4">
+                        <ShieldCheck className="w-4 h-4 text-blue-500" />
+                      </div>
+                      <h4 className="text-[10px] font-bold tracking-[0.1em] text-slate-400 uppercase mb-2">Clear Process</h4>
+                      <p className="text-[13px] font-semibold text-white">Easy steps to approval</p>
+                    </div>
+
+                  </div>
+
+                </div>
+              </motion.div>
+
+            </div>
+          </div>
         </div>
-
-
       </section>
 
 
