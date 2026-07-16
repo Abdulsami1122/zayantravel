@@ -102,8 +102,8 @@ function NavMainItem({
                   className={cn(
                     "rounded-xl text-[14px] font-medium px-4 py-3 h-12 transition-all duration-300 cursor-pointer w-full flex items-center gap-3",
                     isParentActive 
-                      ? "bg-emerald-500/10 text-emerald-400 shadow-[inset_0_1px_0_0_rgba(16,185,129,0.1)] ring-1 ring-emerald-500/20" 
-                      : "text-slate-300 hover:bg-slate-800/60 hover:text-white"
+                      ? "bg-emerald-100 text-emerald-700 shadow-[inset_0_1px_0_0_rgba(16,185,129,0.1)] ring-1 ring-emerald-500/20" 
+                      : "text-slate-600 hover:bg-slate-200/60 hover:text-slate-900"
                   )}
                 >
                   {item.icon && <item.icon size={16} />}
@@ -156,8 +156,8 @@ function NavMainItem({
               className={cn(
                 "rounded-xl text-[14px] font-medium px-4 py-3 h-12 transition-all duration-300 cursor-pointer w-full flex items-center gap-3 group",
                 isParentActive 
-                  ? "bg-emerald-500/10 text-emerald-400 shadow-[inset_0_1px_0_0_rgba(16,185,129,0.1)] ring-1 ring-emerald-500/20" 
-                  : "text-slate-300 hover:bg-slate-800/60 hover:text-white"
+                  ? "bg-emerald-100 text-emerald-700 shadow-[inset_0_1px_0_0_rgba(16,185,129,0.1)] ring-1 ring-emerald-500/20" 
+                  : "text-slate-600 hover:bg-slate-200/60 hover:text-slate-900"
               )}
             >
               <Link href={item.href || "#"}>
@@ -199,7 +199,7 @@ function NavMainSubItem({
           <CollapsibleTrigger asChild className="w-full">
             <SidebarMenuSubButton 
               id={`nav-sub-trigger-${item.title.toLowerCase().replace(/\s+/g, '-')}`}
-              className="rounded-xl text-[14px] font-medium px-4 py-2.5 h-11 transition-all duration-300 text-slate-400 hover:bg-slate-800/60 hover:text-white flex items-center gap-3"
+              className="rounded-xl text-[14px] font-medium px-4 py-2.5 h-11 transition-all duration-300 text-slate-600 hover:bg-slate-200/60 hover:text-slate-900 flex items-center gap-3"
             >
               {item.icon && <item.icon />}
               <span>{item.title}</span>
@@ -240,8 +240,8 @@ function NavMainSubItem({
           className={cn(
             "w-full rounded-xl transition-all duration-300 text-[14px] px-4 py-2.5 h-11 flex items-center gap-3",
             activeChild === item.title 
-              ? "bg-slate-800 text-emerald-400" 
-              : "text-slate-400 hover:bg-slate-800/60 hover:text-white"
+              ? "bg-slate-200 text-emerald-700" 
+              : "text-slate-600 hover:bg-slate-200/60 hover:text-slate-900"
           )}
           isActive={activeChild === item.title}
           onClick={() => {
