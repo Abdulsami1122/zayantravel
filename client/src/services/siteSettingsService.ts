@@ -13,13 +13,34 @@ export interface SiteSettings {
   socialLinks?: SocialLinks;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL ||
+  process.env.NEXT_PUBLIC_API_URL?.replace(/\/api$/, "") ||
+  "http://localhost:5000";
+
+const API_URL = `${API_BASE_URL}/api`;
+
+const defaultSiteSettings: SiteSettings = {
+  websiteTitle: "Zayan Travel Consultants",
+  emailAddress: "",
+  phoneNumber: "",
+  address: "",
+  logoUrl: "",
+  socialLinks: {
+    facebook: "",
+    tiktok: "",
+    instagram: "",
+  },
+};
 
 const assertResponse = async (response: Response) => {
-  const json = await response.json();
+  const text = await response.text();
+  const json = text ? JSON.parse(text) : null;
+
   if (!response.ok) {
     throw new Error(json?.message || "Failed to fetch site settings");
   }
+
   return json;
 };
 
@@ -28,19 +49,16 @@ export const siteSettingsService = {
     try {
       const response = await fetch(`${API_URL}/site-settings`, {
         cache: "no-store",
+        credentials: "include",
       });
       const json = await assertResponse(response);
       return json.data;
     } catch (error) {
-      console.error("Error fetching site settings:", error);
-      // Return default empty settings so the app doesn't crash if backend is down
-      return {
-        websiteTitle: "Zayan Travel Consultants",
-        emailAddress: "",
-        phoneNumber: "",
-        address: "",
-        logoUrl: "",
-      };
+      if (process.env.NODE_ENV !== "production") {
+        console.warn("Falling back to default site settings:", error);
+      }
+
+      return defaultSiteSettings;
     }
   },
 
@@ -52,6 +70,7 @@ export const siteSettingsService = {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(settings),
+      credentials: "include",
     });
     const json = await assertResponse(response);
     return json.data;
@@ -67,6 +86,7 @@ export const siteSettingsService = {
         Authorization: `Bearer ${token}`,
       },
       body: formData,
+      credentials: "include",
     });
     const json = await assertResponse(response);
     return json.data;
