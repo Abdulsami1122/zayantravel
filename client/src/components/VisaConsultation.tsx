@@ -241,11 +241,6 @@ const VisaConsultation: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="space-y-10"
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-4">
-              <Clock className="w-4 h-4 text-white" />
-              <span className="text-sm text-white font-medium">Trusted Visa Consultants Since 2009</span>
-            </div>
-
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[0.95] tracking-tight min-h-[140px] sm:min-h-[160px] md:min-h-[180px] lg:min-h-[220px]">
               <span ref={typedEl}></span>
             </h1>
