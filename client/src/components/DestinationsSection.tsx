@@ -1,11 +1,70 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 type Country = { name: string; image: string; flag: string };
+
+const MobileDestinationSlider = ({ destinations }: { destinations: Country[] }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % destinations.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [destinations.length]);
+
+  return (
+    <div className="relative w-full overflow-hidden h-[540px]">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0 w-full flex flex-col items-center"
+        >
+          {/* Main City Image */}
+          <div className="w-full h-[320px] relative rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)] mb-6 border border-slate-100">
+            <Image
+              src={destinations[currentIndex].image}
+              alt={destinations[currentIndex].name}
+              fill
+              className="object-cover"
+              unoptimized
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-80" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <h3 className="text-3xl font-bold text-white tracking-tight drop-shadow-md text-center">
+                {destinations[currentIndex].name}
+              </h3>
+            </div>
+          </div>
+          
+          {/* Flag Card */}
+          <div className="w-[200px] bg-white p-4 rounded-2xl shadow-md border border-slate-200 flex flex-col items-center">
+            <div className="w-full aspect-video mb-3 relative overflow-hidden rounded-lg bg-slate-100 border border-slate-100">
+              <Image
+                src={destinations[currentIndex].flag}
+                alt={`${destinations[currentIndex].name} flag`}
+                fill
+                className="object-cover"
+                unoptimized
+              />
+            </div>
+            <h4 className="font-semibold text-slate-900 text-center text-sm">
+              {destinations[currentIndex].name}
+            </h4>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const DestinationsSection = () => {
   const [carouselDuration, setCarouselDuration] = useState<number>(18);
@@ -49,7 +108,7 @@ const DestinationsSection = () => {
           </p>
         </motion.div>
 
-        <div className="overflow-hidden relative mb-8 pt-4">
+        <div className="hidden md:block overflow-hidden relative mb-8 pt-4">
           <motion.div
             className="flex gap-6 px-3"
             animate={{ x: ["0%", "-50%"] }}
@@ -87,7 +146,7 @@ const DestinationsSection = () => {
           </motion.div>
         </div>
 
-        <div className="overflow-hidden relative">
+        <div className="hidden md:block overflow-hidden relative">
           <motion.div
             className="flex gap-6 px-3"
             animate={{ x: ["-50%", "0%"] }}
@@ -113,6 +172,10 @@ const DestinationsSection = () => {
               </div>
             ))}
           </motion.div>
+        </div>
+
+        <div className="md:hidden w-full px-2 mt-4">
+          <MobileDestinationSlider destinations={popularDestinations} />
         </div>
       </div>
     </section>
