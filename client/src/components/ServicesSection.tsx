@@ -43,7 +43,7 @@ const VectorLogo = () => (
 
 export default function ServicesPage() {
   const { settings } = useSettings();
-  const displayLogo = settings?.logoUrl || "/zayan_logo_new.png";
+  const displayLogo = settings?.logoUrl || "/zayanlogo.png";
 
   const fadeUp = {
     initial: { opacity: 0, y: 30 },

@@ -58,7 +58,7 @@ const VisaConsultation: React.FC = () => {
 
     const options = {
       strings: [
-        "Welcome to<br><span class=\"block mt-3 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300\">Zayan Consultants</span>"
+        "Welcome to Zayan<br><span class=\"block mt-3 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300\">Travel and Tour Consultants</span>"
       ],
       startDelay: 300,
       typeSpeed: 40,
@@ -241,7 +241,7 @@ const VisaConsultation: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="space-y-10"
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[0.95] tracking-tight min-h-[140px] sm:min-h-[160px] md:min-h-[180px] lg:min-h-[220px]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.2] tracking-normal min-h-[100px] sm:min-h-[120px] md:min-h-[140px]" style={{ fontFamily: 'var(--font-merriweather), serif' }}>
               <span ref={typedEl}></span>
             </h1>
 

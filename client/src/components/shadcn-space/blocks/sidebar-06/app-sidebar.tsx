@@ -21,7 +21,7 @@ export const navData: NavItem[] = [
 
 export function AppSidebar() {
   const { settings } = useSettings();
-  const displayLogo = settings?.logoUrl || "/zayan_logo_new.png";
+  const displayLogo = settings?.logoUrl || "/zayanlogo.png";
 
   return (
     <Sidebar 

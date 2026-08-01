@@ -26,8 +26,8 @@ const Navbar = () => {
   const { user } = useAppSelector((state) => state.auth);
   const { settings, loading: settingsLoading } = useSettings();
 
-  const displayLogo = settings?.logoUrl || "/zayan_logo_new.png";
-  const displayTitle = "ZAYAN TRAVEL AND TOUR";
+  const displayLogo = settings?.logoUrl || "/zayanlogo.png";
+  const displayTitle = "ZAYAN TRAVEL";
   const displayPhone = settings.phoneNumber || "091-5603394";
 
   useEffect(() => {
@@ -301,7 +301,7 @@ const Navbar = () => {
                       transition={{ duration: 0.2 }}
                     />
                     <div className="space-y-1">
-                      <p className="text-xs uppercase tracking-[0.4em] text-emerald-300/90">Zayan Travel</p>
+                      <p className="text-xs uppercase tracking-[0.4em] text-emerald-300/90">{displayTitle}</p>
                       <p className="text-sm font-semibold text-slate-100">Consultants</p>
                     </div>
                   </Link>
@@ -466,15 +466,14 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                   >
                     <p className="font-semibold text-slate-100">Contact</p>
-                    <p className="text-slate-400">{settings.emailAddress || "zayantravelconsultants@gmail.com"}</p>
+                    <p className="text-slate-400">zayantravelconsultants@gmail.com</p>
                   </motion.div>
                   <motion.div
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >
                     <p className="font-semibold text-slate-100">Phone</p>
-                    <p className="text-slate-400">{settings.phoneNumber || "091-5603394"}</p>
-                    <p className="text-slate-400">Mobile: 0313-7376309</p>
+                    <p className="text-slate-400">+92 333-9224464</p>
                   </motion.div>
                 </motion.div>
               </div>
