@@ -82,7 +82,7 @@ const ContactPage = () => {
 
   return (
     <div className="bg-slate-50 text-slate-900">
-      <section className="pt-20 pb-12 bg-white">
+      <section className="pt-8 md:pt-20 pb-12 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
           <motion.div initial="initial" animate="animate" className="space-y-4">
             <motion.p variants={fadeUp} className="text-sm uppercase tracking-[0.32em] text-slate-700 font-bold drop-shadow-sm">

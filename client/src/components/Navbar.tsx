@@ -17,6 +17,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const pathname = usePathname();
 
   const isLightPage = pathname === '/about' || pathname === '/services' || pathname === '/contact';
@@ -32,7 +33,28 @@ const Navbar = () => {
 
   useEffect(() => {
     setMounted(true);
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+
+      const sections = ['about', 'services', 'destinations', 'contact'];
+      let currentSection = '';
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 200 && rect.bottom >= 200) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      
+      if (window.scrollY < 100) currentSection = '';
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) currentSection = 'contact';
+
+      setActiveSection(currentSection);
+    };
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -93,20 +115,25 @@ const Navbar = () => {
 
   const renderDesktopNav = (scrolled: boolean) => (
     <div className="hidden md:flex items-center gap-8">
-      {navLinks.map((link) => (
-        <Link
-          key={link.href}
-          href={link.href}
-          className={`text-sm font-medium transition-colors ${pathname === link.href
-            ? 'text-emerald-500'
-            : scrolled
-              ? 'text-slate-600 hover:text-emerald-600'
-              : 'text-slate-200 hover:text-emerald-300'
+      {navLinks.map((link) => {
+        const sectionId = link.href === '/' ? '' : link.href.replace('/#', '');
+        const isActive = activeSection === sectionId || (pathname !== '/' && pathname === link.href);
+        return (
+          <Link
+            key={link.href}
+            href={link.href}
+            className={`text-sm font-medium transition-colors ${
+              isActive
+                ? 'text-emerald-500'
+                : scrolled
+                  ? 'text-slate-600 hover:text-emerald-600'
+                  : 'text-slate-200 hover:text-emerald-300'
             }`}
-        >
-          {link.label}
-        </Link>
-      ))}
+          >
+            {link.label}
+          </Link>
+        );
+      })}
     </div>
   );
 
@@ -301,8 +328,8 @@ const Navbar = () => {
                       transition={{ duration: 0.2 }}
                     />
                     <div className="space-y-1">
-                      <p className="text-xs uppercase tracking-[0.4em] text-emerald-300/90">{displayTitle}</p>
-                      <p className="text-sm font-semibold text-slate-100">Consultants</p>
+                      <p className="text-[11px] uppercase tracking-[0.3em] text-emerald-300/90">ZAYAN TRAVEL AND TOUR</p>
+                      <p className="text-[13px] font-semibold text-slate-100">Consultants</p>
                     </div>
                   </Link>
                   <motion.button
@@ -345,8 +372,11 @@ const Navbar = () => {
                           <Link
                             href={link.href}
                             onClick={handleClose}
-                            className={`inline-block text-3xl font-semibold transition-all duration-300 ${pathname === link.href ? 'text-emerald-400' : 'text-slate-300 hover:text-emerald-300'
-                              }`}
+                            className={`inline-block text-3xl font-semibold transition-all duration-300 ${
+                              (activeSection === (link.href === '/' ? '' : link.href.replace('/#', '')) || (pathname !== '/' && pathname === link.href))
+                                ? 'text-emerald-400'
+                                : 'text-slate-300 hover:text-emerald-300'
+                            }`}
                           >
                             {link.label}
                           </Link>

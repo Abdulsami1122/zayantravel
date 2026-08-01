@@ -18,7 +18,7 @@ const MobileDestinationSlider = ({ destinations }: { destinations: Country[] }) 
   }, [destinations.length]);
 
   return (
-    <div className="relative w-full overflow-hidden h-[620px]">
+    <div className="relative w-full overflow-hidden h-[540px]">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -91,7 +91,7 @@ const DestinationsSection = () => {
   ];
 
   return (
-    <section id="destinations" className="pt-8 pb-20 bg-slate-50">
+    <section id="destinations" className="pt-8 pb-10 md:pb-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
