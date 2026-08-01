@@ -128,14 +128,19 @@ const AboutPage = () => {
               {/* Bottom Left: Our Story Text & Stats */}
               <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}>
                 <span className="inline-block text-[12px] font-bold text-slate-400 mb-4 tracking-[0.2em] uppercase">
-                  Our Story
+                  Our History & Leadership
                 </span>
                 <h2 className="text-3xl md:text-[2.5rem] leading-[1.2] font-bold text-[#0a1128] mb-6 max-w-[90%]">
-                  Focused on real results for families and professionals.
+                  Lead by Muhammad Tahir, Managing Director.
                 </h2>
-                <p className="text-[15px] text-slate-500 leading-relaxed max-w-[90%] mb-10">
-                  Since 2009, our team has supported thousands of clients with every type of visa journey. We combine personal care, legal knowledge, and practical support so you can move forward with confidence.
-                </p>
+                <div className="text-[15px] text-slate-500 leading-relaxed max-w-[90%] mb-10 space-y-4">
+                  <p>
+                    Zayan Travel and Tour Consultants was built on a foundation of trust, integrity, and a deep commitment to our clients. Under the visionary leadership of our Managing Director, Muhammad Tahir, we have grown from a small consultancy into a premier travel and visa facilitation agency.
+                  </p>
+                  <p>
+                    With years of industry expertise, Muhammad Tahir and our dedicated team have successfully guided thousands of families, students, and professionals through complex visa processes. Our history is defined by personalized care, transparent advice, and a proven track record of turning global travel dreams into reality.
+                  </p>
+                </div>
 
                 {/* Stats Cards */}
                 <div className="grid grid-cols-2 gap-3 md:gap-4">
