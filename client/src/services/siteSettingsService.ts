@@ -21,7 +21,7 @@ const API_BASE_URL =
 const API_URL = `${API_BASE_URL}/api`;
 
 const defaultSiteSettings: SiteSettings = {
-  websiteTitle: "Zayan Travel Consultants",
+  websiteTitle: "Zayan Travel and Tour Consultants",
   emailAddress: "",
   phoneNumber: "",
   address: "",

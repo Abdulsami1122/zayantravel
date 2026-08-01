@@ -10,7 +10,7 @@ interface SettingsContextValue {
 }
 
 const defaultSettings: SiteSettings = {
-  websiteTitle: "Zayan Travel Consultants",
+  websiteTitle: "Zayan Travel and Tour Consultants",
   emailAddress: "",
   phoneNumber: "",
   address: "",

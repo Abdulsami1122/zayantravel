@@ -35,17 +35,17 @@ const Footer = () => {
             <div className="flex items-center space-x-3">
               <img
                 src={displayLogo}
-                alt="Zayan Travel Consultants"
+                alt="Zayan Travel and Tour Consultants"
                 className="h-12 w-auto object-contain rounded-lg"
               />
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-white leading-tight">
-                  Zayan Travel Consultants
+                  Zayan Travel and Tour Consultants
                 </span>
               </div>
             </div>
             <p className="text-slate-400 leading-relaxed text-sm">
-              Zayan Travel Consultants is a premier visa and travel advisory firm established in 2009. We specialize in providing expert guidance and end-to-end support for student visas, work permits, tourist applications, flight ticket reservations, hotel bookings, travel insurance, and embassy appointments.
+              Zayan Travel and Tour Consultants is a premier visa and travel advisory firm established in 2009. We specialize in providing expert guidance and end-to-end support for student visas, work permits, tourist applications, flight ticket reservations, hotel bookings, travel insurance, and embassy appointments.
             </p>
             {/* Social Links */}
             <div className="flex space-x-3">
@@ -169,7 +169,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-slate-400 text-sm text-center md:text-left">
-              © {currentYear} <span className="text-white font-semibold">Zayan Travel Consultants</span>.
+              © {currentYear} <span className="text-white font-semibold">Zayan Travel and Tour Consultants</span>.
               All rights reserved.
             </p>
             <div className="flex items-center space-x-6 text-sm">

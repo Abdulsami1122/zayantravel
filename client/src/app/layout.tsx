@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zayan Travel Consultants",
+  title: "Zayan Travel and Tour Consultants",
   description:
     "We offer a full range of travel and visa support services, including document preparation, appointments, reservations, and insurance guidance.",
   icons: {

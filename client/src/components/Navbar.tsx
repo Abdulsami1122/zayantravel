@@ -27,7 +27,7 @@ const Navbar = () => {
   const { settings, loading: settingsLoading } = useSettings();
 
   const displayLogo = settings?.logoUrl || "/zayan_logo_new.png";
-  const displayTitle = "ZAYAN TRAVEL";
+  const displayTitle = "ZAYAN TRAVEL AND TOUR";
   const displayPhone = settings.phoneNumber || "091-5603394";
 
   useEffect(() => {
@@ -98,10 +98,10 @@ const Navbar = () => {
           key={link.href}
           href={link.href}
           className={`text-sm font-medium transition-colors ${pathname === link.href
-              ? 'text-emerald-500'
-              : scrolled
-                ? 'text-slate-600 hover:text-emerald-600'
-                : 'text-slate-200 hover:text-emerald-300'
+            ? 'text-emerald-500'
+            : scrolled
+              ? 'text-slate-600 hover:text-emerald-600'
+              : 'text-slate-200 hover:text-emerald-300'
             }`}
         >
           {link.label}
@@ -142,8 +142,8 @@ const Navbar = () => {
         ) : (
           <div className="relative group">
             <button className={`flex items-center gap-1.5 rounded-full px-5 py-2 text-sm font-medium transition-all ${scrolled
-                ? 'bg-slate-900 text-white hover:bg-slate-800'
-                : 'bg-emerald-500 text-slate-900 hover:bg-emerald-400'
+              ? 'bg-slate-900 text-white hover:bg-slate-800'
+              : 'bg-emerald-500 text-slate-900 hover:bg-emerald-400'
               }`}>
               Account <ChevronDown size={14} />
             </button>

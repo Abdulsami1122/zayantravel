@@ -23,7 +23,7 @@ const AboutPage = () => {
               {/* Top Left: About Text */}
               <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}>
                 <span className="inline-block text-[12px] font-bold text-slate-500 mb-4 tracking-[0.2em] uppercase">
-                  About Zayan Travel Consultants
+                  About Zayan Travel and Tour Consultants
                 </span>
                 <h2 className="text-4xl md:text-[3.25rem] leading-[1.1] font-bold text-[#0a1128] mb-6">
                   Your trusted path,<br/>to a global future
@@ -160,7 +160,7 @@ const AboutPage = () => {
               },
               {
                 name: "David Chen",
-                text: "I was overwhelmed by the immigration paperwork for my work visa. Zayan Travel Consultants handled everything professionally and kept me informed at every step.",
+                text: "I was overwhelmed by the immigration paperwork for my work visa. Zayan Travel and Tour Consultants handled everything professionally and kept me informed at every step.",
                 image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop"
               },
               {
@@ -186,7 +186,7 @@ const AboutPage = () => {
               },
               {
                 name: "David Chen",
-                text: "I was overwhelmed by the immigration paperwork for my work visa. Zayan Travel Consultants handled everything professionally and kept me informed at every step.",
+                text: "I was overwhelmed by the immigration paperwork for my work visa. Zayan Travel and Tour Consultants handled everything professionally and kept me informed at every step.",
                 image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop"
               },
               {
