@@ -18,7 +18,7 @@ const MobileDestinationSlider = ({ destinations }: { destinations: Country[] }) 
   }, [destinations.length]);
 
   return (
-    <div className="relative w-full overflow-hidden h-[540px]">
+    <div className="relative w-full overflow-hidden h-[620px]">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -46,8 +46,8 @@ const MobileDestinationSlider = ({ destinations }: { destinations: Country[] }) 
           </div>
           
           {/* Flag Card */}
-          <div className="w-[200px] bg-white p-4 rounded-2xl shadow-md border border-slate-200 flex flex-col items-center">
-            <div className="w-full aspect-video mb-3 relative overflow-hidden rounded-lg bg-slate-100 border border-slate-100">
+          <div className="w-full bg-white p-4 rounded-[2rem] shadow-md border border-slate-200 flex flex-col items-center">
+            <div className="w-full aspect-video md:aspect-auto md:h-[180px] h-auto mb-3 relative overflow-hidden rounded-[1.5rem] bg-slate-100 border border-slate-100">
               <Image
                 src={destinations[currentIndex].flag}
                 alt={`${destinations[currentIndex].name} flag`}
@@ -56,7 +56,7 @@ const MobileDestinationSlider = ({ destinations }: { destinations: Country[] }) 
                 unoptimized
               />
             </div>
-            <h4 className="font-semibold text-slate-900 text-center text-sm">
+            <h4 className="font-bold text-slate-900 text-center text-lg">
               {destinations[currentIndex].name}
             </h4>
           </div>
