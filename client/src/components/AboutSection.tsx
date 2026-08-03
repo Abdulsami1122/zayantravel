@@ -93,26 +93,26 @@ const AboutPage = () => {
       <section className="pt-10 pb-20 bg-[#f8fafc] relative overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col gap-12 lg:gap-16">
-            
+
             {/* ROW 1: About & Image */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center">
-              
+
               {/* Top Left: About Text */}
               <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}>
                 <span className="inline-block text-[12px] font-bold text-slate-500 mb-4 tracking-[0.2em] uppercase">
                   About Zayan Travel and Tour Consultants
                 </span>
                 <h2 className="text-4xl md:text-[3.25rem] leading-[1.1] font-bold text-[#0a1128] mb-6">
-                  Your trusted path,<br/>to a global future
+                  Your trusted path,<br />to a global future
                 </h2>
                 <p className="text-[15px] text-slate-500 leading-relaxed pr-4 max-w-[90%]">
                   We make global immigration simpler with trusted visa guidance, expert document support, and a people-first process helping thousands worldwide.
                 </p>
               </motion.div>
-              
+
               {/* Top Right: Rectangle Image */}
               <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }} className="flex justify-center w-full">
-                <motion.div 
+                <motion.div
                   animate={{ y: [-5, 5, -5] }}
                   transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
                   className="relative w-[280px] h-[200px] md:w-[340px] md:h-[260px] rounded-[1.5rem] overflow-hidden shadow-xl border-[6px] border-white z-10 bg-slate-200 group"
@@ -124,8 +124,8 @@ const AboutPage = () => {
 
             {/* ROW 2: Our Story & Dark Card */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-end">
-              
-              {/* Bottom Left: Our Story Text & Stats */}
+
+              {/* Bottom Left: Ourr Story Text & Stats */}
               <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}>
                 <span className="inline-block text-[12px] font-bold text-slate-400 mb-4 tracking-[0.2em] uppercase">
                   Our History & Leadership
@@ -152,7 +152,7 @@ const AboutPage = () => {
                       <p className="text-[11px] sm:text-[13px] text-slate-500 font-medium">clients worldwide</p>
                     </div>
                   </div>
-                  
+
                   <div className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-6 shadow-sm relative overflow-hidden group">
                     <TrendingUp className="absolute -top-4 -right-4 w-24 h-24 text-blue-50 opacity-50 group-hover:scale-110 transition-transform duration-500" />
                     <div className="relative z-10">
@@ -167,7 +167,7 @@ const AboutPage = () => {
               {/* Bottom Right: Dark Card */}
               <motion.div variants={fadeIn} initial="initial" whileInView="animate" viewport={{ once: true }}>
                 <div className="relative w-full bg-[#0a1128] rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-8 md:p-10">
-                  
+
                   {/* Badge */}
                   <div className="inline-flex items-center gap-2 mb-8 border border-emerald-500/30 rounded-full px-4 py-1.5 bg-[#0a1128]">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
@@ -186,7 +186,7 @@ const AboutPage = () => {
 
                   {/* Two Inner Cards */}
                   <div className="grid grid-cols-2 gap-4 w-full">
-                    
+
                     {/* Dedicated Team */}
                     <div className="bg-[#111827] border border-slate-800 rounded-2xl p-5 flex flex-col hover:border-slate-700 transition-colors">
                       <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-4">
